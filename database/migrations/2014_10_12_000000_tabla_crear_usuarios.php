@@ -21,7 +21,7 @@ class TablaCrearUsuarios extends Migration
             $table->string('correo');
             $table->string('contrasena',190);
             $table->integer('ciudad_id')->index();
-            $table->integer('rol_id')->index();
+            $table->enum('rol_id',['administrador','sadministrador','docente']);
             $table->rememberToken();
             $table->timestamps();
         });

@@ -12,5 +12,16 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('registro', [
+
+  'uses'=>'RegistroController@index',
+  'as'  =>'registro'
+  ]
+);
+Route::post('login', function(){
+  return View("inicio");
+
 });

@@ -1,0 +1,40 @@
+html,body{
+			
+			height: 100%;
+			width: 100%;
+
+		
+
+}
+body{
+
+	background: url(../img/fondo.jpg);
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #464645;
+ 	
+}
+
+.div1{
+	position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%)
+			
+	
+}
+
+.card{
+	
+	background-color: rgba(0,0,0,0.7);
+	padding: 40px 20px 20px 20px;
+
+}
+label{
+
+	color: white;
+
+}
