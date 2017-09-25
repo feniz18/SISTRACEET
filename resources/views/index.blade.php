@@ -19,17 +19,16 @@
 
       <div class="form-group col-md-12 text-center justify-content-center">
         <label for="usuario">Usuario</label>
-        <input class="form-control " type="text" id="usuario" placeholder="Usuario">
+        <input class="form-control " type="text" id="usuario" name="usuario" placeholder="Usuario">
       </div>
 
 
       <div class="form-group col-md-12 text-center">
         <label for="usuario" >Contraseña</label>
-        <input class="form-control" type="password" id="usuario"  placeholder="Contraseña" >
+        <input class="form-control" type="password" id="contrasena" name="contrasena"  placeholder="Contraseña" >
       </div>
       <div class="form-group col-md-12 text-center">
         <button type="submit" class="btn btn-primary">INGRESAR</button>
-        <button class="btn btn-danger">CANCELAR</button>
       </div>
       </form>
       <div class="col-md-12 text-center">
