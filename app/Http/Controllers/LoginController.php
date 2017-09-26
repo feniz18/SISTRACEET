@@ -2,14 +2,29 @@
 
 namespace App\Http\Controllers;
 
+
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
+use app\Usuario;
 
 class LoginController extends Controller
 {
 
-    function index(Request $request){
+    function aut(Request $request){
+
+      $cedula = $request->input("cedula");
+      $con = $request->input("contrasena");
       
-      return view("inicio");
+
+      /*if(Hash::check($con,$conv)){
+
+        return dd(Hash::make($con));
+      }else{
+
+        return "las contraseñas no coinciden";
+      }*/
+
+
 
     }
 }

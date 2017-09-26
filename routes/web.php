@@ -15,13 +15,11 @@ Route::get('/', function () {
     return view('index');
 });
 
+Route::post('/', 'LoginController@aut');
+
 Route::get('registro', [
 
   'uses'=>'RegistroController@index',
   'as'  =>'registro'
   ]
 );
-Route::post('login', function(){
-  return View("inicio");
-
-});

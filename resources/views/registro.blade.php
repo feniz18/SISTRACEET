@@ -70,9 +70,13 @@
       <input class="form-control " type="password" id="rcontrasena" placeholder="Repita su contraseña">
     </div>
 
-      <div class="form-group col-md-12 text-center">
-        <button type="submit" class="btn btn-primary">GUARDAR</button>
-        <a href="/" class="btn btn-danger">CANCELAR</a>
+      <div class="col-md-12 text-center row">
+        <div class="col-6">
+          <button type="submit" class="btn btn-primary btn-block">GUARDAR</button>
+        </div>
+        <div class="col-6 ">
+          <a href="/" class="btn btn-danger btn-block">CANCELAR</a>
+        </div>
       </div>
       </form>
 
