@@ -10,6 +10,7 @@ class Usuario extends Authenticatable
     use Notifiable;
 
     protected $table = "usuario";
+    protected $primaryKey = "cedula";
     /**
      * The attributes that are mass assignable.
      *
