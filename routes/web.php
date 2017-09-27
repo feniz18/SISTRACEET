@@ -23,3 +23,7 @@ Route::get('registro', [
   'as'  =>'registro'
   ]
 );
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
