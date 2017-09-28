@@ -19,7 +19,7 @@ class TablaCrearUsuarios extends Migration
             $table->string('apellidos');
             $table->bigInteger('telefono')->nullable();
             $table->string('correo');
-            $table->string('contrasena',190);
+            $table->string('password');
             $table->integer('ciudad_id')->index();
             $table->enum('rol_id',['administrador','sadministrador','docente']);
             $table->rememberToken();

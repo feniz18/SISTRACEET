@@ -2,49 +2,56 @@
 
 namespace App\Http\Controllers;
 
-
-use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
-use app\Usuario;
+use Illuminate\Support\Facades\Validator;
+use App\Http\Controllers\Controller;
+use App\Usuario;
 
 class LoginController extends Controller
 {
 
+    public function aut(Request $request){
 
-    function aut(Request $request){
+      $datos = $request->all();
 
+      $reglas = [
 
-      $usuario = [
-
-        'cedula' => 1013651642,
-        'contrasena' => "56115611go"
+        'cedula' => 'required',
+        'contrasena' => 'required'
 
       ];
 
-      return dd(Auth::attempt($usuario));
+      $valida = Validator::make($datos,$reglas);
+
+      if($valida->fails()){
+
+            return redirect()->back()
+              ->withErrors($valida->errors())
+              ->withInput($request->except('contrasena'));
+
+      }
+
+      $usuario = [
+
+        'cedula'   => $request->input('cedula'),
+        'password' => $request->input('contrasena')
+
+      ];
+
+      return Auth::attempt($usuario);
+
+    }
+
+    public function logout()
+    {
+        if(auth::check()){
+
+        }else{
 
 
-      /*if(Auth::attempt($usuario)){
 
-        return "Autenticacion correcta su nombre es" + Auth::nombres();
-
-      }else{
-
-        return "incorrecto";
-      }*/
-
-
-      /*if(Hash::check($con,$conv)){
-
-        return dd(Hash::make($con));
-      }else{
-
-        return "las contraseñas no coinciden";
-      }*/
-
-
-
+        }
     }
 }
