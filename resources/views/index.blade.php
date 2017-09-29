@@ -31,7 +31,7 @@
       </div>
 
       <div class="form-group col-md-12 recuerdame">
-        <input class="form-check-input" name="recuerdame" type="checkbox" value="">
+        <input class="form-check-input" name="recuerdame" type="checkbox">
         <label>Recuerdame<label>
       </div>
       <div class="form-group col-md-12 text-center">

@@ -14,14 +14,14 @@ class LoginController extends Controller
 
     public function aut(Request $request){
 
+      $check = $request->input('recuerdame');
       $datos = $request->all();
 
       $reglas = [
-
         'cedula' => 'required',
         'contrasena' => 'required'
-
       ];
+
 
       $valida = Validator::make($datos,$reglas);
 
@@ -40,7 +40,18 @@ class LoginController extends Controller
 
       ];
 
-      return Auth::attempt($usuario);
+      if (Auth::attempt($usuario,$check)) {
+
+        return "Correcto logeado";
+
+      }else{
+
+        return redirect()->back()
+              ->withErrors(['sesion' =>'Usuario y contraseña incorrectos'])
+              ->withInput($request->except('contrasena'));
+      }
+
+
 
     }
 
@@ -49,7 +60,6 @@ class LoginController extends Controller
         if(auth::check()){
 
         }else{
-
 
 
         }

@@ -20,10 +20,14 @@ Route::post('/', 'LoginController@aut');
 Route::get('registro', [
 
   'uses'=>'RegistroController@index',
-  'as'  =>'registro'
+  'as'  =>'registro',
   ]
 );
 
-Auth::routes();
+Route::post('registro',[
 
-Route::get('/home', 'HomeController@index')->name('home');
+  'uses' => 'RegistroController@agrega',
+  'as'   => 'registro',
+
+
+]);

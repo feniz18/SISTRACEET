@@ -12,33 +12,35 @@
 
     <div class="card col-xs-10 col-sm-10 col-md-8 col-lg-5">
 
-      <form class="" method="post" action="/login" accept-charset="utf-8">
+      <form class="" method="post" action="registro" accept-charset="utf-8">
 
           {{ csrf_field()}}
 
+          @include('errores.errores')
+
       <div class="form-group col-md-12 text-center justify-content-center">
         <label for="cedula">Cedula</label>
-        <input class="form-control " type="number" id="cedula" placeholder="Ingrese su cedula">
+        <input class="form-control " name="cedula" type="number" id="cedula" placeholder="Ingrese su cedula">
       </div>
 
       <div class="form-group col-md-12 text-center justify-content-center">
-        <label for="nombre">Nombres</label>
-        <input class="form-control " type="text" id="nombre" placeholder="Ingrese sus nombres">
+        <label for="nombres">Nombres</label>
+        <input class="form-control " name = "nombres" =type="text" id="nombres" placeholder="Ingrese sus nombres">
       </div>
 
       <div class="form-group col-md-12 text-center justify-content-center">
-        <label for="apellido">Apellidos</label>
-        <input class="form-control " type="text" id="apellido" placeholder="Ingrese sus apellidos">
+        <label for="apellidos">Apellidos</label>
+        <input class="form-control" name="apellidos" type="text" id="apellidos" placeholder="Ingrese sus apellidos">
       </div>
 
       <div class="form-group col-md-12 text-center justify-content-center">
-        <label for="telefono">Telefono</label>
-        <input class="form-control " type="number" id="telefono" placeholder="Ingrese sus apellidos">
+        <label for="telefono">Télefono</label>
+        <input class="form-control " type="number" name= "telefono" id="telefono" placeholder="Ingrese su télefono">
       </div>
 
       <div class="form-group col-md-12 text-center justify-content-center">
-        <label for="email">Correo Eléctronico</label>
-        <input class="form-control " type="text" id="email" placeholder="Ingrese su correo personal">
+        <label for="correo">Correo Eléctronico</label>
+        <input class="form-control" name="correo" type="text" id="correo" placeholder="Ingrese su correo personal">
       </div>
 
       <div class="form-group col-md-12 text-center justify-content-center">
@@ -56,18 +58,18 @@
       <div class="form-group col-md-12 text-center justify-content-center">
         <label for="ciu">Ciudad</label>
         <select class="form-control " name="ciu" id="ciu">
-          <option value="0" selected>Seleccione ciudad</option>
+          <option value="" selected>Seleccione ciudad</option>
         </select>
       </div>
 
       <div class="form-group col-md-12 text-center justify-content-center">
         <label for="contrasena">Contraseña</label>
-        <input class="form-control " type="password" id="contrasena" placeholder="Ingrese su contraseña">
+        <input class="form-control" name="contrasena" type="password" id="contrasena" placeholder="Ingrese su contraseña">
       </div>
 
     <div class="form-group col-md-12 text-center justify-content-center">
       <label for="rcontrasena">Repetir Contraseña</label>
-      <input class="form-control " type="password" id="rcontrasena" placeholder="Repita su contraseña">
+      <input class="form-control" name="rcontrasena" type="password" id="rcontrasena" placeholder="Repita su contraseña">
     </div>
 
       <div class="col-md-12 text-center row">
