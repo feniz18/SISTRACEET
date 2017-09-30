@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Usuario;
 use App\Departamento;
 use App\Ciudad;
+use DateTime;
 
 class RegistroController extends Controller
 {
@@ -24,11 +25,18 @@ class RegistroController extends Controller
 
         return view("registro",['departamentos' => $departamentos]);
     }
+
     public function agrega(Request $request)
     {
+        $fecha = DateTime::createFromFormat('d/m/Y', $request->input('fecha_nacimiento'));
+        $request['fecha_nacimiento'] = $fecha->format('Y-m-d');
+
+
+
         $datos = $request->all();
         $reglas = [
           'cedula' => 'required',
+          'fecha_nacimiento' => 'required|date|before:today',
           'nombres' => 'required',
           'apellidos' => 'required',
           'telefono' => '',
@@ -37,28 +45,29 @@ class RegistroController extends Controller
           'contrasena' => 'required',
           'rcontrasena' => 'required',
 
-
-
         ];
+
         $valida = Validator::make( $datos, $reglas);
 
         if($valida->fails()){
 
+            $request['fecha_nacimiento'] = $fecha->format('d/m/Y');
+
           return redirect()->back()
             ->withErrors($valida->errors())
-            ->withInput($request->except('contrasena'));
+            ->withInput($request->all());
 
         }
 
 
         $usuario = new Usuario;
-        $usuario->cedula = $request->input('cedula');
-        $usuario->nombres = $request->input('nombres');
-        $usuario->apellidos = $request->input('apellidos');
-        $usuario->telefono = $request->input('telefono');
-        $usuario->correo = $request->input('correo');
-        $usuario->ciudad_id = $request->input('ciu');
-        $usuario->password = Hash::make($request->input('contrasena'));
+        $usuario->cedula = $datos->input('cedula');
+        $usuario->nombres = $datos->input('nombres');
+        $usuario->apellidos = $datos->input('apellidos');
+        $usuario->telefono = $datos->input('telefono');
+        $usuario->correo = $datos->input('correo');
+        $usuario->ciudad_id = $datos->input('ciu');
+        $usuario->password = Hash::make($datos->input('contrasena'));
         $usuario->rol_id = 'docente';
 
         return dd($usuario);
