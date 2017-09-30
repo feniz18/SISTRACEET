@@ -28,6 +28,10 @@ Route::post('registro',[
 
   'uses' => 'RegistroController@agrega',
   'as'   => 'registro',
-
-
 ]);
+
+Route::get('inicio', function(){
+
+      return view('inicio');
+
+});
