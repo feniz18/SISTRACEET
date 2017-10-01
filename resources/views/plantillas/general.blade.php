@@ -26,6 +26,7 @@
 					 <li>Luis Agustin Diaz Blanco</li>
  					<li>Juan Sebastian Castiblanco Pulido</li>
  					<li>David Steven Martinez Vargas</li>
+					<li>Jaime Alexander Gacha</li>
 
 				 </ul>
 
