@@ -18,6 +18,21 @@
 <script src="{{asset('bootstrap/js/popper.min.js')}}"></script>
 <script src="{{asset('bootstrap/js/bootstrap.min.js')}}"></script>
 @yield('Jssp')
+<footer class="page-footer blue center-on-small-only">
+
+	<div class="footer-copyright">
+			 <div class="container">
+				 <ul>
+					 <li>Luis Agustin Diaz Blanco</li>
+ 					<li>Juan Sebastian Castiblanco Pulido</li>
+ 					<li>David Steven Martinez Vargas</li>
+
+				 </ul>
+
+			 </div>
+	 </div>
+
+</footer>
 
 </body>
 </html>

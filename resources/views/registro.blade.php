@@ -20,6 +20,7 @@
 
           @include('errores.errores')
 
+
       <div class="form-group col-md-12 text-center justify-content-center">
         <label for="cedula">Cedula</label>
         <input class="form-control " name="cedula" type="number" id="cedula" placeholder="Ingrese su cedula" value="{{old('cedula')}}">
@@ -47,7 +48,7 @@
 
       <div class="form-group col-md-12 text-center justify-content-center">
         <label for="correo">Correo Eléctronico</label>
-        <input class="form-control" name="correo" type="text" id="correo" placeholder="Ingrese su correo personal" value="{{old('correo')}}">
+        <input class="form-control" name="correo" type="email" id="correo" placeholder="Ingrese su correo personal" value="{{old('correo')}}">
       </div>
 
       <div class="form-group col-md-12 text-center justify-content-center">
@@ -66,6 +67,7 @@
         <label for="ciu">Ciudad</label>
         <select class="form-control " name="ciu" id="ciu" value="{{old('ciu')}}">
           <option value="" selected>Seleccione ciudad</option>
+          <option value="1">medellin</option>
         </select>
       </div>
 

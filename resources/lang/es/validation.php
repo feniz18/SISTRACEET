@@ -119,6 +119,9 @@ return [
     'attributes' => [
       'cedula' => 'Cédula',
       'contrasena' => "Contraseña",
+      'telefono' => 'Teléfono',
+      'ciu' => 'Ciudad',
+      'rcontrasena' => 'Repita Contraseña',
     ],
 
 ];

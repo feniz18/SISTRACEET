@@ -21,33 +21,37 @@ class RegistroController extends Controller
     public function index()
     {
         $departamentos = Departamento::all();
-
-
         return view("registro",['departamentos' => $departamentos]);
+
     }
 
     public function agrega(Request $request)
     {
+
+        //Convierte la fecha a hora de sistema dependiendo el formato que le indique de entrada
         $fecha = DateTime::createFromFormat('d/m/Y', $request->input('fecha_nacimiento'));
         $request['fecha_nacimiento'] = $fecha->format('Y-m-d');
 
-
-
+        //almacena el request en variable datos para validarlos
         $datos = $request->all();
         $reglas = [
-          'cedula' => 'required',
+          'cedula' => 'required|unique:usuario,cedula|max:12|min:3',
           'fecha_nacimiento' => 'required|date|before:today',
-          'nombres' => 'required',
-          'apellidos' => 'required',
-          'telefono' => '',
-          'correo' => 'required',
+          'nombres' => 'required|min:5|max:60',
+          'apellidos' => 'required|min:5|max:60',
+          'telefono' => 'required|min:5|max:18',
+          'correo' => 'required|unique:usuario,correo|email',
           'ciu' => 'required',
           'contrasena' => 'required',
           'rcontrasena' => 'required',
 
         ];
+        $validaciones = [
+          'fecha_nacimiento.before' => 'El campo Fecha de nacimiento debe ser inferior a hoy',
 
-        $valida = Validator::make( $datos, $reglas);
+        ];
+        //crea validaciones que se editan en el lang
+        $valida = Validator($datos, $reglas,$validaciones);
 
         if($valida->fails()){
 
@@ -59,18 +63,43 @@ class RegistroController extends Controller
 
         }
 
+        if (!($request->input("contrasena") == $request->input("rcontrasena"))) {
+
+          return redirect()->back()
+            ->withErrors(["error" => "La contraseña escrita en contraseña y repetir contraseña no coinciden revise"])
+            ->withInput($request->all());
+
+        }
+
 
         $usuario = new Usuario;
-        $usuario->cedula = $datos->input('cedula');
-        $usuario->nombres = $datos->input('nombres');
-        $usuario->apellidos = $datos->input('apellidos');
-        $usuario->telefono = $datos->input('telefono');
-        $usuario->correo = $datos->input('correo');
-        $usuario->ciudad_id = $datos->input('ciu');
-        $usuario->password = Hash::make($datos->input('contrasena'));
-        $usuario->rol_id = 'docente';
+        $usuario->cedula = $request->input('cedula');
+        $usuario->fecha_nacimiento = $request->input('fecha_nacimiento');
+        $usuario->nombres = $request->input('nombres');
+        $usuario->apellidos = $request->input('apellidos');
+        $usuario->telefono = $request->input('telefono');
+        $usuario->correo = $request->input('correo');
+        $usuario->ciudad_id = $request->input('ciu');
 
-        return dd($usuario);
+        $usuario->password = Hash::make($request->input('contrasena'));
+        $usuario->rol_id = 'docente';
+        $usuario->activo = false;
+
+        try {
+
+            $usuario->save();
+            return redirect()->back()->with('final','Datos guardados correctamente');
+
+        } catch (Exception $e) {
+
+          return redirect()->back()
+            ->withErrors(["error" => "Error al escribir en la base de datos por favor intente mas tarde" . $e]);
+        }
+
+
+
+
+
 
     }
 }

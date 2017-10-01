@@ -11,11 +11,11 @@
 |
 */
 
-Route::get('/', function () {
+Route::get('sesion', function () {
     return view('index');
 });
 
-Route::post('/', 'LoginController@aut');
+Route::post('sesion', 'LoginController@aut');
 
 Route::get('registro', [
 
@@ -30,7 +30,7 @@ Route::post('registro',[
   'as'   => 'registro',
 ]);
 
-Route::get('inicio', function(){
+Route::get('/', function(){
 
       return view('inicio');
 
