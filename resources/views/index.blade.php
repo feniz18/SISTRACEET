@@ -15,7 +15,7 @@
 
       @include('errores.errores')
 
-      <form class="" method="post" action="/" accept-charset="utf-8">
+      <form class="" method="post" action="sesion" accept-charset="utf-8">
 
         {{ csrf_field()}}
 
