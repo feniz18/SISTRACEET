@@ -42,7 +42,7 @@ class LoginController extends Controller
 
       if (Auth::attempt($usuario,$check)) {
 
-        return "Correcto logeado";
+        return redirect('/');
 
       }else{
 
@@ -51,16 +51,18 @@ class LoginController extends Controller
               ->withInput($request->except('contrasena'));
       }
 
-
-
     }
 
     public function logout()
     {
         if(auth::check()){
 
+          Auth::logout();
+          return redirect('/');
+
         }else{
 
+          return redirect('/');
 
         }
     }

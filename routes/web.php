@@ -35,3 +35,5 @@ Route::get('/', function(){
       return view('inicio');
 
 });
+
+route::get('logout','LoginController@logout');

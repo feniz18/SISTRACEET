@@ -28,9 +28,13 @@ class RegistroController extends Controller
     public function agrega(Request $request)
     {
 
-        //Convierte la fecha a hora de sistema dependiendo el formato que le indique de entrada
-        $fecha = DateTime::createFromFormat('d/m/Y', $request->input('fecha_nacimiento'));
-        $request['fecha_nacimiento'] = $fecha->format('Y-m-d');
+        if(!$request->input('fecha_nacimiento') == null){
+
+          //Convierte la fecha a hora de sistema dependiendo el formato que le indique de entrada
+          $fecha = DateTime::createFromFormat('d/m/Y', $request->input('fecha_nacimiento'));
+          $request['fecha_nacimiento'] = $fecha->format('Y-m-d');
+
+        }
 
         //almacena el request en variable datos para validarlos
         $datos = $request->all();
@@ -54,8 +58,9 @@ class RegistroController extends Controller
         $valida = Validator($datos, $reglas,$validaciones);
 
         if($valida->fails()){
-
+          if(!$request->input('fecha_nacimiento') == null){
             $request['fecha_nacimiento'] = $fecha->format('d/m/Y');
+          }
 
           return redirect()->back()
             ->withErrors($valida->errors())
@@ -88,7 +93,7 @@ class RegistroController extends Controller
         try {
 
             $usuario->save();
-            return redirect()->back()->with('final','Datos guardados correctamente');
+            return redirect()->back()->withErrors(['final' => 'Datos guardados correctamente']);
 
         } catch (Exception $e) {
 

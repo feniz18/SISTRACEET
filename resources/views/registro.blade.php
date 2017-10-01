@@ -18,7 +18,16 @@
 
           {{ csrf_field()}}
 
-          @include('errores.errores')
+          @if($errors->first('final'))
+
+            <div class="alert alert-success" role="alert">
+
+              Datos almacenados correctamente
+
+            </div>
+          @else
+              @include('errores.errores')
+          @endif
 
 
       <div class="form-group col-md-12 text-center justify-content-center">
