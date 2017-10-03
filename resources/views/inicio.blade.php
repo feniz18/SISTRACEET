@@ -1,12 +1,5 @@
 @extends('plantillas.general')
-@section('titulo','Inicio')
-@section('Cssp')
-
-  <link rel="stylesheet" type="text/css" href="{{asset('css/slider/slider.css')}}">
-
-@endsection
-@section('contenido')
-
-  @include('partes.slider')
-
-@endsection
+@section('titulo','inicio de mi pagina')
+@section('imagen'){{asset('admin/dist/img/avatar5.png')}}@endsection
+@section('nombre')DAVID STEVEN @endsection
+@section('rol')Administrador @endsection
