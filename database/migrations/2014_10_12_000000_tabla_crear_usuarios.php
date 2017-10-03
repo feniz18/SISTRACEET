@@ -19,7 +19,7 @@ class TablaCrearUsuarios extends Migration
             $table->string('nombres');
             $table->string('apellidos');
             $table->bigInteger('telefono')->nullable();
-            $table->string('correo')->unique();
+            $table->string('email')->unique();
             $table->string('password');
             $table->integer('ciudad_id')->index();
             $table->enum('rol_id',['administrador','sadministrador','docente']);
