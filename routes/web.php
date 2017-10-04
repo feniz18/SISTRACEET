@@ -12,7 +12,7 @@
 */
 
 Route::get('sesion', function () {
-    return view('index');
+    return view('login.index');
 });
 
 Route::post('sesion', 'LoginController@aut');
@@ -31,9 +31,8 @@ Route::post('registro',[
 ]);
 
 Route::get('/', function(){
-
       return view('inicio');
-
 });
 
 route::get('logout','LoginController@logout');
+route::get('recupera','RecuperaController@index');

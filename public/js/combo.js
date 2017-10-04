@@ -7,7 +7,7 @@ $( document ).ready(function() {
 function alCambiar(){
 
   $('#ciu').select2();
-  
+
   var id = $(this).val();
 
 
@@ -16,7 +16,7 @@ function alCambiar(){
   $.get('api/combo/'+ id +'/nombre',function(datos){
       var html_select = '<option value = "0">Seleccione Departamento</option>';
       if (id==0) {
-          var html_select = '<option value = "0">Seleccione Departamento</option>';
+        html_select = '<option value = "0">Seleccione Departamento</option>';
           $('#ciu').html(html_select);
       }else{
 

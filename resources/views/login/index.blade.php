@@ -17,7 +17,7 @@
 
       <form class="" method="post" action="sesion" accept-charset="utf-8">
 
-        {{ csrf_field()}}
+        {!! csrf_field()!!}
 
       <div class="form-group col-md-12 text-center justify-content-center">
         <label for="cedula">Cédula</label>

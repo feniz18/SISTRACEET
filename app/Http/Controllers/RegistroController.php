@@ -21,7 +21,7 @@ class RegistroController extends Controller
     public function index()
     {
         $departamentos = Departamento::all();
-        return view("registro",['departamentos' => $departamentos]);
+        return view("login.registro",['departamentos' => $departamentos]);
 
     }
 
@@ -75,7 +75,8 @@ class RegistroController extends Controller
 
         }
 
-
+        //Insercion a la base de datos
+        
         $usuario = new Usuario;
         $usuario->cedula = $request->input('cedula');
         $usuario->fecha_nacimiento = $request->input('fecha_nacimiento');
@@ -99,11 +100,6 @@ class RegistroController extends Controller
           return redirect()->back()
             ->withErrors(["error" => "Error al escribir en la base de datos por favor intente mas tarde error" . $e]);
         }
-
-
-
-
-
 
     }
 }
