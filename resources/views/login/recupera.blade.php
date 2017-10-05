@@ -14,12 +14,13 @@
 
       <form class="" method="post" action="recupera" accept-charset="utf-8">
 
+
           {{ csrf_field()}}
 
-          @if($errors->first('final'))
+          @if(session('status'))
 
             <div class="alert alert-success" role="alert">
-              Datos enviados al correo correctamente.
+              {{session('status')}}
             </div>
 
           @else

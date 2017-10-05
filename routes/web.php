@@ -35,4 +35,5 @@ Route::get('/', function(){
 });
 
 route::get('logout','LoginController@logout');
-route::get('recupera','RecuperaController@index');
+route::get('recupera','Auth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
+route::post('recupera','Auth\ForgotPasswordController@sendResetLinkEmail');
