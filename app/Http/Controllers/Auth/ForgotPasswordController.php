@@ -39,8 +39,5 @@ class ForgotPasswordController extends Controller
     {
         return redirect()->back()->with('status', trans($response));
     }
-    public function broker()
-    {
-        return Password::broker('users');
-    }
+  
 }

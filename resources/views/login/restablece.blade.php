@@ -12,28 +12,33 @@
 
     <div class="card col-xs-10 col-sm-10 col-md-8 col-lg-5">
 
-      <form  method="post" action="GuardaRecupera" accept-charset="utf-8">
+      <form  method="post" action="{{route('post.reset')}}" accept-charset="utf-8">
 
           {{ csrf_field()}}
 
-          @if($errors->first('final'))
+          @if(session('status'))
 
             <div class="alert alert-success" role="alert">
-              Datos enviados al correo correctamente.
+              {{session('status')}}
             </div>
 
           @else
               @include('errores.errores')
           @endif
-
+          <input type="hidden" name="token" value="{{ $token }}">
 
           <div class="form-group col-md-12 text-center justify-content-center">
-            <label for="email">Nueva contraseña</label>
-            <input class="form-control" name="contrasena" type="password" id="contrasena" placeholder="Ingrese su nueva contraseña" value="{{old('email')}}">
+            <label for="email">email</label>
+            <input class="form-control" name="email" type="email" id="contrasena" placeholder="Ingrese su correo electronico" value="{{old('email')}}">
+          </div>
+
+          <div class="form-group col-md-12 text-center justify-content-center">
+            <label for="password">Nueva contraseña</label>
+            <input class="form-control" name="password" type="password" id="contrasena" placeholder="Ingrese su nueva contraseña">
           </div>
           <div class="form-group col-md-12 text-center justify-content-center">
-            <label for="email">Repita su Contraseña</label>
-            <input class="form-control" name="rcontrasena" type="password" id="rcontrasena" placeholder="Repita su nueva contraseña" value="{{old('email')}}">
+            <label for="rcontrasena">Repita su Contraseña</label>
+            <input class="form-control" name="password_confirmation" type="password" id="rcontrasena" placeholder="Repita su nueva contraseña" >
           </div>
 
           <div class="col-12">

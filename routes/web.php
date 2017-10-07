@@ -37,3 +37,5 @@ Route::get('/', function(){
 route::get('logout','LoginController@logout');
 route::get('recupera','Auth\ForgotPasswordController@showLinkRequestForm')->name('password.reset');
 route::post('recupera','Auth\ForgotPasswordController@sendResetLinkEmail');
+route::get('password/reset/{token}','Auth\ResetPasswordController@showResetForm')->name('password.reinicio');
+route::post('password/reset','Auth\ResetPasswordController@reset')->name('post.reset');

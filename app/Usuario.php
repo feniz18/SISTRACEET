@@ -4,6 +4,7 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use App\Notifications\ReinicioPassword;
 
 class Usuario extends Authenticatable
 {
@@ -30,5 +31,10 @@ class Usuario extends Authenticatable
         'password', 'remember_token',
     ];
 
-    
+
+    public function sendPasswordResetNotification($token)
+    {
+        $this->notify(new ReinicioPassword($token));
+    }
+
 }
