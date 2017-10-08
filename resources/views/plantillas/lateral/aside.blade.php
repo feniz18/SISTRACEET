@@ -12,5 +12,5 @@
       </div>
     </div>
 
-    @include('plantillas.menu')
+    @include('plantillas.lateral.menu')
 </aside>

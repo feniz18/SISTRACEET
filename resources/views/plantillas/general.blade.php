@@ -1,10 +1,15 @@
-@include('plantillas.head')
-<body class="hold-transition skin-red sidebar-mini">
+@include('plantillas.cabecera.head')
+<body class="hold-transition skin-red @yield('ocultarBarra')">
 <div class="wrapper">
-	@include('plantillas.nav')
-	@include('plantillas.aside')
-	@include('plantillas.contenido')
-	@include('plantillas.footer')
+
+	@if (Auth::check())
+		@include('plantillas.cabecera.nav')
+		@include('plantillas.aside')
+	@else
+		@include('plantillas.cabecera.navcol')
+	@endif
+	@include('plantillas.contenido.contenido')
+	@include('plantillas.pie.footer')
 </div>
 
-@include('plantillas.foot')
+@include('plantillas.pie.foot')
