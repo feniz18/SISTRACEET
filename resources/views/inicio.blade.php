@@ -1,5 +1,5 @@
 @extends('plantillas.general')
-@section('titulo','inicio de mi pagina')
+@section('titulo','Página de inicio')
 @section('contenido')
 
   <div class="col-md-12">

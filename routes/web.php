@@ -39,3 +39,11 @@ route::get('recupera','Auth\ForgotPasswordController@showLinkRequestForm')->name
 route::post('recupera','Auth\ForgotPasswordController@sendResetLinkEmail');
 route::get('password/reset/{token}','Auth\ResetPasswordController@showResetForm')->name('password.reinicio');
 route::post('password/reset','Auth\ResetPasswordController@reset')->name('post.reset');
+
+
+
+/*Route::group(['middleware' => 'auth'], function () {
+
+    route::get("administraDocentes","Admin\AdministraDocentesController@index");
+
+});*/
