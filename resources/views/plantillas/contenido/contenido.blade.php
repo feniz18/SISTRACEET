@@ -4,8 +4,8 @@
   @if (Auth::check())
     <section class="content-header">
       <h1>
-        Inicio
-        <small>inicio</small>
+        @yield('seccion')
+        <small>@yield('subseccion')</small>
       </h1>
     </section>
     <!-- Main content -->
