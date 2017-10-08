@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Controller;
 use App\Usuario;
+use Session;
 
 class LoginController extends Controller
 {
@@ -58,6 +59,7 @@ class LoginController extends Controller
         if(auth::check()){
 
           Auth::logout();
+          Session::flush();
           return redirect('/');
 
         }else{

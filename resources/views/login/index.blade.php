@@ -41,7 +41,6 @@
 
         <a href="/registro">Registro</a>
         <a href="/recupera">¿Olvidaste tu contraseña?</a>
-        <a href="/logout">cerrar sesion</a>
 
       </div>
       </form>

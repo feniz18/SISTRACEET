@@ -7,7 +7,7 @@
         <img src="@yield('imagen')" class="img-circle" alt="User Image">
       </div>
       <div class="pull-left info">
-        <p>@yield('nombre')</p>
+        <p>@yield('nombreBarra')</p>
 
       </div>
     </div>

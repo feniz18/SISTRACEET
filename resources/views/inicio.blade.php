@@ -1,10 +1,59 @@
 @extends('plantillas.general')
 @section('titulo','inicio de mi pagina')
-@section('imagen'){{asset('admin/dist/img/avatar5.png')}}@endsection
-@section('nombre')DAVID STEVEN @endsection
-@section('rol')Administrador @endsection
-@if (Auth::check())
-  @section('ocultarBarra','sidebar-mini')
-@else
-  @section('ocultarBarra','layout-top-nav')
-@endif
+@section('contenido')
+
+  <div class="col-md-12">
+    <div class="box box-solid">
+
+      <!-- /.box-header -->
+      <div class="box-body">
+        <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+          <ol class="carousel-indicators">
+            <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+            <li data-target="#carousel-example-generic" data-slide-to="1" class=""></li>
+            <li data-target="#carousel-example-generic" data-slide-to="2" class=""></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="item active">
+              <img src="{{asset('img/slider/sena.jpg')}}" alt="Micro rueda">
+
+              <div class="carousel-caption">
+                Micro rueda
+              </div>
+            </div>
+            <div class="item">
+              <img src="{{asset('img/slider/sena1.jpg')}}" alt="Clases">
+
+              <div class="carousel-caption">
+                Clases
+              </div>
+            </div>
+            <div class="item">
+              <img src="{{asset('img/slider/sena2.jpg')}}" alt="Cursos">
+
+              <div class="carousel-caption">
+                Cursos
+              </div>
+            </div>
+          </div>
+          <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+            <span class="fa fa-angle-left"></span>
+          </a>
+          <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+            <span class="fa fa-angle-right"></span>
+          </a>
+        </div>
+      </div>
+      <!-- /.box-body -->
+    </div>
+    <!-- /.box -->
+  </div>
+
+@endsection
+
+
+{{--Esta plantila que aparece a continuacion incluye el usuario, rol y fotografia
+--en las vistas
+--}}
+
+@include('plantillas.all.usuario')

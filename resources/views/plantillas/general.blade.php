@@ -4,7 +4,7 @@
 
 	@if (Auth::check())
 		@include('plantillas.cabecera.nav')
-		@include('plantillas.aside')
+		@include('plantillas.lateral.aside')
 	@else
 		@include('plantillas.cabecera.navcol')
 	@endif
