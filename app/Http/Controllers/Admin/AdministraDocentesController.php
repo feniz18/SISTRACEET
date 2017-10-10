@@ -20,4 +20,15 @@ class AdministraDocentesController extends Controller
       return view("admin.docente.administraDocentes")->with(['usuario'=>$usuario,'departamento'=>$departamento,'ciudad'=>$ciudad]);
 
     }
+
+    public function cargaDatosEdicion($cedula)
+    {
+
+    	$persona = Usuario::find($cedula);
+
+    	return $persona;
+
+
+
+    }
 }

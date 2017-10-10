@@ -12,6 +12,15 @@ $(document).ready(function(){
 
 function infDocente(documento){
 
-  alert('has hecho clic su numero de cedula es' + documento );
+  $('#cedula').attr('value',documento);
+
+  $.get("api/admin/" + documento,function(datos){
+
+  	$('#nombres').attr('value',datos.nombres);
+  	$('.fecha_nacimiento').attr('value',datos.fecha_nacimiento);
+  	$('#apellidos').attr('value',datos.apellidos);
+  	$('#telefono').attr('value',datos.telefono);
+
+  });
 
 }

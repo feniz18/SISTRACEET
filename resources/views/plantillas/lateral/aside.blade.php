@@ -11,6 +11,6 @@
 
       </div>
     </div>
-
+    @if(Auth::user())
     @include('plantillas.lateral.menu')
 </aside>

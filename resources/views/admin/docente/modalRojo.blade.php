@@ -13,7 +13,7 @@
           <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6 form-group" >
               <label>Cédula</label>
-              <input type="number" class="form-control cedula" placeholder="Cédula">
+              <input type="number" class="form-control cedula" placeholder="Cédula" id='cedula'>
             </div>
             <div class="col-xs-12 col-sm-6 col-md-6 form-group">
               <label>Fecha Nacimiento</label>
@@ -29,22 +29,22 @@
            <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6 form-group">
                   <label>Nombres</label>
-                  <input type="text" class="form-control nombres" placeholder="Nombres">
+                  <input type="text" class="form-control nombres" placeholder="Nombres" id="nombres">
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 form-group">
                   <label>Apellidos</label>
-                  <input type="text" class="form-control apellidos" placeholder="Apellidos">
+                  <input type="text" class="form-control apellidos" placeholder="Apellidos" id='apellidos'>
                 </div>
 
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6 form-group">
                   <label>Télefono</label>
-                  <input type="number" class="form-control telefono" placeholder="Télefono">
+                  <input type="number" class="form-control telefono" placeholder="Télefono" id="telefono">
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 form-group">
                   <label>Correo Eléctronico</label>
-                  <input type="email" class="form-control correo_electronico" placeholder="Correo Eléctronico">
+                  <input type="email" class="form-control correo_electronico" placeholder="Correo Eléctronico" id="email">
                 </div>
             </div>
             <div class="row">
