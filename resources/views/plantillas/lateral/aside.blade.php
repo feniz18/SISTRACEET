@@ -11,6 +11,9 @@
 
       </div>
     </div>
-    @if(Auth::user())
-    @include('plantillas.lateral.menu')
+    @if(Auth::user()->rol_id == 'administrador')
+      @include('plantillas.lateral.menuAdmin')
+    @elseif (Auth::user()->rol_id == 'docente')
+      @include('plantillas.lateral.menuUser')
+    @endif
 </aside>
