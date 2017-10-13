@@ -9,7 +9,7 @@ use Illuminate\Support\Facades\Hash;
 use App\Usuario;
 use App\Departamento;
 use App\Ciudad;
-use DateTime;
+use App\Http\Controllers\Libreria\FechaController;
 
 class RegistroController extends Controller
 {
@@ -30,9 +30,12 @@ class RegistroController extends Controller
 
         if(!$request->input('fecha_nacimiento') == null){
 
-          //Convierte la fecha a hora de sistema dependiendo el formato que le indique de entrada
+          $fecha = new FechaController;
+          $request['fecha_nacimiento'] = $fecha->formatFechaIn($request->input('fecha_nacimiento'));
+
+          /*Convierte la fecha a hora de sistema dependiendo el formato que le indique de entrada
           $fecha = DateTime::createFromFormat('d/m/Y', $request->input('fecha_nacimiento'));
-          $request['fecha_nacimiento'] = $fecha->format('Y-m-d');
+          $request['fecha_nacimiento'] = $fecha->format('Y-m-d');*/
 
         }
 
@@ -76,7 +79,7 @@ class RegistroController extends Controller
         }
 
         //Insercion a la base de datos
-        
+
         $usuario = new Usuario;
         $usuario->cedula = $request->input('cedula');
         $usuario->fecha_nacimiento = $request->input('fecha_nacimiento');

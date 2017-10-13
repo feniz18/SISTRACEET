@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Usuario;
 use App\Departamento;
 use App\Ciudad;
+use App\Http\Controllers\Libreria\FechaController;
 
 class AdministraDocentesController extends Controller
 {
@@ -26,6 +27,8 @@ class AdministraDocentesController extends Controller
 
     	$persona = Usuario::find($cedula);
 
+      $fecha = new FechaController;
+      $persona->fecha_nacimiento = (string)$fecha->formatFechaOut($persona->fecha_nacimiento);
     	return $persona;
 
 
