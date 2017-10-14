@@ -31,6 +31,7 @@
               </div>
               <!-- /.box-header -->
               <div class="box-body">
+                
                 <table id="example2" class="table table-bordered table-hover">
                   <thead>
                     <tr>
@@ -113,6 +114,8 @@
   <script src="{{asset('admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
   {{--peticiones ajax al servidor--}}
   <script src="{{asset('js/docentes/administraDocentes.js')}}"></script>
+  <script src="{{asset('js/combo.js')}}"></script>
+  <script src="{{asset('js/docentes/postEditDocente.js')}}"></script>
   <script>
 
     $(function () {

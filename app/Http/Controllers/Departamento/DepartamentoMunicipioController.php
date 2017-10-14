@@ -27,7 +27,7 @@ class DepartamentoMunicipioController extends Controller
 
       public function ciudadUsuario($cedula){
 
-        $usuario = Usuario::find(1013651642);
+        $usuario = Usuario::find($cedula);
         $ciudad = new Ciudad;
 
         return $ciudad->where('id_ciudad', $usuario->ciudad_id)->get();
