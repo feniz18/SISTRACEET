@@ -48,12 +48,10 @@
                 </div>
             </div>
             <div class="row">
-              <div class="col-xs-12 col-sm-6 col-md-6 form-group">
+              <div class="col-xs-12 col-sm-6 col-md-6 form-group" id="combo">
                 <label>Departamento</label>
                 <select class="form-control select2 departamento" style="width: 100%; height: 100%;" id="dep">
-                  @foreach ($departamento as $departamentos)
-                    <option>{{$departamentos->nombre}}</option>
-                  @endforeach
+                    <option>Seleccione</option>
                 </select>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 form-group">

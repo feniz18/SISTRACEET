@@ -19,3 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/combo/{id}/nombre','RegistroController@devuelveCombo');
 Route::get('/admin/{cedula}','Admin\AdministraDocentesController@cargaDatosEdicion');
+
+Route::get('/combo/departamento','Departamento\DepartamentoMunicipioController@departamento');
+Route::get('/combo/ciudad/{departamento}','Departamento\DepartamentoMunicipioController@ciudad');
+Route::get('/combo/ciudad/usuario/{cedula}','Departamento\DepartamentoMunicipioController@ciudadUsuario');
