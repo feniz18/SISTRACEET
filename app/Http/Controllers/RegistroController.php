@@ -10,6 +10,8 @@ use App\Usuario;
 use App\Departamento;
 use App\Ciudad;
 use App\Http\Controllers\Libreria\FechaController;
+use DataTime;
+
 
 class RegistroController extends Controller
 {

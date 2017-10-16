@@ -46,3 +46,6 @@ route::group(['middleware' => 'auth'], function () {
 });
 
 route::post('/instructor/edit','Admin\DocenteController@editar');
+route::get('/instructor/eliminar/{cedula}','Admin\DocenteController@eliminarDocente');
+route::get('/instructor/activar/{cedula}','Admin\DocenteController@activarDocente');
+route::get('/instructor/edit/postEdit','Admin\DocenteController@postEditarDocente');

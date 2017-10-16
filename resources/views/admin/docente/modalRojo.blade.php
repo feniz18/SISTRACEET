@@ -15,9 +15,11 @@
 
           <div class="row">
             <div class="col-xs-12">
-              <div class="alert alert-warning alert-dismissible" style="display:none" >
-                <h4><i class="icon fa fa-ban"></i> Errores</h4>
-                Por favor corrija los errores
+              <div class="alert alert-warning alert-dismissible" style="display:none" id="error" >
+                <h4><i class="icon fa fa-ban"></i> Error</h4>
+                  <ul id="listaErrores">
+
+                  </ul>
               </div>
             </div>
 

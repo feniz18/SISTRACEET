@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\Usuario;
 use Session;
@@ -14,6 +15,7 @@ class LoginController extends Controller
 {
 
     public function aut(Request $request){
+
 
       $check = $request->input('recuerdame');
       $datos = $request->all();
@@ -40,6 +42,16 @@ class LoginController extends Controller
         'password' => $request->input('contrasena')
 
       ];
+      $usuarioActivo= Usuario::find($request->cedula);
+
+      if(!is_null($usuarioActivo)){
+
+        if(!$usuarioActivo->activo){
+              return redirect()->back()
+              ->withErrors(['sesion' =>'El usuario esta inactivo contacte con el administrador'])
+              ->withInput($request->except('contrasena'));
+        }
+      }
 
       if (Auth::attempt($usuario,$check)) {
 

@@ -14,11 +14,9 @@ class AdministraDocentesController extends Controller
 
     public function index(){
 
-      $usuario = Usuario::all()->sortByDesc('created_at');
-      $departamento = Departamento::all();
-      $ciudad = Ciudad::all();
+      $usuario = Usuario::where('rol_id','docente')->orderBy('created_at','desc')->get();
 
-      return view("admin.docente.administraDocentes")->with(['usuario'=>$usuario,'departamento'=>$departamento,'ciudad'=>$ciudad]);
+      return view("admin.docente.administraDocentes")->with(['usuario'=>$usuario]);
 
     }
 
@@ -30,8 +28,5 @@ class AdministraDocentesController extends Controller
       $fecha = new FechaController;
       $persona->fecha_nacimiento = (string)$fecha->formatFechaOut($persona->fecha_nacimiento);
     	return $persona;
-
-
-
     }
 }

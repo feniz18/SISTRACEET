@@ -1,16 +1,18 @@
 function infDocente(documento){
-  $('#cedulaIni').attr('value',documento);
-  $('#cedula').attr('value',documento);
+  $('#error').hide();
+  $('#final').hide();
+  $('#cedulaIni').val(documento);
+  $('#cedula').val(documento);
 
   $.get("api/admin/" + documento,function(datos){
-    
+
     var fecha_nacimiento = datos.fecha_nacimiento;
     fecha_nacimiento = fecha_nacimiento.replace(/-/g,'/');
-    $('#nombres').attr('value',datos.nombres);
-    $('.fecha_nacimiento').attr('value',fecha_nacimiento);
-    $('#apellidos').attr('value',datos.apellidos);
-    $('#telefono').attr('value',datos.telefono);
-    $('#email').attr('value', datos.email);
+    $('#nombres').val(datos.nombres);
+    $('.fecha_nacimiento').val(fecha_nacimiento);
+    $('#apellidos').val(datos.apellidos);
+    $('#telefono').val(datos.telefono);
+    $('#email').val(datos.email);
 
       $.get("/api/combo/ciudad/usuario/" + datos.cedula,function(usuario){
         // funcion encargada de rellenar departamentos

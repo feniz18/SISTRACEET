@@ -23,16 +23,20 @@
 @endsection
 @section('contenido')
 
+  <div class="callout callout-success" id="final" style="display:none">
+    <h4><i class="icon fa fa-check"></i> Correcto</h4>
+    <p id='parrafoFinal'><p>
+  </div>
+
         <div class="row">
           <div class="col-xs-12">
             <div class="box">
               <div class="box-header">
-                <h3 class="box-title">Hover Data Table</h3>
+                <h3 class="box-title">Instructores registrados en sistema</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
-                
-                <table id="example2" class="table table-bordered table-hover">
+                <table id="docente" class="table table-bordered table-hover">
                   <thead>
                     <tr>
                       <th>Cedula</th>
@@ -44,7 +48,7 @@
                       <th style="width: 40px">Eliminar</th>
                     </tr>
                   </thead>
-                  <tbody>
+                  <tbody id="docenteBody">
 
                     @foreach ($usuario as $instructor)
                     <tr class="text-center">
@@ -62,9 +66,9 @@
                       </td>
                       <td>
                         @if($instructor->activo)
-                          <a onClick="alert('clic');" style="cursor:pointer;font-size:20px"><i class='fa fa-check-square' style="color:green"></i></a>
+                          <a onClick="activaDocente({{$instructor->cedula}},1);" style="cursor:pointer;font-size:20px" id="{{$instructor->cedula}}"><i class='fa fa-check-square' style="color:green"></i></a>
                         @else
-                          <a onClick="alert('clic');" style="cursor:pointer;font-size:20px"><i class='fa fa-square-o' style="color:red"></i>
+                          <a onClick="activaDocente({{$instructor->cedula}},0);" style="cursor:pointer;font-size:20px" id="{{$instructor->cedula}}"><i class='fa fa-square-o' style="color:red"></i>
                         @endif
                       </td>
                       <td>
@@ -73,7 +77,9 @@
                         </a>
                       </td>
                       <td>
-                        {{ $instructor->telefono}}
+                        <a style="cursor:pointer;font-size:20px" value="{{$instructor->cedula}}" class="borrar">
+                          <i class='fa fa-fw fa-times' style="color:red"></i>
+                        </a>
                       </td>
                     </tr>
                     @endforeach
@@ -116,17 +122,20 @@
   <script src="{{asset('js/docentes/administraDocentes.js')}}"></script>
   <script src="{{asset('js/combo.js')}}"></script>
   <script src="{{asset('js/docentes/postEditDocente.js')}}"></script>
+  <script src="{{asset('js/docentes/activaDocentes.js')}}"></script>
+  <script src="{{asset('js/docentes/eliminaDocente.js')}}"></script>
   <script>
 
     $(function () {
-      $('#example1').DataTable()
-      $('#example2').DataTable({
+      $('#docente').DataTable({
         'paging'      : true,
         'lengthChange': false,
-        'searching'   : false,
-        'ordering'    : true,
+        'searching'   : true,
+        'ordering'    : false,
         'info'        : true,
-        'autoWidth'   : false
+        'autoWidth'   : false,
+          "dom": '<"top"fl>rt<"bottom" ip><"clear">'
+
       })
     })
     $('.select2').select2()
