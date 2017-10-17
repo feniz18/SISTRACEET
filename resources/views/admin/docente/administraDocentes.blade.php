@@ -5,7 +5,10 @@
 @section('css')
 <link rel="stylesheet" href="{{asset('admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
 <link rel="stylesheet" href="{{asset('admin/bower_components/select2/dist/css/select2.min.css')}}">
-  <style>
+<!-- DataTables -->
+<link rel="stylesheet" href="{{asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+<!-- Theme style -->
+<style>
     .example-modal .modal {
       position: relative;
       top: auto;
@@ -105,11 +108,6 @@
 --}}
 
 @include('plantillas.all.usuario')
-@section('css')
-  <!-- DataTables -->
-  <link rel="stylesheet" href="{{asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
-  <!-- Theme style -->
-@endsection
 @section('js')
   <script src="{{asset('admin/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
   <script src="{{asset('admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
@@ -133,8 +131,8 @@
         'searching'   : true,
         'ordering'    : false,
         'info'        : true,
-        'autoWidth'   : false,
-          "dom": '<"top"fl>rt<"bottom" ip><"clear">'
+        'autoWidth'   : true,
+          "dom": '<"top"fl>rt<"bottom" p><"clear" i>'
 
       })
     })
