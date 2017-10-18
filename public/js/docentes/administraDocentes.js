@@ -4,7 +4,17 @@ function infDocente(documento){
   $('#cedulaIni').val(documento);
   $('#cedula').val(documento);
 
-  $.get("api/admin/" + documento,function(datos){
+  $.ajax({
+
+    type: 'GET',
+    url: "api/admin/" + documento,
+    beforeSend:function(){
+
+      $('#modalContenido').fadeOut();
+      $('#cargaModal').fadeIn();
+
+    },
+    success: function(datos){
 
     var fecha_nacimiento = datos.fecha_nacimiento;
     fecha_nacimiento = fecha_nacimiento.replace(/-/g,'/');
@@ -33,7 +43,12 @@ function infDocente(documento){
         });
 
         // funcion encargada de rellenar la ciudad
-        $.get("api/combo/ciudad/" + usuario[0].departamento_id,function(ciudad){
+        $.ajax({
+
+          type: 'GET',
+          url: "api/combo/ciudad/" + usuario[0].departamento_id,
+          complete:function(){$('#cargaModal').fadeOut(1000);},
+          success:function(ciudad){
 
             var municipios = "";
             for (var i = 0; i < ciudad.length; i++) {
@@ -46,13 +61,14 @@ function infDocente(documento){
             }
 
             $('#ciu').html(municipios);
+            $('#modalContenido').fadeIn(1000);
+          }
+
         });
 
       });
-
+    }
       //fin relleno ciudad
-
-
 
   });
 

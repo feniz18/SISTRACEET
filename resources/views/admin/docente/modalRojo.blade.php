@@ -2,9 +2,14 @@
 <div class="modal modal-danger fade" id="modal-danger">
   <div class="modal-dialog modal-lg">
     <form role="form" id="formUpdate">
+      <div class="progress progress-lg active" id="cargaModal">
+        <div id="progreso" class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+          <span class="sr-only">0% Complete</span>
+        </div>
+      </div>
 
       {!! csrf_field()!!}
-      <div class="modal-content">
+      <div class="modal-content" style="display:none" id='modalContenido'>
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="false">&times;</span></button>

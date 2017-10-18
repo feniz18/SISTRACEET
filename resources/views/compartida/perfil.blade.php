@@ -11,7 +11,7 @@
 @section('contenido')
 
 <div class="progress progress-lg active" id="carga">
-  <div id="progreso" class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+  <div id="progreso" class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
     <span class="sr-only">0% Complete</span>
   </div>
 </div>
@@ -129,17 +129,23 @@
 
   <script>
 
+/*$(window).on('load',function(){
 
 
-  var i = 0;
+  $("#contenido").fadeIn();
+  $("#carga").fadeOut();
+
+
+});*/
+
+  /*var i = 0;
   function makeProgress(){
     if(i < 100){
         i = i + 5;
         $(".progress-bar").css("width", i + "%").text(i + " %");
     }else{
 
-      $("#contenido").fadeIn();
-      $("#carga").fadeOut();
+
 
     }
     // Wait for sometime before running this script again
@@ -147,7 +153,7 @@
     }
     makeProgress();
     //$('#carga').fadeOut();
-    //$('#contenido').fadeIn();
+    //$('#contenido').fadeIn();*/
 
   </script>
 

@@ -26,12 +26,20 @@
 @endsection
 @section('contenido')
 
+
   <div class="callout callout-success" id="final" style="display:none">
     <h4><i class="icon fa fa-check"></i> Correcto</h4>
     <p id='parrafoFinal'><p>
   </div>
 
-        <div class="row">
+  <div class="progress progress-lg active" id="carga">
+    <div id="progreso" class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+      <span class="sr-only">0% Complete</span>
+    </div>
+  </div>
+
+
+        <div class="row" id="contenido" style="display:none">
           <div class="col-xs-12">
             <div class="box">
               <div class="box-header">
@@ -122,6 +130,16 @@
   <script src="{{asset('js/docentes/postEditDocente.js')}}"></script>
   <script src="{{asset('js/docentes/activaDocentes.js')}}"></script>
   <script src="{{asset('js/docentes/eliminaDocente.js')}}"></script>
+  <script>
+
+  $(window).on('load',function(){
+
+      $('#carga').fadeOut(1000);
+      $('#contenido').fadeIn(1000);
+
+  });
+
+  </script>
   <script>
 
     $(function () {
