@@ -14,7 +14,7 @@ class TablaCrearUsuarios extends Migration
     public function up()
     {
         Schema::create('usuario', function (Blueprint $table) {
-            $table->integer('cedula')->primary();
+            $table->bigInteger('cedula')->primary();
             $table->date("fecha_nacimiento");
             $table->string('nombres');
             $table->string('apellidos');
@@ -24,6 +24,7 @@ class TablaCrearUsuarios extends Migration
             $table->integer('ciudad_id')->index();
             $table->enum('rol_id',['administrador','sadministrador','docente']);
             $table->boolean('activo');
+            $table->string('imagen')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });

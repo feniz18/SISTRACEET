@@ -1,7 +1,7 @@
 <!-- /.box body -->
 <div class="modal modal-danger fade" id="modal-danger">
   <div class="modal-dialog modal-lg">
-    <form role="form" id="formUpdate">
+    <form role="form" id="formUpdate" enctype="multipart/form-data">
       <div class="progress progress-lg active" id="cargaModal">
         <div id="progreso" class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
           <span class="sr-only">0% Complete</span>

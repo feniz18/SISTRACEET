@@ -18,8 +18,6 @@
 
           <div class="box box-widget widget-user" id="contenido" style="display:none;">
 
-
-
             <div class="widget-user-header bg-red">
               <h3 class="widget-user-username">{{Auth::user()->nombres}} {{Auth::user()->apellidos}}</h3>
               <h5 class="widget-user-desc">{{Auth::user()->rol_id}}</h5>
@@ -28,11 +26,24 @@
               <img src="{{asset('admin/dist/img/avatar5.png')}}" class="img-circle">
             </div>
             <div class="box-footer">
-              <form role="form">
+              <form role="form" method="post" action="/perfil/actualiza" enctype="multipart/form-data">
+                {!! csrf_field()!!}
+
+                <div class="row">
+                  <div class="col-xs-12">
+                    <div class="alert alert-danger" style="display:block; margin-top:10px;" id="error" >
+                      <h4><i class="icon fa fa-ban"></i> Error</h4>
+                        <ul id="listaErrores">
+
+                        </ul>
+                    </div>
+                  </div>
+                </div>
+
                 <div class="row">
                   <div class="form-group description-block col-md-12">
                     <div class="drag-drop">
-                        <input type="file" multiple="multiple" id="foto" />
+                        <input type="file" multiple="multiple" id="foto" name="foto" accept="image/x-png,image/gif,image/jpeg"/>
                         <span class="fa-stack fa-2x">
                             <i class="fa fa-cloud fa-stack-2x bottom pulsating"></i>
                             <i class="fa fa-circle fa-stack-1x top medium"></i>
@@ -111,7 +122,7 @@
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="form-group">
-                      <button type="button" class="btn btn-block btn-danger btn-lg ">Guardar</button>
+                      <button type="submit" class="btn btn-block btn-danger btn-lg ">Guardar</button>
                     </div>
                   </div>
                 </div>
@@ -126,37 +137,6 @@
   <script src="{{asset('js/perfil/cargaDatos.js')}}"></script>
   <script src="{{asset('js/combo.js')}}"></script>
   <script src="{{asset('js/inputFile/inputFile.js')}}"></script>
-
-  <script>
-
-/*$(window).on('load',function(){
-
-
-  $("#contenido").fadeIn();
-  $("#carga").fadeOut();
-
-
-});*/
-
-  /*var i = 0;
-  function makeProgress(){
-    if(i < 100){
-        i = i + 5;
-        $(".progress-bar").css("width", i + "%").text(i + " %");
-    }else{
-
-
-
-    }
-    // Wait for sometime before running this script again
-    setTimeout("makeProgress()", 50);
-    }
-    makeProgress();
-    //$('#carga').fadeOut();
-    //$('#contenido').fadeIn();*/
-
-  </script>
-
 
   <script>
   $(function () {

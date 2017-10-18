@@ -48,6 +48,7 @@ Route::group(['middleware' => 'auth'], function(){
 
   route::get('/logout','LoginController@logout');
   route::get('/perfil','PerfilController@index');
+  route::post('/perfil/actualiza','Perfil\PerfilController@updateDatos');
 
 });
 
