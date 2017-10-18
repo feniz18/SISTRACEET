@@ -1,7 +1,7 @@
 @include('plantillas.cabecera.head')
 <body class="hold-transition skin-red @yield('ocultarBarra')">
 <div class="wrapper">
-
+	
 	@if (Auth::check())
 		@include('plantillas.cabecera.nav')
 		@include('plantillas.lateral.aside')
@@ -10,6 +10,6 @@
 	@endif
 	@include('plantillas.contenido.contenido')
 	@include('plantillas.pie.footer')
-</div>
 
+</div>
 @include('plantillas.pie.foot')

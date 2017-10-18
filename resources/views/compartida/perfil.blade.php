@@ -2,16 +2,24 @@
 @section('titulo','Administracion de instructores')
 @section('seccion','Perfil')
 @section('subseccion','Modificar perfil')
-@section('contenido')
 @section('css')
 <link href="{{asset('css/input/inputFile.css')}}" rel="stylesheet">
 <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"/>
-
 <link rel="stylesheet" href="{{asset('admin/bower_components/select2/dist/css/select2.min.css')}}">
-@endsection
 
-        <div class="col-md-12">
-          <div class="box box-widget widget-user">
+@endsection
+@section('contenido')
+
+<div class="progress progress-lg active" id="carga">
+  <div id="progreso" class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 0%">
+    <span class="sr-only">0% Complete</span>
+  </div>
+</div>
+
+          <div class="box box-widget widget-user" id="contenido" style="display:none;">
+
+
+
             <div class="widget-user-header bg-red">
               <h3 class="widget-user-username">{{Auth::user()->nombres}} {{Auth::user()->apellidos}}</h3>
               <h5 class="widget-user-desc">{{Auth::user()->rol_id}}</h5>
@@ -110,8 +118,6 @@
               </form>
             </div>
           </div>
-        </div>
-
 
 @endsection
 @section('js')
@@ -120,6 +126,31 @@
   <script src="{{asset('js/perfil/cargaDatos.js')}}"></script>
   <script src="{{asset('js/combo.js')}}"></script>
   <script src="{{asset('js/inputFile/inputFile.js')}}"></script>
+
+  <script>
+
+
+
+  var i = 0;
+  function makeProgress(){
+    if(i < 100){
+        i = i + 5;
+        $(".progress-bar").css("width", i + "%").text(i + " %");
+    }else{
+
+      $("#contenido").fadeIn();
+      $("#carga").fadeOut();
+
+    }
+    // Wait for sometime before running this script again
+    setTimeout("makeProgress()", 50);
+    }
+    makeProgress();
+    //$('#carga').fadeOut();
+    //$('#contenido').fadeIn();
+
+  </script>
+
 
   <script>
   $(function () {
