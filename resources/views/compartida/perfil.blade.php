@@ -26,7 +26,7 @@
               <img src="{{asset('admin/dist/img/avatar5.png')}}" class="img-circle">
             </div>
             <div class="box-footer">
-              <form role="form" method="post" action="/perfil/actualiza" enctype="multipart/form-data">
+              <form role="form" method="post" action="/perfil/actualiza" enctype="multipart/form-data" id='formUpdate'>
                 {!! csrf_field()!!}
 
                 <div class="row">
@@ -122,7 +122,7 @@
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="form-group">
-                      <button type="submit" class="btn btn-block btn-danger btn-lg ">Guardar</button>
+                      <button type="button" class="btn btn-block btn-danger btn-lg" id = "guardar">Guardar</button>
                     </div>
                   </div>
                 </div>
@@ -137,6 +137,7 @@
   <script src="{{asset('js/perfil/cargaDatos.js')}}"></script>
   <script src="{{asset('js/combo.js')}}"></script>
   <script src="{{asset('js/inputFile/inputFile.js')}}"></script>
+  <script src="{{asset('js/perfil/postEditar.js')}}"></script>
 
   <script>
   $(function () {
