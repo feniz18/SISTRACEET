@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Usuario;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Libreria\FechaController;
+use Illuminate\Support\Facades\Auth;
 
 class PerfilController extends Controller
 {
@@ -45,6 +46,29 @@ class PerfilController extends Controller
         if($valida->fails()){
             return $valida->errors();
         }
+
+        $usuario = Usuario::find(Auth::user()->cedula);
+
+        $usuario->nombres = $request->nombres;
+        $usuario->apellidos = $request->apellidos;
+        $usuario->telefono = $request->telefono;
+        $usuario->email = $request->email;
+        $usuario->ciudad_id = $request->ciu;
+        $usuario->fecha_nacimiento = $request->fecha_nacimiento;
+
+        if(!$request->foto == null){
+
+              $extension = $request->file('foto')
+                                 ->getClientOriginalExtension();
+
+              $request->file('foto')->storeAs('public',$usuario->cedula . '.' . $extension);
+
+              $usuario->imagen = '.'. $extension;
+        }
+
+        $usuario->save();
+
+        return response()->json(['terminado' => "Usuario actualizado correctamente"]);
 
 
 

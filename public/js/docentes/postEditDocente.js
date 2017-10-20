@@ -32,7 +32,7 @@ $('#enviar').on('click',function(){
                 $("#final").toggle(
                   function(e){
                     $(this).slideDown();
-                  },
+                  }
                 );
 
                   $('.modal').modal('hide');

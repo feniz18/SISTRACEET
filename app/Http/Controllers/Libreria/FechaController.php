@@ -27,4 +27,13 @@ class FechaController extends Controller
       return $fecha;
 
     }
+
+    public function formatFechaOutBarra($fecha){
+
+      $fecha = new DateTime($fecha);
+      $fecha = $fecha->format('d/m/Y');
+
+      return $fecha;
+
+    }
 }

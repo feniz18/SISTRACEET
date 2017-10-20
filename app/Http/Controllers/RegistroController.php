@@ -63,7 +63,7 @@ class RegistroController extends Controller
 
         if($valida->fails()){
           if(!$request->input('fecha_nacimiento') == null){
-            $request['fecha_nacimiento'] = $fecha->format('d/m/Y');
+            $request['fecha_nacimiento'] = $fecha->formatFechaOutBarra($request->input('fecha_nacimiento'));
           }
 
           return redirect()->back()

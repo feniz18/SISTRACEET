@@ -23,7 +23,12 @@
               <h5 class="widget-user-desc">{{Auth::user()->rol_id}}</h5>
             </div>
             <div class="widget-user-image">
-              <img src="{{asset('admin/dist/img/avatar5.png')}}" class="img-circle">
+              @if(Auth::user()->imagen == null)
+                @php($ruta ='storage/defecto.png')
+              @else
+                @php($ruta = 'storage/'. Auth::user()->cedula . Auth::user()->imagen)
+              @endif
+              <img src="{{asset($ruta)}}" class="img-circle">
             </div>
             <div class="box-footer">
               <form role="form" method="post" action="/perfil/actualiza" enctype="multipart/form-data" id='formUpdate'>
@@ -31,7 +36,7 @@
 
                 <div class="row">
                   <div class="col-xs-12">
-                    <div class="alert alert-danger" style="display:block; margin-top:10px;" id="error" >
+                    <div class="alert alert-danger" style="display:none; margin-top:10px;" id="error" >
                       <h4><i class="icon fa fa-ban"></i> Error</h4>
                         <ul id="listaErrores">
 
@@ -99,7 +104,7 @@
                     <div class="form-group">
                       <label for="dep">Departamento</label>
                         <select name="dep" id="dep" class="form-control select2" style="width: 100%;">
-                          <option value="1">seleccione departamento</option>
+                          <option value="0">seleccione departamento</option>
                         </select>
                     </div>
                   </div>
@@ -107,7 +112,7 @@
                     <div class="form-group">
                       <label for="ciu">Municipio</label>
                       <select name="ciu" id="ciu" class="form-control select2" style="width: 100%;">
-                        <option value="1">seleccione departamento</option>
+                        <option value="0">seleccione departamento</option>
                       </select>
                     </div>
                   </div>
