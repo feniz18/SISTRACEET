@@ -120,7 +120,7 @@
                 <div class="row">
                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="form-group">
-                      <button type="button" class="btn btn-block btn-danger btn-lg" data-toggle="modal" data-target="#modal-danger">Cambiar contraseña</button>
+                      <button type="button" class="btn btn-block btn-danger btn-lg" data-toggle="modal" data-target="#modal-danger" id='cContrasena'>Cambiar contraseña</button>
                     </div>
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -142,6 +142,8 @@
   <script src="{{asset('js/combo.js')}}"></script>
   <script src="{{asset('js/inputFile/inputFile.js')}}"></script>
   <script src="{{asset('js/perfil/postEditar.js')}}"></script>
+  <script src="{{asset('js/perfil/postEditarContrasena.js')}}"></script>
+
 
   <script>
   $(function () {

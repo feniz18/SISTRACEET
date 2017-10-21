@@ -1,7 +1,7 @@
 @extends('plantillas.general')
-@section('titulo','Administracion de instructores')
-@section('seccion','Instructores')
-@section('subseccion','Administrar instructores')
+@section('titulo','Administracion de Transferencias')
+@section('seccion','Transferencias')
+@section('subseccion','Administrar Transferencias')
 @section('css')
 <link rel="stylesheet" href="{{asset('admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
 <link rel="stylesheet" href="{{asset('admin/bower_components/select2/dist/css/select2.min.css')}}">
@@ -50,45 +50,47 @@
                 <table id="docente" class="table table-bordered table-hover">
                   <thead>
                     <tr>
-                      <th>Cedula</th>
-                      <th>Nombres</th>
-                      <th>Apellidos</th>
-                      <th>Telefono</th>
-                      <th style="width: 40px">Estado</th>
+                      <th>Id</th>
+                      <th>Nombre de la transferencia</th>
+                      <th colspan="2">Fecha curso</th>
+                      <th colspan="2">Horario</th>
+                      <th>sede</th>
                       <th style="width: 40px">Editar</th>
                       <th style="width: 40px">Eliminar</th>
                     </tr>
                   </thead>
                   <tbody id="docenteBody">
 
-                    @foreach ($usuario as $instructor)
+                    @foreach ($trans as $transferencia)
                     <tr class="text-center">
                       <td>
-                        {{ $instructor->cedula}}
+                        {{ $transferencia->id}}
                       </td>
                       <td>
-                        {{ $instructor->nombres}}
+                        {{ $transferencia->nombre}}
                       </td>
                       <td>
-                        {{ $instructor->apellidos}}
+                        {{ $transferencia->fecha_inicio}}
                       </td>
                       <td>
-                        {{ $instructor->telefono}}
+                        {{ $transferencia->fecha_fin}}
                       </td>
                       <td>
-                        @if($instructor->activo)
-                          <a onClick="activaDocente({{$instructor->cedula}},1);" style="cursor:pointer;font-size:20px" id="{{$instructor->cedula}}"><i class='fa fa-check-square' style="color:green"></i></a>
-                        @else
-                          <a onClick="activaDocente({{$instructor->cedula}},0);" style="cursor:pointer;font-size:20px" id="{{$instructor->cedula}}"><i class='fa fa-square-o' style="color:red"></i>
-                        @endif
+                        {{ $transferencia->hora_inicio}}
                       </td>
                       <td>
-                        <a style="cursor:pointer;font-size:20px" data-toggle="modal" data-target="#modal-danger" onclick="infDocente({{$instructor->cedula}})" >
+                        {{ $transferencia->hora_fin}}
+                      </td>
+                      <td>
+                        {{ $transferencia->sede_id}}
+                      </td>
+                      <td>
+                        <a style="cursor:pointer;font-size:20px" data-toggle="modal" data-target="#modal-danger" onclick="editTrans({{$transferencia->id}})" >
                           <i class='fa fa-folder-open' style="color:green"></i>
                         </a>
                       </td>
                       <td>
-                        <a style="cursor:pointer;font-size:20px" value="{{$instructor->cedula}}" class="borrar">
+                        <a style="cursor:pointer;font-size:20px" value="{{$transferencia->id}}" class="borrar">
                           <i class='fa fa-fw fa-times' style="color:red"></i>
                         </a>
                       </td>
@@ -105,7 +107,7 @@
       <!-- /.col -->
       </div>
     <!-- /.row -->
-    @include('admin.docente.modalRojo')
+    @include('admin.transferencia.modalRojo')
 
 
 @endsection
@@ -161,5 +163,5 @@
     })
   </script>
 @endsection
-@section('docentes','active')
-@section('administrarDocentes', 'active')
+@section('transferecias','active')
+@section('administrarTrasferencias', 'active')

@@ -50,18 +50,17 @@
                 <table id="docente" class="table table-bordered table-hover">
                   <thead>
                     <tr>
-                      <th>Cedula</th>
-                      <th>Nombres</th>
+                      <th>Nombre Sede</th>
+                      <th>Direccion</th>
                       <th>Apellidos</th>
                       <th>Telefono</th>
-                      <th style="width: 40px">Estado</th>
                       <th style="width: 40px">Editar</th>
                       <th style="width: 40px">Eliminar</th>
                     </tr>
                   </thead>
-                  <tbody id="docenteBody">
+                  <tbody id="tablaCuerpo">
 
-                    @foreach ($usuario as $instructor)
+                    @foreach ($sede as $sedes)
                     <tr class="text-center">
                       <td>
                         {{ $instructor->cedula}}

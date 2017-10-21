@@ -49,6 +49,7 @@ Route::group(['middleware' => 'auth'], function(){
   route::get('/logout','LoginController@logout');
   route::get('/perfil','PerfilController@index');
   route::post('/perfil/actualiza','Perfil\PerfilController@updateDatos');
+  route::post('/perfil/actualiza/contrasena','Perfil\PerfilController@updateContrasena');
 
 });
 
@@ -59,5 +60,6 @@ Route::group(['middleware' => ['admin','auth']],function(){
   route::get('/instructor/activar/{cedula}','Admin\DocenteController@activarDocente');
   route::get('/instructor/edit/postEdit','Admin\DocenteController@postEditarDocente');
   route::get("/administraDocentes","Admin\AdministraDocentesController@index");
+  route::get("/administraTransferencia","Admin\AdministraTransferenciasController@index");
 
 });

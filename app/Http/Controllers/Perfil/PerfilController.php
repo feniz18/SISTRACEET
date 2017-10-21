@@ -8,17 +8,11 @@ use App\Usuario;
 use Illuminate\Support\Facades\Validator;
 use App\Http\Controllers\Libreria\FechaController;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class PerfilController extends Controller
 {
     public function updateDatos(Request $request){
-
-    /*  $extencion = $request->file('foto')
-                           ->getClientOriginalExtension();
-
-        $request->file('foto')->storeAs('public','1013651642' . '.' . $extencion);
-
-        return $request->file('foto')->getClientOriginalExtension();*/
 
         $fecha = new FechaController;
 
@@ -69,8 +63,41 @@ class PerfilController extends Controller
         $usuario->save();
 
         return response()->json(['terminado' => "Usuario actualizado correctamente"]);
+    }
 
+    public function updateContrasena(Request $request)
+    {
+      $datos = $request->all();
 
+      $reglas = [
+
+        'contrasenaOld' => 'required',
+        'contrasena' => 'required|min:6',
+        'rcontrasena' => 'required|same:contrasena|min:6',
+
+      ];
+
+      $validador = Validator::make($datos,$reglas);
+
+      if($validador->fails()){
+
+        return response()->json($validador->errors());
+
+      }
+
+      if(!Hash::check($request->contrasenaOld,Auth::user()->password)){
+
+          return response()->json(['error' =>'La contraseña ingresada en el campo Contraseña Antigua no coincide con el de la base de datos']);
+
+      }
+
+      $usuario = Usuario::find(Auth::user()->cedula);
+
+      $usuario->password = Hash::make($request->contrasena);
+
+      $usuario->save();
+
+      return response()->json(['final' => 'Correcto contraseña actualizada correctamente']);
 
     }
 }
