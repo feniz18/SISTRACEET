@@ -116,13 +116,11 @@
                       </select>
                     </div>
                   </div>
-
-
                 </div>
                 <div class="row">
                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="form-group">
-                      <button type="button" class="btn btn-block btn-danger btn-lg ">Cambiar contraseña</button>
+                      <button type="button" class="btn btn-block btn-danger btn-lg" data-toggle="modal" data-target="#modal-danger">Cambiar contraseña</button>
                     </div>
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
@@ -134,6 +132,7 @@
               </form>
             </div>
           </div>
+@include('compartida.modalRojoPerfil')
 
 @endsection
 @section('js')
