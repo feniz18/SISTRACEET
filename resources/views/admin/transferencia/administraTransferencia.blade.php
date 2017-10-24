@@ -37,24 +37,27 @@
       <span class="sr-only">0% Complete</span>
     </div>
   </div>
-
+  <div class="form-group">
+    <button class="btn btn-warning">Crear transferencia</button>
+  </div>
 
         <div class="row" id="contenido" style="display:none">
           <div class="col-xs-12">
             <div class="box">
               <div class="box-header">
-                <h3 class="box-title">Instructores registrados en sistema</h3>
+                <h3 class="box-title">Transferencias registradas en sistema</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
-                <table id="docente" class="table table-bordered table-hover">
+
+                <table id="tablaTransferencia" class="table table-bordered table-hover">
                   <thead>
                     <tr>
                       <th>Id</th>
                       <th>Nombre de la transferencia</th>
                       <th colspan="2">Fecha curso</th>
                       <th colspan="2">Horario</th>
-                      <th>sede</th>
+                      <th>Sede</th>
                       <th style="width: 40px">Editar</th>
                       <th style="width: 40px">Eliminar</th>
                     </tr>
@@ -127,11 +130,6 @@
   <script src="{{asset('admin/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
   <script src="{{asset('admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
   {{--peticiones ajax al servidor--}}
-  <script src="{{asset('js/docentes/administraDocentes.js')}}"></script>
-  <script src="{{asset('js/combo.js')}}"></script>
-  <script src="{{asset('js/docentes/postEditDocente.js')}}"></script>
-  <script src="{{asset('js/docentes/activaDocentes.js')}}"></script>
-  <script src="{{asset('js/docentes/eliminaDocente.js')}}"></script>
   <script>
 
   $(window).on('load',function(){
@@ -144,23 +142,22 @@
   </script>
   <script>
 
-    $(function () {
-      $('#docente').DataTable({
-        'paging'      : true,
-        'lengthChange': false,
-        'searching'   : true,
-        'ordering'    : false,
-        'info'        : true,
-        'autoWidth'   : true,
-          "dom": '<"top"fl>rt<"bottom" p><"clear" i>'
+  $(function () {
+    $('#tablaTransferencia').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : true,
+      'ordering'    : false,
+      'info'        : true,
+      'autoWidth'   : true,
 
-      })
     })
-    $('.select2').select2()
-    $('#datepicker').datepicker({
+  })
+    //$('.select2').select2();
+    /*$('#datepicker').datepicker({
       autoclose: true,
       format: "dd/mm/yyyy"
-    })
+    });*/
   </script>
 @endsection
 @section('transferecias','active')
