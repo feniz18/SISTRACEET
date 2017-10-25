@@ -37,11 +37,11 @@
       <span class="sr-only">0% Complete</span>
     </div>
   </div>
-  <div class="form-group">
-    <button class="btn btn-warning">Crear transferencia</button>
-  </div>
 
         <div class="row" id="contenido" style="display:none">
+          <div class="col-xs-12 form-group">
+            <button class="btn btn-warning" data-toggle="modal" data-target="#modal-danger">Crear transferencia</button>
+          </div>
           <div class="col-xs-12">
             <div class="box">
               <div class="box-header">
@@ -55,8 +55,10 @@
                     <tr>
                       <th>Id</th>
                       <th>Nombre de la transferencia</th>
-                      <th colspan="2">Fecha curso</th>
-                      <th colspan="2">Horario</th>
+                      <th>Fecha inicio</th>
+                      <th>Fecha fin</th>
+                      <th>Hora inicio</th>
+                      <th>Hora fin</th>
                       <th>Sede</th>
                       <th style="width: 40px">Editar</th>
                       <th style="width: 40px">Eliminar</th>
@@ -150,6 +152,7 @@
       'ordering'    : false,
       'info'        : true,
       'autoWidth'   : true,
+      "dom"         : '<"top"fl>rt<"bottom" p><"clear" i>'
 
     })
   })

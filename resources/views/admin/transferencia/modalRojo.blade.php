@@ -9,11 +9,11 @@
       </div>
 
       {!! csrf_field()!!}
-      <div class="modal-content" style="display:none" id='modalContenido'>
+      <div class="modal-content" style="display:block" id='modalContenido'>
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="false">&times;</span></button>
-          <h4 class="modal-title">Editar Usuario</h4>
+          <h4 class="modal-title"></h4>
         </div>
         <div class="modal-body">
           <!-- formulario edicion-->
@@ -34,53 +34,42 @@
 
 
           <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-6 form-group" >
-              <label>Cédula</label>
-              <input name="cedula" type="number" class="form-control cedula" placeholder="Cédula" id='cedula'>
-            </div>
-            <div class="col-xs-12 col-sm-6 col-md-6 form-group">
-              <label>Fecha Nacimiento</label>
-              <div class="input-group date">
-                <div class="input-group-addon">
-                  <i class="fa fa-calendar"></i>
-                </div>
-                <input name= "fecha_nacimiento" type="text" class="form-control pull-right fecha_nacimiento" id="datepicker" placeholder="dd/mm/yyyy">
-              </div>
+            <div class="col-xs-12 col-sm-12 col-md-12 form-group" style="display:none;" >
+              <label>Id</label>
+              <input name="id" type="number" class="form-control" placeholder="Id" id='id' disabled>
             </div>
 
+            <div class="col-xs-12 col-sm-12 col-md-12 form-group" style="display:none;" >
+              <label>Nombre Curso</label>
+              <input name="nombreCurso" type="text" class="form-control" placeholder="Nombre curso" id='nombreCurso'>
+            </div>
           </div>
            <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6 form-group">
-                  <label>Nombres</label>
-                  <input name = 'nombres' type="text" class="form-control nombres" placeholder="Nombres" id="nombres">
+                  <label>Fecha Inicio</label>
+                  <input name = "fechaInicio" type="text" class="form-control" placeholder="Nombres" id="fechaInicio">
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 form-group">
-                  <label>Apellidos</label>
-                  <input name = "apellidos" type="text" class="form-control apellidos" placeholder="Apellidos" id='apellidos'>
+                  <label>Fecha Terminación</label>
+                  <input name = "fechaFinal" type="text" class="form-control apellidos" placeholder="Fecha Terminación" id='fechaFinal'>
                 </div>
 
             </div>
             <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6 form-group">
-                  <label>Télefono</label>
-                  <input name = 'telefono' type="number" class="form-control telefono" placeholder="Télefono" id="telefono">
+                  <label>Hora de inicio</label>
+                  <input name = 'horaInicio' type="text" class="form-control" placeholder="Hora inicio" id="horaInicio">
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 form-group">
-                  <label>Correo Eléctronico</label>
-                  <input name = 'correo' type="email" class="form-control correo_electronico" placeholder="Correo Eléctronico" id="email">
+                  <label>Hora de finalización</label>
+                  <input name = 'horaFin' type="text" class="form-control" placeholder="Hora fin" id="horaFin">
                 </div>
             </div>
             <div class="row">
               <div class="col-xs-12 col-sm-6 col-md-6 form-group" id="combo">
                 <label>Departamento</label>
                 <select name="dep" class="form-control select2 departamento" style="width: 100%; height: 100%;" id="dep">
-                    <option>Seleccione</option>
-                </select>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-6 form-group">
-                <label>Ciudad</label>
-                <select name="ciu" class="form-control select2 ciudad" style="width: 100%; height: 100%;" id="ciu">
-                  <option> Seleccione</option>
+                    <option value="">SENA COLOMBIA</option>
                 </select>
               </div>
             </div>
