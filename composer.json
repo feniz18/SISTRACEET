@@ -50,7 +50,7 @@
         ],
         "post-install-cmd": [
         "ln -sr storage/app/public public/storage"
-       ],
+       ]
     },
     "config": {
         "preferred-install": "dist",
