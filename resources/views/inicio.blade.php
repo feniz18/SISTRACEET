@@ -48,6 +48,15 @@
     </div>
     <!-- /.box -->
   </div>
+  @include('inicioModal')
+
+@endsection
+@section('js')
+<script>
+  $(window).on('load',function(){
+    $('#modal-danger').modal('show');
+  });
+</script>
 
 @endsection
 

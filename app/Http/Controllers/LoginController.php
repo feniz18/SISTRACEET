@@ -10,6 +10,7 @@ use Illuminate\Http\Response;
 use App\Http\Controllers\Controller;
 use App\Usuario;
 use Session;
+use App\Log_usuario;
 
 class LoginController extends Controller
 {
@@ -54,7 +55,10 @@ class LoginController extends Controller
       }
 
       if (Auth::attempt($usuario,$check)) {
-
+        $log = new Log_usuario;
+        $log->usuario_id = Auth::user()->cedula;
+        $log->save();
+         
         return redirect('/');
 
       }else{
