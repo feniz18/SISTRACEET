@@ -13,4 +13,9 @@ class Log_usuario extends Model
     'created_at','usuario_id'
 
   ];
+
+  public function usuario(){
+
+      return $this->belongsTo('App\Usuario','cedula','usuario_id');    
+  }
 }

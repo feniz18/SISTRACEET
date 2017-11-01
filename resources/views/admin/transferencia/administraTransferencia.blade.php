@@ -164,4 +164,4 @@
   </script>
 @endsection
 @section('transferecias','active')
-@section('administrarTrasferencias', 'active')
+@section('administrarTransferencias', 'active')

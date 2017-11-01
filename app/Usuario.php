@@ -37,4 +37,10 @@ class Usuario extends Authenticatable
         $this->notify(new ReinicioPassword($token));
     }
 
+    public function logs(){
+
+       return $this->hasMany('App\Log_usuario','usuario_id','cedula');
+
+    }
+
 }

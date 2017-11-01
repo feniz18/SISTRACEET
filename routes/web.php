@@ -61,5 +61,7 @@ Route::group(['middleware' => ['admin','auth']],function(){
   route::get('/instructor/edit/postEdit','Admin\DocenteController@postEditarDocente');
   route::get("/administraDocentes","Admin\AdministraDocentesController@index");
   route::get("/administraTransferencia","Admin\AdministraTransferenciasController@index");
+  route::get("/logReporte","Reporte\LogController@index");
+    route::get("/reportes/logs","Reporte\LogController@reporte");
 
 });

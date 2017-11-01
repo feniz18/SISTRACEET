@@ -24,6 +24,18 @@
       <li class="@yield('administrarTransferencias')"><a href="/administraTransferencia"><i class="fa fa-circle-o"></i>Administrar Transferencias</a></li>
     </ul>
   </li>
+
+  <li class="treeview @yield('reportes')">
+    <a href="#">
+      <i class="fa fa-fw fa-file-text"></i> <span>Reportes</span>
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>
+    </a>
+    <ul class="treeview-menu">
+      <li class="@yield('reporteLog')"><a href="/logReporte"><i class="fa fa-circle-o"></i>Reporte de logs</a></li>
+    </ul>
+  </li>
 </ul>
 </section>
 <!-- /.sidebar -->

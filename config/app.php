@@ -176,7 +176,11 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+
+        //paquete traducciones español
         Laraveles\Spanish\SpanishServiceProvider::class,
+        //paquete exportacion a excel
+        Maatwebsite\Excel\ExcelServiceProvider::class,
 
     ],
 
@@ -226,6 +230,8 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        //perzonalizado para excel 
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 
