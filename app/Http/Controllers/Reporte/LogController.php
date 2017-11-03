@@ -18,7 +18,7 @@ class LogController extends Controller
     }
 
     public function reporte(Usuario $usuario){
-
+/*
       $usuario = $usuario->where([
         ['created_at','>=','2017-01-01'],
         //['created_at','<=','2017-10-31'],
@@ -29,9 +29,9 @@ class LogController extends Controller
       $usuario->logs;
 
     });
-    
+
     dd($usuario);
-      /*foreach ($logeo as $log) {
+      foreach ($logeo as $log) {
         array_push($fechas, $log->created_at->toDateString());
       }*/
 
