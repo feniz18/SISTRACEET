@@ -15,6 +15,7 @@ Route::get('/', function(){
       return view('inicio');
 });
 
+
 Route::group(['middleware' => 'guest'],function(){
 
     Route::get('sesion', function () {
