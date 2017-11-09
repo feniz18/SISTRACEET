@@ -14,6 +14,7 @@ class TablaDepartamento extends Migration
     public function up()
     {
       Schema::create('departamento', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
           $table->increments('id_departamento');
           $table->string('nombre');
         });

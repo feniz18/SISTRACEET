@@ -14,6 +14,7 @@ class TablaReseteoContrasenas extends Migration
     public function up()
     {
         Schema::create('reinicio_contrasena', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->string('email')->index();
             $table->string('token');
             $table->timestamp('created_at')->nullable();

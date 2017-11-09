@@ -14,6 +14,7 @@ class TablaCrearUsuarios extends Migration
     public function up()
     {
         Schema::create('usuario', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->bigInteger('cedula')->primary();
             $table->date("fecha_nacimiento");
             $table->string('nombres');

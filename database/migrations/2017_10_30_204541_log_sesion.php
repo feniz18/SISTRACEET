@@ -14,7 +14,10 @@ class LogSesion extends Migration
     public function up()
     {
       Schema::create('log_sesion', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
+          $table->increments('id');
           $table->bigInteger('usuario_id');
+          $table->ipAddress('direccion_ip');
           $table->timestamps();
       });
     }

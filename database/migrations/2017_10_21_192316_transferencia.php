@@ -14,6 +14,7 @@ class Transferencia extends Migration
     public function up()
     {
       Schema::create('transferencia', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
           $table->increments('id');
           $table->string('nombre');
           $table->date('fecha_inicio');
@@ -34,6 +35,6 @@ class Transferencia extends Migration
      */
     public function down()
     {
-        //
+        Schema::dropIfExists('transferencia');
     }
 }

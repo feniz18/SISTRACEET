@@ -14,9 +14,13 @@ class TablaCiudad extends Migration
     public function up()
     {
       Schema::create('ciudad', function (Blueprint $table) {
+          $table->engine = 'InnoDB';
           $table->increments('id_ciudad');
           $table->integer('departamento_id')->index();
+          $table->foreign('departamento_id')
+                ->references('id_departamento')->on('departamento');
           $table->string('nombre');
+
         });
     }
 
