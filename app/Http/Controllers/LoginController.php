@@ -17,7 +17,6 @@ class LoginController extends Controller
 
     public function aut(Request $request){
 
-
       $check = $request->input('recuerdame');
       $datos = $request->all();
 
@@ -57,8 +56,9 @@ class LoginController extends Controller
       if (Auth::attempt($usuario,$check)) {
         $log = new Log_usuario;
         $log->usuario_id = Auth::user()->cedula;
+        $log->direccion_ip = $request->ip();
         $log->save();
-         
+
         return redirect('/');
 
       }else{

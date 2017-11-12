@@ -16,9 +16,10 @@ class TablaCiudad extends Migration
       Schema::create('ciudad', function (Blueprint $table) {
           $table->engine = 'InnoDB';
           $table->increments('id_ciudad');
-          $table->integer('departamento_id')->index();
+          $table->integer('departamento_id')->unsigned();
           $table->foreign('departamento_id')
-                ->references('id_departamento')->on('departamento');
+                ->references('id_departamento')->on('departamento')
+                ->onDelete('cascade');
           $table->string('nombre');
 
         });

@@ -7,9 +7,11 @@ use App\Http\Controllers\Controller;
 use Excel;
 use App\Usuario;
 use Carbon\Carbon;
+use Illuminate\Support\Collection;
 
 class LogController extends Controller
 {
+    private $logs_usuario = [];
 
     public function index(){
 
@@ -17,38 +19,35 @@ class LogController extends Controller
 
     }
 
-    public function reporte(Usuario $usuario){
-/*
-      $usuario = $usuario->where([
-        ['created_at','>=','2017-01-01'],
-        //['created_at','<=','2017-10-31'],
+    public function reporte(){
 
-      ]);
-    $usuario->each(function($usuario){
-
-      $usuario->logs;
-
-    });
-
-    dd($usuario);
-      foreach ($logeo as $log) {
-        array_push($fechas, $log->created_at->toDateString());
-      }*/
+      // funcion excel encargada de generar el reporte por fechas
 
       Excel::create('Logs SistraCeet',function($excel){
 
         $excel->sheet('Usuarios',function($hoja){
 
-          $data=[];
+          $usuario = Usuario::where('created_at','>','2010-11-01')->get();
 
-          array_push($data, ['kevin','arnold']);
+              foreach ($usuario as $usuarios) {
 
-          $hoja->fromArray($data);
+                foreach($usuarios->logs as $logs){
+
+                  $this->logs_usuario[] = [
+                            'Cedula' => $usuarios->cedula,
+                            'Nombres y apellidos' => $usuarios->nombres . ' ' . $usuarios->apellidos,
+                            'Fecha Logeo' => $logs->created_at,
+                            'IP' => $logs->direccion_ip];
+                }
+
+              }
+              
+            $datos = new Collection($this->logs_usuario);
+
+          $hoja->fromArray($datos);
+
         });
 
       })->download('xlsx');
-
-
     }
-
 }
