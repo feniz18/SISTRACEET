@@ -8,6 +8,8 @@ use Excel;
 use App\Usuario;
 use Carbon\Carbon;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\Validator;
+use App\Log_usuario;
 
 class LogController extends Controller
 {
@@ -19,29 +21,77 @@ class LogController extends Controller
 
     }
 
-    public function reporte(){
+    public function reporte(Request $request){
 
-      // funcion excel encargada de generar el reporte por fechas
+      $reglas=[
+        'fecha_inicio' => 'required',
+        'fecha_fin' => 'required'
 
-      Excel::create('Logs SistraCeet',function($excel){
+      ];
 
-        $excel->sheet('Usuarios',function($hoja){
+      $validacion = Validator::make($request->all(), $reglas);
 
-          $usuario = Usuario::where('created_at','>','2010-11-01')->get();
 
-              foreach ($usuario as $usuarios) {
+      if ($validacion->fails()){
+        return response()->json($validacion->errors());
+      }
 
-                foreach($usuarios->logs as $logs){
+      $request['fecha_inicio'] = Carbon::createFromFormat('d/m/Y', $request->fecha_inicio)->toDateString();
+      $request['fecha_fin'] = Carbon::createFromFormat('d/m/Y', $request->fecha_fin)->toDateString();
+
+      $fecha_inicio = Carbon::createFromFormat('Y-m-d',$request->fecha_inicio);
+      $fecha_fin = Carbon::createFromFormat('Y-m-d',$request->fecha_fin);
+
+      if ($fecha_inicio>$fecha_fin) {
+
+          return response()->json(['error' => 'La fecha de inicio no debe ser mayor a la fecha fin.']);
+
+      }elseif($fecha_fin<$fecha_inicio){
+
+            return response()->json(['error' => 'La fecha de fin no puede ser menor a la fecha inicio.']);
+      }
+
+    return response()->json(
+      [
+       'fecha_ini'=>$request->fecha_inicio,
+       'fecha_fin' => $request->fecha_fin
+      ]);
+
+
+    }
+    public function descargaReporte($fecha_inicio,$fecha_fin){
+
+
+
+      $data = ['fecha1' => $fecha_inicio, 'fecha2' => $fecha_fin];
+
+      Excel::create('Logs SistraCeet',function($excel) use($data){
+
+       $data1 = $data;
+
+        $excel->sheet('Usuarios',function($hoja) use($data1){
+
+          if($data1['fecha1'] == $data1['fecha2']){
+              $fecha_final = Carbon::createFromFormat('Y-m-d', $data1['fecha2'])
+                                    ->addDay();
+
+          $log = Log_usuario::where('created_at','>=',$data1['fecha1'])
+                            ->where('created_at','<=',$fecha_final->toDateString())
+                            ->get();
+          }else{
+            $log = Log_usuario::where('created_at','>=',$data1['fecha1'])
+                              ->where('created_at','<=',$data1['fecha2'])
+                              ->get();
+          }
+              foreach ($log as $logs) {
 
                   $this->logs_usuario[] = [
-                            'Cedula' => $usuarios->cedula,
-                            'Nombres y apellidos' => $usuarios->nombres . ' ' . $usuarios->apellidos,
+                            'Cedula' => $logs->usuario->cedula,
+                            'Nombres y apellidos' => $logs->usuario->nombres . ' ' . $logs->usuario->apellidos,
                             'Fecha Logeo' => $logs->created_at,
                             'IP' => $logs->direccion_ip];
-                }
-
               }
-              
+
             $datos = new Collection($this->logs_usuario);
 
           $hoja->fromArray($datos);
@@ -49,5 +99,8 @@ class LogController extends Controller
         });
 
       })->download('xlsx');
+
+
     }
+
 }

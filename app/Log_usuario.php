@@ -16,6 +16,6 @@ class Log_usuario extends Model
 
   public function usuario(){
 
-      return $this->belongsTo('App\Usuario','cedula','usuario_id');    
+      return $this->belongsTo('App\Usuario','usuario_id','cedula');
   }
 }

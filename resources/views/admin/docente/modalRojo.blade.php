@@ -27,7 +27,6 @@
                   </ul>
               </div>
             </div>
-
           </div>
 
             <input name="cedulaIni" type="hidden" id='cedulaIni'>
