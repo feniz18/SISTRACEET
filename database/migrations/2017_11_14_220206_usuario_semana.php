@@ -14,6 +14,7 @@ class UsuarioSemana extends Migration
     public function up()
     {
         Schema::create('usuario_semana', function (Blueprint $table) {
+
             $table->engine = 'InnoDB';
             $table->increments('id');
             $table->integer('dia_semana_id')->unsigned();
@@ -23,7 +24,6 @@ class UsuarioSemana extends Migration
             $table->bigInteger('cedula_id')->unsigned();
             $table->foreign('cedula_id')
                   ->references('cedula')->on('usuario');
-
 
         });
     }

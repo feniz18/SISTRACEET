@@ -83,6 +83,62 @@
                 </select>
               </div>
             </div>
+
+              <div class="col-xs-12 form-group text-center">
+                <h4>Horario del docente</h4>
+              </div>
+
+            <div class="row">
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group" >
+                  <input type="checkbox" id="box-1">
+                  <label for="box-1">LUNES</label>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group">
+                  <input type="checkbox" id="box-2">
+                  <label for="box-2">MARTES</label>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group">
+                  <input type="checkbox" id="box-3">
+                  <label for="box-3">MIERCOLES</label>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group">
+                  <input type="checkbox" id="box-4">
+                  <label for="box-4">JUEVES</label>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group">
+                  <input type="checkbox" id="box-5">
+                  <label for="box-5">VIERNES</label>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group">
+                  <input type="checkbox" id="box-6">
+                  <label for="box-6">SABADO</label>
+              </div>
+              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group">
+                  <input type="checkbox" id="box-7">
+                  <label for="box-7">DOMINGO</label>
+              </div>
+            </div>
+          <div class="row">
+            <div class="col-xs-12 col-sm-6 col-md-6 form-group">
+              <label>Hora Inicio Jornada</label>
+              <div class="input-group date">
+                <div class="input-group-addon">
+                  <i class="fa fa-fw fa-clock-o"></i>
+                </div>
+                <input name= "fecha_nacimiento" type="text" class="form-control pull-right fecha_nacimiento" id="datepicker" placeholder="dd/mm/yyyy">
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-sm-6 col-md-6 form-group">
+              <label>Hora Fin Jornada</label>
+              <div class="input-group date">
+                <div class="input-group-addon">
+                  <i class="fa fa-fw fa-clock-o"></i>
+                </div>
+                <input name= "fecha_nacimiento" type="text" class="form-control pull-right fecha_nacimiento" id="datepicker" placeholder="dd/mm/yyyy">
+              </div>
+            </div>
+          </div>
         </div>
         <div class="modal-footer">
           <button type="button" id="enviar" class="btn btn-outline">Actualizar cambios</button>

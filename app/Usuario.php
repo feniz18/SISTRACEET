@@ -43,4 +43,11 @@ class Usuario extends Authenticatable
 
     }
 
+    public function dia_semana(){
+
+      return $this->belongsToMany('App\Dia_semana', 'usuario_semana',
+      'cedula_id','dia_semana_id');
+
+    }
+
 }

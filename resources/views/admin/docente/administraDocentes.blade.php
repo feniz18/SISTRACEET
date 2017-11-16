@@ -8,6 +8,7 @@
 <!-- DataTables -->
 <link rel="stylesheet" href="{{asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
 <!-- Theme style -->
+<link rel="stylesheet" href="{{asset('css/checkbox/checkbox.css')}}">
 <style>
     .example-modal .modal {
       position: relative;
