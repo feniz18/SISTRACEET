@@ -12,6 +12,10 @@ use Illuminate\Http\Response;
 class DocenteController extends Controller
 {
     public function editar(Request $request){
+      $semana = [];
+      for ($i=1; $i < 8 ; $i++) {
+        
+      }
 
       $fecha_nacimiento = new FechaController();
       $request['fecha_nacimiento'] = $fecha_nacimiento->formatFechaIn($request->fecha_nacimiento);

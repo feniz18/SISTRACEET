@@ -90,52 +90,70 @@
 
             <div class="row">
               <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group" >
-                  <input type="checkbox" id="box-1">
-                  <label for="box-1">LUNES</label>
+                  <input type="checkbox" id="chulo-1" name='chulo-1'>
+                  <label for="chulo-1">LUNES</label>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group">
-                  <input type="checkbox" id="box-2">
-                  <label for="box-2">MARTES</label>
+                  <input type="checkbox" id="chulo-2" name='chulo-2'>
+                  <label for="chulo-2">MARTES</label>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group">
-                  <input type="checkbox" id="box-3">
-                  <label for="box-3">MIERCOLES</label>
+                  <input type="checkbox" id="chulo-3" name='chulo-3'>
+                  <label for="chulo-3">MIERCOLES</label>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group">
-                  <input type="checkbox" id="box-4">
-                  <label for="box-4">JUEVES</label>
+                  <input type="checkbox" id="chulo-4" name='chulo-4'>
+                  <label for="chulo-4">JUEVES</label>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group">
-                  <input type="checkbox" id="box-5">
-                  <label for="box-5">VIERNES</label>
+                  <input type="checkbox" id="chulo-5" name='chulo-5'>
+                  <label for="chulo-5">VIERNES</label>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group">
-                  <input type="checkbox" id="box-6">
-                  <label for="box-6">SABADO</label>
+                  <input type="checkbox" id="chulo-6" name='chulo-6'>
+                  <label for="chulo-6">SABADO</label>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group">
-                  <input type="checkbox" id="box-7">
-                  <label for="box-7">DOMINGO</label>
+                  <input type="checkbox" id="chulo-7" name='chulo-7'>
+                  <label for="chulo-7">DOMINGO</label>
               </div>
             </div>
           <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-6 form-group">
-              <label>Hora Inicio Jornada</label>
-              <div class="input-group date">
-                <div class="input-group-addon">
-                  <i class="fa fa-fw fa-clock-o"></i>
+              <!-- time Picker -->
+              <div class="bootstrap-timepicker">
+                <div class="form-group">
+                  <label>Inicio jornada</label>
+
+                  <div class="input-group">
+                    <input type="text" class="form-control timepicker">
+
+                    <div class="input-group-addon">
+                      <i class="fa fa-clock-o"></i>
+                    </div>
+                  </div>
+                  <!-- /.input group -->
                 </div>
-                <input name= "fecha_nacimiento" type="text" class="form-control pull-right fecha_nacimiento" id="datepicker" placeholder="dd/mm/yyyy">
+                <!-- /.form group -->
               </div>
             </div>
 
             <div class="col-xs-12 col-sm-6 col-md-6 form-group">
-              <label>Hora Fin Jornada</label>
-              <div class="input-group date">
-                <div class="input-group-addon">
-                  <i class="fa fa-fw fa-clock-o"></i>
+              <!-- time Picker -->
+              <div class="bootstrap-timepicker">
+                <div class="form-group">
+                  <label>Fin de jornada</label>
+
+                  <div class="input-group">
+                    <input type="text" name='hora_fin' class="form-control timepicker">
+
+                    <div class="input-group-addon">
+                      <i class="fa fa-clock-o"></i>
+                    </div>
+                  </div>
+                  <!-- /.input group -->
                 </div>
-                <input name= "fecha_nacimiento" type="text" class="form-control pull-right fecha_nacimiento" id="datepicker" placeholder="dd/mm/yyyy">
+                <!-- /.form group -->
               </div>
             </div>
           </div>

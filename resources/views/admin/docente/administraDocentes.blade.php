@@ -9,6 +9,7 @@
 <link rel="stylesheet" href="{{asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
 <!-- Theme style -->
 <link rel="stylesheet" href="{{asset('css/checkbox/checkbox.css')}}">
+<link rel="stylesheet" href="{{asset('admin/plugins/timepicker/bootstrap-timepicker.min.css')}}">
 <style>
     .example-modal .modal {
       position: relative;
@@ -22,6 +23,9 @@
 
     .example-modal .modal {
       background: transparent !important;
+    }
+    .bootstrap-timepicker-widget{
+      color:black;
     }
 </style>
 @endsection
@@ -97,8 +101,10 @@
                     @endforeach
 
                   <tbody>
+                    @include('admin.docente.modalRojo')
                 </table>
               </div>
+
             <!-- /.box-body -->
             </div>
           <!-- /.box -->
@@ -106,7 +112,6 @@
       <!-- /.col -->
       </div>
     <!-- /.row -->
-    @include('admin.docente.modalRojo')
 
 
 @endsection
@@ -125,13 +130,18 @@
   <!-- Select2 -->
   <script src="{{asset('admin/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
   <script src="{{asset('admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
+  <script src="{{asset('admin/plugins/timepicker/bootstrap-timepicker.min.js')}}">
+
+  </script>
   {{--peticiones ajax al servidor--}}
   <script src="{{asset('js/docentes/administraDocentes.js')}}"></script>
   <script src="{{asset('js/combo.js')}}"></script>
   <script src="{{asset('js/docentes/postEditDocente.js')}}"></script>
   <script src="{{asset('js/docentes/activaDocentes.js')}}"></script>
   <script src="{{asset('js/docentes/eliminaDocente.js')}}"></script>
+
   <script>
+
 
   $(window).on('load',function(){
 
@@ -153,13 +163,17 @@
         'autoWidth'   : true,
           "dom": '<"top"fl>rt<"bottom" p><"clear" i>'
 
-      })
-    })
-    $('.select2').select2()
+      });
+    });
+    $('.select2').select2();
     $('#datepicker').datepicker({
       autoclose: true,
       format: "dd/mm/yyyy"
-    })
+    });
+    $('.timepicker').timepicker({
+      showInputs: false,
+      defaultTime: false
+    });
   </script>
 @endsection
 @section('docentes','active')
