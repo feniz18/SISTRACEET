@@ -88,7 +88,7 @@
                 <h4>Horario del docente</h4>
               </div>
 
-            <div class="row">
+            <div class="row" id='check-dias'>
               <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group" >
                   <input type="checkbox" id="chulo-1" name='chulo-1'>
                   <label for="chulo-1">LUNES</label>
@@ -126,7 +126,7 @@
                   <label>Inicio jornada</label>
 
                   <div class="input-group">
-                    <input type="text" class="form-control timepicker">
+                    <input type="text" class="form-control timepicker" name='hora_inicio' id="hora_inicio">
 
                     <div class="input-group-addon">
                       <i class="fa fa-clock-o"></i>
@@ -145,7 +145,7 @@
                   <label>Fin de jornada</label>
 
                   <div class="input-group">
-                    <input type="text" name='hora_fin' class="form-control timepicker">
+                    <input type="text" class="form-control timepicker" name='hora_fin' id="hora_fin">
 
                     <div class="input-group-addon">
                       <i class="fa fa-clock-o"></i>

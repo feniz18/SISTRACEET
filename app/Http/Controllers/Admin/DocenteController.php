@@ -8,13 +8,34 @@ use App\Usuario;
 use App\Http\Controllers\Libreria\FechaController;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Response;
+use Carbon\Carbon;
 
 class DocenteController extends Controller
 {
     public function editar(Request $request){
+
+    /*$hora_inicio = Carbon::createFromFormat('h:i a',$request->hora_inicio);
+    return response()->json(['error' => $hora_inicio->toTimeString()]);*/
+
+
+      /*--------------------------------------*/
       $semana = [];
       for ($i=1; $i < 8 ; $i++) {
-        
+
+        if($request['chulo-' . $i] == 'on')
+        {
+              array_push($semana, $i);
+        };
+        //array_push($semana, $request['chulo-' . $i]);
+      }
+
+      if(count($semana)== 0){
+
+        return response()
+                      ->json(
+                        ["error" =>
+                        'Por favor seleccione un día de la
+                         semana en la seccion horario del docente']);
       }
 
       $fecha_nacimiento = new FechaController();
@@ -30,6 +51,8 @@ class DocenteController extends Controller
         'telefono' => 'required|min:5|max:18',
         'correo' => 'required|email',
         'ciu' => 'required',
+        'hora_inicio' => 'required',
+        'hora_fin' => 'required'
 
       ];
 
@@ -41,6 +64,8 @@ class DocenteController extends Controller
         return response()->json($validador->errors());
 
       }
+      $hora_inicio = Carbon::createFromFormat('h:i a',$request->hora_inicio);
+      $hora_fin = Carbon::createFromFormat('h:i a',$request->hora_fin);
 
       $usuario =  Usuario::find($request->cedulaIni);
       $usuario->cedula = $request->cedula;
@@ -50,10 +75,14 @@ class DocenteController extends Controller
       $usuario->telefono = $request->telefono;
       $usuario->email = $request->correo;
       $usuario->ciudad_id = $request->ciu;
+      $usuario->hora_inicio = $hora_inicio->toTimeString();
+      $usuario->hora_fin = $hora_fin->toTimeString();
+
 
       try {
 
       $usuario->save();
+      $usuario->dia_semana()->sync($semana);
 
       } catch (Exception $e) {
 
@@ -113,6 +142,7 @@ class DocenteController extends Controller
 
         return response()->json(false);
       }
+        $usuario->dia_semana()->detach();
         $usuario->delete();
         return response()->json(true);
 

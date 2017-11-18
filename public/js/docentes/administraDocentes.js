@@ -23,6 +23,8 @@ function infDocente(documento){
     $('#apellidos').val(datos.apellidos);
     $('#telefono').val(datos.telefono);
     $('#email').val(datos.email);
+    $('#hora_inicio').val(datos.hora_inicio);
+    $('#hora_fin').val(datos.hora_fin);
 
       $.get("/api/combo/ciudad/usuario/" + datos.cedula,function(usuario){
         // funcion encargada de rellenar departamentos
@@ -65,10 +67,24 @@ function infDocente(documento){
           }
 
         });
-
       });
     }
       //fin relleno ciudad
+
+  });
+
+  $.ajax({
+    type: 'GET',
+    url: '/semana/'+ documento,
+    success:function(semana){
+      $('#check-dias input:checkbox').prop('checked',false);
+      for(var i=0; i<semana.length;i++){
+
+        $('#chulo-' + semana[i]).prop('checked',true);
+
+      }
+
+    },
 
   });
 

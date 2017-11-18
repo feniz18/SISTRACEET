@@ -65,5 +65,6 @@ Route::group(['middleware' => ['admin','auth']],function(){
   route::get("/logReporte","Reporte\LogController@index");
     route::post("/reportes/logs","Reporte\LogController@reporte");
     route::get("/reportes/logs/{fecha_inicio}/{fecha_fin}","Reporte\LogController@descargaReporte");
+  route::get("/semana/{cedula}","Admin\AdministraDocentesController@cargaSemanaInstructor");
 
 });
