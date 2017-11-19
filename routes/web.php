@@ -67,4 +67,12 @@ Route::group(['middleware' => ['admin','auth']],function(){
     route::get("/reportes/logs/{fecha_inicio}/{fecha_fin}","Reporte\LogController@descargaReporte");
   route::get("/semana/{cedula}","Admin\AdministraDocentesController@cargaSemanaInstructor");
 
+  //ruta de Sedes
+
+  route::get("/sedes","Sede\SedeController@index");
+  route::post("/sedes/guardar", 'Sede\SedeController@agregarSede');
+  route::get("/sedes/{id}", 'Sede\SedeController@cargaDatosSede');
+  route::post("/sedes/actualiza/{id}", 'Sede\SedeController@actualizaSede');
+  route::get("/sedes/eliminar/{id}", 'Sede\SedeController@eliminar');
+
 });

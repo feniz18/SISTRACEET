@@ -1,7 +1,7 @@
 $(document).on('click','.borrar', function(event){
 
-  var cedula = $(this).attr('value');
-  var confirmacion = confirm("Desea eliminar a este instructor");
+  var id = $(this).attr('value');
+  var confirmacion = confirm("Desea eliminar esta Sede");
   var row = $(this).parents('tr');
 
 
@@ -9,23 +9,19 @@ $(document).on('click','.borrar', function(event){
 
     $.ajax({
       type:"GET",
-      url: "/instructor/eliminar/" + cedula ,
+      url: "/sedes/eliminar/" + id ,
       success: function(respuesta){
 
         if(respuesta){
 
-          alert('Usuario eliminado correctamente');
+          alert('Sede eliminada correctamente');
 
           row.fadeOut();
 
         }else {
-          alert('No se pudo eliminar usuario');
+          alert('No se pudo eliminar la sede');
         }
-
       }
-
     });
-
   }
-
 });

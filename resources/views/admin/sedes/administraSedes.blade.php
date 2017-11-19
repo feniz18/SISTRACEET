@@ -1,11 +1,8 @@
 @extends('plantillas.general')
-@section('titulo','Administracion de instructores')
-@section('seccion','Instructores')
+@section('titulo','Administracion de sedes')
+@section('seccion','Sedes')
 @section('subseccion','Administrar instructores')
 @section('css')
-<link rel="stylesheet" href="{{asset('admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
-<link rel="stylesheet" href="{{asset('admin/bower_components/select2/dist/css/select2.min.css')}}">
-<!-- DataTables -->
 <link rel="stylesheet" href="{{asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
 <!-- Theme style -->
 <style>
@@ -40,6 +37,9 @@
 
 
         <div class="row" id="contenido" style="display:none">
+          <div class="col-xs-12 form-group">
+            <button class="btn btn-warning" data-toggle="modal" data-target="#modal-danger" id='btnCrearSede'>Crear sede</button>
+          </div>
           <div class="col-xs-12">
             <div class="box">
               <div class="box-header">
@@ -52,42 +52,27 @@
                     <tr>
                       <th>Nombre Sede</th>
                       <th>Direccion</th>
-                      <th>Apellidos</th>
-                      <th>Telefono</th>
                       <th style="width: 40px">Editar</th>
                       <th style="width: 40px">Eliminar</th>
                     </tr>
                   </thead>
                   <tbody id="tablaCuerpo">
 
-                    @foreach ($sede as $sedes)
+                    @foreach ($sedes as $sede)
                     <tr class="text-center">
                       <td>
-                        {{ $instructor->cedula}}
+                        {{ $sede->nombre}}
                       </td>
                       <td>
-                        {{ $instructor->nombres}}
+                        {{ $sede->direccion}}
                       </td>
                       <td>
-                        {{ $instructor->apellidos}}
-                      </td>
-                      <td>
-                        {{ $instructor->telefono}}
-                      </td>
-                      <td>
-                        @if($instructor->activo)
-                          <a onClick="activaDocente({{$instructor->cedula}},1);" style="cursor:pointer;font-size:20px" id="{{$instructor->cedula}}"><i class='fa fa-check-square' style="color:green"></i></a>
-                        @else
-                          <a onClick="activaDocente({{$instructor->cedula}},0);" style="cursor:pointer;font-size:20px" id="{{$instructor->cedula}}"><i class='fa fa-square-o' style="color:red"></i>
-                        @endif
-                      </td>
-                      <td>
-                        <a style="cursor:pointer;font-size:20px" data-toggle="modal" data-target="#modal-danger" onclick="infDocente({{$instructor->cedula}})" >
+                        <a class="editar" style="cursor:pointer;font-size:20px" data-toggle="modal" data-target="#modal-danger" id="{{$sede->id}}" >
                           <i class='fa fa-folder-open' style="color:green"></i>
                         </a>
                       </td>
                       <td>
-                        <a style="cursor:pointer;font-size:20px" value="{{$instructor->cedula}}" class="borrar">
+                        <a style="cursor:pointer;font-size:20px" value="{{$sede->id}}" class="borrar">
                           <i class='fa fa-fw fa-times' style="color:red"></i>
                         </a>
                       </td>
@@ -104,7 +89,7 @@
       <!-- /.col -->
       </div>
     <!-- /.row -->
-    @include('admin.docente.modalRojo')
+    @include('admin.sedes.modalRojo')
 
 
 @endsection
@@ -120,15 +105,12 @@
   <script src="{{asset('admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
   <!-- FastClick -->
   <script src="{{asset('admin/bower_components/fastclick/lib/fastclick.js')}}"></script>
-  <!-- Select2 -->
-  <script src="{{asset('admin/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
-  <script src="{{asset('admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
-  {{--peticiones ajax al servidor--}}
-  <script src="{{asset('js/docentes/administraDocentes.js')}}"></script>
-  <script src="{{asset('js/combo.js')}}"></script>
-  <script src="{{asset('js/docentes/postEditDocente.js')}}"></script>
-  <script src="{{asset('js/docentes/activaDocentes.js')}}"></script>
-  <script src="{{asset('js/docentes/eliminaDocente.js')}}"></script>
+  {{--ajax a servidor --}}
+  <script src="{{asset('js/sedes/agregaSedes.js')}}" ></script>
+  <script src="{{asset('js/sedes/cargaDatosEditar.js')}}" ></script>
+  <script src="{{asset('js/sedes/actualizaSede.js')}}" ></script>
+  <script src="{{asset('js/sedes/eliminarSede.js')}}"></script>
+
   <script>
 
   $(window).on('load',function(){
@@ -153,12 +135,8 @@
 
       })
     })
-    $('.select2').select2()
-    $('#datepicker').datepicker({
-      autoclose: true,
-      format: "dd/mm/yyyy"
-    })
+
   </script>
 @endsection
-@section('docentes','active')
-@section('administrarDocentes', 'active')
+@section('sedes','active')
+@section('administrarSedes', 'active')
