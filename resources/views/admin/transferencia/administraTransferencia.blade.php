@@ -4,7 +4,8 @@
 @section('subseccion','Administrar Transferencias')
 @section('css')
 <link rel="stylesheet" href="{{asset('admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
-<link rel="stylesheet" href="{{asset('admin/bower_components/select2/dist/css/select2.min.css')}}">
+<link rel="stylesheet" href="{{asset('css/checkbox/checkbox.css')}}">
+<link rel="stylesheet" href="{{asset('admin/plugins/timepicker/bootstrap-timepicker.min.css')}}">
 <!-- DataTables -->
 <link rel="stylesheet" href="{{asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
 <!-- Theme style -->
@@ -21,6 +22,9 @@
 
     .example-modal .modal {
       background: transparent !important;
+    }
+    .bootstrap-timepicker-widget{
+      color:black;
     }
 </style>
 @endsection
@@ -128,9 +132,8 @@
   <script src="{{asset('admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
   <!-- FastClick -->
   <script src="{{asset('admin/bower_components/fastclick/lib/fastclick.js')}}"></script>
-  <!-- Select2 -->
-  <script src="{{asset('admin/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
   <script src="{{asset('admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
+  <script src="{{asset('admin/plugins/timepicker/bootstrap-timepicker.min.js')}}"></script>
   {{--peticiones ajax al servidor--}}
   <script>
 
@@ -154,8 +157,12 @@
       'autoWidth'   : true,
       "dom"         : '<"top"fl>rt<"bottom" p><"clear" i>'
 
-    })
-  })
+    });
+  });
+  $('.timepicker').timepicker({
+    showInputs: false,
+    defaultTime: false
+  });
     //$('.select2').select2();
     /*$('#datepicker').datepicker({
       autoclose: true,

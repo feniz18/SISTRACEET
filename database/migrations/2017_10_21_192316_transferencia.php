@@ -21,9 +21,11 @@ class Transferencia extends Migration
           $table->date('fecha_fin');
           $table->time('hora_inicio');
           $table->time('hora_fin');
-          $table->integer('sede_id')->index();
-          $table->text('descripcion')->nullable();
+          $table->integer('sede_id')->unsigned();
+          $table->foreign('sede_id')
+                ->references('id')->on('sede');
           $table->integer('cupos');
+          $table->text('descripcion')->nullable();
           $table->timestamps();
       });
     }

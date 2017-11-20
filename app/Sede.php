@@ -13,7 +13,7 @@ class Sede extends Model
     {
       $sede = Sede::find($id);
       return $sede;
-      
+
     }
 
 }

@@ -16,5 +16,11 @@ class Dia_semana extends Model
     'cedula_id','dia_semana_id');
 
   }
+  public function transferencia()
+  {
+      return $this->belongsToMany('App\Dia_semana', 'transferencia_semana',
+      'transferencia_id','dia_semana_id');
+
+  }
 
 }
