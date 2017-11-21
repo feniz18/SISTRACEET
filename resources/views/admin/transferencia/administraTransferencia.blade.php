@@ -135,6 +135,7 @@
   <script src="{{asset('admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
   <script src="{{asset('admin/plugins/timepicker/bootstrap-timepicker.min.js')}}"></script>
   {{--peticiones ajax al servidor--}}
+  <script src="{{asset('js/transferencias/guardarTransferencia.js')}}"></script>
   <script>
 
   $(window).on('load',function(){
@@ -163,11 +164,6 @@
     showInputs: false,
     defaultTime: false
   });
-    //$('.select2').select2();
-    /*$('#datepicker').datepicker({
-      autoclose: true,
-      format: "dd/mm/yyyy"
-    });*/
   </script>
 @endsection
 @section('transferecias','active')

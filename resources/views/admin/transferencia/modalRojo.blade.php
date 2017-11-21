@@ -1,7 +1,7 @@
 <!-- /.box body -->
 <div class="modal modal-danger fade" id="modal-danger">
   <div class="modal-dialog modal-lg">
-    <form role="form" id="formUpdate" enctype="multipart/form-data">
+    <form role="form" id="formTransferencia" enctype="multipart/form-data">
       <div class="progress progress-lg active" id="cargaModal">
         <div id="progreso" class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
           <span class="sr-only">0% Complete</span>
@@ -16,7 +16,6 @@
             <span aria-hidden="false">&times;</span></button>
           <h4 class="modal-title"></h4>
         </div>
-
         {{--fin header modal--}}
         {{--inicio modal body--}}
         <div class="modal-body">
@@ -146,6 +145,14 @@
               </div>
             </div>
           </div>
+          {{--fin date time picker--}}
+          <div class="row">
+            <div class="col-xs-12 col-sm-12 col-md-12 form-group" id="combo">
+              <label>Observaciones</label>
+              <textarea name="observaciones" type="textarea" class="form-control" placeholder="Observaciones de la transferencia" id='observaciones'  rows="5" cols="10"></textarea>
+            </div>
+          </div>
+
         </div>
         {{--fin modal body--}}
         {{--inicio modal footer--}}

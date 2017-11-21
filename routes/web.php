@@ -61,7 +61,6 @@ Route::group(['middleware' => ['admin','auth']],function(){
   route::get('/instructor/activar/{cedula}','Admin\DocenteController@activarDocente');
   route::get('/instructor/edit/postEdit','Admin\DocenteController@postEditarDocente');
   route::get("/administraDocentes","Admin\AdministraDocentesController@index");
-  route::get("/administraTransferencia","Admin\AdministraTransferenciasController@index");
   route::get("/logReporte","Reporte\LogController@index");
     route::post("/reportes/logs","Reporte\LogController@reporte");
     route::get("/reportes/logs/{fecha_inicio}/{fecha_fin}","Reporte\LogController@descargaReporte");
@@ -74,5 +73,9 @@ Route::group(['middleware' => ['admin','auth']],function(){
   route::get("/sedes/{id}", 'Sede\SedeController@cargaDatosSede');
   route::post("/sedes/actualiza/{id}", 'Sede\SedeController@actualizaSede');
   route::get("/sedes/eliminar/{id}", 'Sede\SedeController@eliminar');
+
+  //ruta transferencias transferencia/guardar
+  route::get("/administraTransferencia","Admin\AdministraTransferenciasController@index");
+  route::post("/transferencia/guardar","Admin\AdministraTransferenciasController@guardar");
 
 });

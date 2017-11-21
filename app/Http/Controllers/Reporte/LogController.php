@@ -61,8 +61,6 @@ class LogController extends Controller
     }
     public function descargaReporte($fecha_inicio,$fecha_fin){
 
-
-
       $data = ['fecha1' => $fecha_inicio, 'fecha2' => $fecha_fin];
 
       Excel::create('Logs SistraCeet',function($excel) use($data){
