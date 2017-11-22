@@ -122,4 +122,11 @@ class AdministraTransferenciasController extends Controller
       $request['hora_fin'] = $hora_fin->toTimeString();
       return $request;
     }
+
+    //Devuelve datos de consulta
+
+    public function transferencia($id)
+    {
+
+    }
 }
