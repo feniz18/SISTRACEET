@@ -2,7 +2,7 @@
 <div class="modal modal-danger fade" id="modal-danger">
   <div class="modal-dialog modal-lg">
     <form role="form" id="formTransferencia" enctype="multipart/form-data">
-      <div class="progress progress-lg active" id="cargaModal">
+      <div class="progress progress-lg active" id="cargaModal" style="display:none">
         <div id="progreso" class="progress-bar progress-bar-danger progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
           <span class="sr-only">0% Complete</span>
         </div>
@@ -23,7 +23,7 @@
 
           <div class="row">
             <div class="col-xs-12">
-              <div class="alert alert-warning alert-dismissible" style="display:none" id="error" >
+              <div class="alert alert-warning alert-dismissible" style="display:none" id="errorModalTransferencia" >
                 <h4><i class="icon fa fa-ban"></i> Error</h4>
                   <ul id="listaErrores">
 
@@ -44,11 +44,11 @@
           <div class="row">
               <div class="col-xs-12 col-sm-6 col-md-6 form-group">
                 <label>Fecha Inicio</label>
-                <input name = "fechaInicio" type="text" class="form-control" placeholder="Fecha inicio" id="fechaInicio">
+                <input name = "fechaInicio" type="text" class="form-control datePicker" placeholder="Fecha inicio" id="fechaInicio">
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 form-group">
                 <label>Fecha Terminación</label>
-                <input name = "fechaFinal" type="text" class="form-control apellidos" placeholder="Fecha Terminación" id='fechaFinal'>
+                <input name = "fechaFinal" type="text" class="form-control datePicker" placeholder="Fecha Terminación" id='fechaFinal'>
               </div>
           </div>
             {{--fin row--}}
@@ -157,7 +157,7 @@
         {{--fin modal body--}}
         {{--inicio modal footer--}}
         <div class="modal-footer">
-          <button type="button" id="guardar" class="btn btn-outline">Guardar</button>
+          <button type="button" id="guardar" class="btn btn-outline"  style="display:none">Guardar</button>
           <button type="button" id="actualizar" class="btn btn-outline" style="display:none">Actualizar</button>
         </div>
         {{--fin modal footer--}}

@@ -44,7 +44,7 @@
 
         <div class="row" id="contenido" style="display:none">
           <div class="col-xs-12 form-group">
-            <button class="btn btn-warning" data-toggle="modal" data-target="#modal-danger">Crear transferencia</button>
+            <button class="btn btn-warning" data-toggle="modal" data-target="#modal-danger" id="crearTransferencia">Crear transferencia</button>
           </div>
           <div class="col-xs-12">
             <div class="box">
@@ -94,7 +94,7 @@
                         {{ $transferencia->sede_id}}
                       </td>
                       <td>
-                        <a style="cursor:pointer;font-size:20px" data-toggle="modal" data-target="#modal-danger" onclick="editTrans({{$transferencia->id}})" >
+                        <a style="cursor:pointer;font-size:20px" data-toggle="modal" data-target="#modal-danger" id="{{$transferencia->id}}" class="editar">
                           <i class='fa fa-folder-open' style="color:green"></i>
                         </a>
                       </td>
@@ -136,6 +136,7 @@
   <script src="{{asset('admin/plugins/timepicker/bootstrap-timepicker.min.js')}}"></script>
   {{--peticiones ajax al servidor--}}
   <script src="{{asset('js/transferencias/guardarTransferencia.js')}}"></script>
+  <script src="{{asset('js/transferencias/cargaTransferencia.js')}}"></script>
   <script>
 
   $(window).on('load',function(){
@@ -163,6 +164,10 @@
   $('.timepicker').timepicker({
     showInputs: false,
     defaultTime: false
+  });
+  $('.datePicker').datepicker({
+    format: "dd/mm/yyyy",
+    autoclose: true,
   });
   </script>
 @endsection
