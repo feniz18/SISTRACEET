@@ -13,7 +13,8 @@ class AdministraTransferenciasController extends Controller
 {
     public function index(){
 
-      $trans = Transferencia::all();
+      $trans = Transferencia::all()->sortByDesc('id');
+    //  $trans->fecha_inicio = Carbon::createFromFormat('Y-m-d',$trans->fecha_inicio)->format("d/m/Y");
       $sede =  Sede::all();
 
       return view('admin.transferencia.administraTransferencia')
@@ -21,7 +22,7 @@ class AdministraTransferenciasController extends Controller
 
     }
 
-    public function guardar(Request $request)
+    public function guardar($id = 0,Request $request)
     {
 
       $datos = $request->all();
@@ -40,7 +41,15 @@ class AdministraTransferenciasController extends Controller
         return response()->json($request);
       }
 
-      $transferencia = new Transferencia;
+      if($id == 0)
+      {
+        $transferencia = new Transferencia;
+      }
+      else
+      {
+        $transferencia = Transferencia::find($id);
+      }
+
 
       $transferencia->nombre = $request->nombreCurso;
       $transferencia->fecha_inicio = $request->fechaInicio;
@@ -51,10 +60,25 @@ class AdministraTransferenciasController extends Controller
       $transferencia->cupos = $request->cupos;
       $transferencia->descripcion = $request->observaciones;
       $transferencia->save();
-      $transferencia = Transferencia::find($transferencia->id);
-      $transferencia->dias_semana()->attach($request->horario);
-
-      return response()->json(["final" => "Informacion almacenada correctamente"]);
+      if($id == 0)
+      {
+        $transferencia = Transferencia::find($transferencia->id);
+        $transferencia->dias_semana()->attach($request->horario);
+      }
+      else
+      {
+        $transferencia->dias_semana()->sync($request->horario);
+      }
+      if($id == 0)
+      {
+        return response()
+                ->json(["final" => "Informacion almacenada correctamente"]);
+      }
+      else
+      {
+        return response()
+                ->json(["final" => "Informacion actualizada correctamente"]);
+      }
     }
 
     public function reglasValidacion()
@@ -125,8 +149,19 @@ class AdministraTransferenciasController extends Controller
 
     //Devuelve datos de consulta
 
-    public function transferencia($id)
+    public function cargaTransferenciaModal($id)
     {
+      $transferencia = Transferencia::find($id);
+      $transferencia->fecha_inicio = Carbon::createFromFormat("Y-m-d", $transferencia->fecha_inicio)
+                                            ->format("d/m/Y");
+      $transferencia->fecha_fin = Carbon::createFromFormat("Y-m-d", $transferencia->fecha_fin)
+                                            ->format("d/m/Y");
+      $transferencia->hora_inicio = Carbon::createFromFormat("H:i:s", $transferencia->hora_inicio)
+                                            ->format("h:i A");
+      $transferencia->hora_fin = Carbon::createFromFormat("H:i:s", $transferencia->hora_fin)
+                                            ->format("h:i A");
+      $transferencia->dias_semana;
 
+      return response()->json(['transferencia' => $transferencia]);
     }
 }

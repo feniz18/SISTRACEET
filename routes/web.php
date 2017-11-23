@@ -76,6 +76,7 @@ Route::group(['middleware' => ['admin','auth']],function(){
 
   //ruta transferencias transferencia/guardar
   route::get("/administraTransferencia","Admin\AdministraTransferenciasController@index");
-  route::post("/transferencia/guardar","Admin\AdministraTransferenciasController@guardar");
+  route::post("/transferencia/guardar/{id?}","Admin\AdministraTransferenciasController@guardar");
+  route::get("/transferencias/cargamodal/{id}","Admin\AdministraTransferenciasController@cargaTransferenciaModal");
 
 });

@@ -16,4 +16,9 @@ class Sede extends Model
 
     }
 
+    public function transferencias()
+    {
+      return $this->hasMany('App\Sede','sede_id','id');
+    }
+
 }
