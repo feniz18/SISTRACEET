@@ -14,7 +14,6 @@ class AdministraTransferenciasController extends Controller
     public function index(){
 
       $trans = Transferencia::all()->sortByDesc('id');
-    //  $trans->fecha_inicio = Carbon::createFromFormat('Y-m-d',$trans->fecha_inicio)->format("d/m/Y");
       $sede =  Sede::all();
 
       return view('admin.transferencia.administraTransferencia')
@@ -163,5 +162,17 @@ class AdministraTransferenciasController extends Controller
       $transferencia->dias_semana;
 
       return response()->json(['transferencia' => $transferencia]);
+    }
+
+    public function eliminar($id)
+    {
+      $trans = Transferencia::find($id);
+      $trans->dias_semana()->detach();
+
+      $trans->delete();
+
+      return response()->json([
+        'final' => 'Informacion eliminada correctamente.'
+      ]);
     }
 }

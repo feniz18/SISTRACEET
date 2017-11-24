@@ -149,6 +149,7 @@
   <script src="{{asset('js/transferencias/guardarTransferencia.js')}}"></script>
   <script src="{{asset('js/transferencias/cargaTransferencia.js')}}"></script>
   <script src="{{asset('js/transferencias/actualizarTransferencia.js')}}"></script>
+  <script src="{{asset('js/transferencias/borrarTransferencia.js')}}"></script>
   <script>
 
   $(window).on('load',function(){

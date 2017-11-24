@@ -53,6 +53,19 @@
     </ul>
   </li>
   {{--fin seccion sedes --}}
+  {{--inicio seccion noticias--}}
+  <li class="treeview @yield('noticias')">
+    <a href="#">
+      <i class="fa fa-fw fa-newspaper-o"></i> <span>Noticias</span>
+      <span class="pull-right-container">
+        <i class="fa fa-angle-left pull-right"></i>
+      </span>
+    </a>
+    <ul class="treeview-menu">
+      <li class="@yield('noticiasBanner')"><a href="/administraNoticias"><i class="fa fa-circle-o"></i>Noticias Banner</a></li>
+    </ul>
+  </li>
+  {{--fin seccion noticias --}}
 </ul>
 </section>
 <!-- /.sidebar -->
