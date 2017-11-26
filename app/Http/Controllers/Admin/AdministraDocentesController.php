@@ -9,6 +9,8 @@ use App\Departamento;
 use App\Ciudad;
 use App\Http\Controllers\Libreria\FechaController;
 use Carbon\Carbon;
+use App\Especialidad;
+use App\Dia_semana;
 
 class AdministraDocentesController extends Controller
 {
@@ -16,9 +18,17 @@ class AdministraDocentesController extends Controller
     public function index(){
 
       $usuario = Usuario::where('rol_id','docente')->orderBy('created_at','desc')->get();
+      $especialidad = Especialidad::all()->sortBy('nombre');
 
-      return view("admin.docente.administraDocentes")->with(['usuario'=>$usuario]);
+      return view("admin.docente.administraDocentes")->with(['usuario'=>$usuario,'especialidad'=>$especialidad]);
 
+    }
+    public function indexHorario($id)
+    {
+      $usuario = Usuario::find($id);
+      $semana = Dia_semana::all();
+
+      return view('admin.docente.horario.horarioDocentes')->with(['usuario' => $usuario,'semana' =>$semana]);
     }
 
     public function cargaDatosEdicion($cedula)
@@ -26,30 +36,8 @@ class AdministraDocentesController extends Controller
 
     	$persona = Usuario::find($cedula);
 
-      if (!$persona->hora_inicio == null) {
-        $hora_inicio = Carbon::createFromFormat('H:i:s',$persona->hora_inicio);
-        $hora_fin = Carbon::createFromFormat('H:i:s',$persona->hora_fin);
-          $formato = 'h:i A';
-        $persona->hora_inicio = $hora_inicio->format($formato);
-        $persona->hora_fin = $hora_fin->format($formato);
-      }
-
       $fecha = new FechaController;
       $persona->fecha_nacimiento = (string)$fecha->formatFechaOut($persona->fecha_nacimiento);
     	return $persona;
-    }
-    public function cargaSemanaInstructor($cedula){
-
-      $persona = Usuario::find($cedula);
-      $semana =[];
-
-      foreach ($persona->dia_semana as $dias)  {
-        array_push($semana, $dias->pivot->dia_semana_id);
-      }
-
-      return response()->json($semana);
-
-    ;
-
     }
 }

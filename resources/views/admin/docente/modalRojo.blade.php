@@ -83,80 +83,17 @@
                 </select>
               </div>
             </div>
-
-              <div class="col-xs-12 form-group text-center">
-                <h4>Horario del docente</h4>
-              </div>
-
-            <div class="row" id='check-dias'>
-              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group" >
-                  <input type="checkbox" id="chulo-1" name='chulo-1'>
-                  <label for="chulo-1">LUNES</label>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group">
-                  <input type="checkbox" id="chulo-2" name='chulo-2'>
-                  <label for="chulo-2">MARTES</label>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group">
-                  <input type="checkbox" id="chulo-3" name='chulo-3'>
-                  <label for="chulo-3">MIERCOLES</label>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group">
-                  <input type="checkbox" id="chulo-4" name='chulo-4'>
-                  <label for="chulo-4">JUEVES</label>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group">
-                  <input type="checkbox" id="chulo-5" name='chulo-5'>
-                  <label for="chulo-5">VIERNES</label>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group">
-                  <input type="checkbox" id="chulo-6" name='chulo-6'>
-                  <label for="chulo-6">SABADO</label>
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 form-group">
-                  <input type="checkbox" id="chulo-7" name='chulo-7'>
-                  <label for="chulo-7">DOMINGO</label>
+            <div class="row">
+              <div class="col-xs-12 col-sm-12 col-md-12 form-group" id="combo">
+                <label>Especialidad</label>
+                <select name="especialidad" class="form-control select2" style="width: 100%; height: 100%;" id="especialidad">
+                    <option value="">Seleccione</option>
+                    @foreach($especialidad as $especialidades)
+                      <option value='{{$especialidades->id}}'>{{$especialidades->nombre}}</option>
+                    @endforeach
+                </select>
               </div>
             </div>
-          <div class="row">
-            <div class="col-xs-12 col-sm-6 col-md-6 form-group">
-              <!-- time Picker -->
-              <div class="bootstrap-timepicker">
-                <div class="form-group">
-                  <label>Inicio jornada</label>
-
-                  <div class="input-group">
-                    <input type="text" class="form-control timepicker" name='hora_inicio' id="hora_inicio">
-
-                    <div class="input-group-addon">
-                      <i class="fa fa-clock-o"></i>
-                    </div>
-                  </div>
-                  <!-- /.input group -->
-                </div>
-                <!-- /.form group -->
-              </div>
-            </div>
-
-            <div class="col-xs-12 col-sm-6 col-md-6 form-group">
-              <!-- time Picker -->
-              <div class="bootstrap-timepicker">
-                <div class="form-group">
-                  <label>Fin de jornada</label>
-
-                  <div class="input-group">
-                    <input type="text" class="form-control timepicker" name='hora_fin' id="hora_fin">
-
-                    <div class="input-group-addon">
-                      <i class="fa fa-clock-o"></i>
-                    </div>
-                  </div>
-                  <!-- /.input group -->
-                </div>
-                <!-- /.form group -->
-              </div>
-            </div>
-          </div>
         </div>
         <div class="modal-footer">
           <button type="button" id="enviar" class="btn btn-outline">Actualizar cambios</button>

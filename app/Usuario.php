@@ -18,8 +18,16 @@ class Usuario extends Authenticatable
      * @var array
      */
     protected $fillable = [
-
-        'cedula', 'nombres', 'apellidos','telefono','email','ciudad_id','rol_id','estado','created_at'
+        'cedula',
+        'nombres',
+        'apellidos',
+        'telefono',
+        'email',
+        'ciudad_id',
+        'rol_id',
+        'estado',
+        'especialidad_id',
+        'created_at'
     ];
 
     /**
@@ -43,11 +51,16 @@ class Usuario extends Authenticatable
 
     }
 
-    public function dia_semana(){
+    public function horario(){
 
       return $this->belongsToMany('App\Dia_semana', 'usuario_semana',
-      'cedula_id','dia_semana_id');
+      'cedula_id','dia_semana_id')
+       ->withPivot('hora_inicio','hora_fin');
 
+    }
+    public function especialidad()
+    {
+      return $this->belongsTo('App\Especialidad','especialidad_id','id');
     }
 
 }

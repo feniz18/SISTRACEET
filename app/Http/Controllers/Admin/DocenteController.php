@@ -9,34 +9,16 @@ use App\Http\Controllers\Libreria\FechaController;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Response;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class DocenteController extends Controller
 {
+  protected $formato_hora_in='h:i A';
+  protected $formato_hora_out='H:i:s';
     public function editar(Request $request){
-
-    /*$hora_inicio = Carbon::createFromFormat('h:i a',$request->hora_inicio);
-    return response()->json(['error' => $hora_inicio->toTimeString()]);*/
 
 
       /*--------------------------------------*/
-      $semana = [];
-      for ($i=1; $i < 8 ; $i++) {
-
-        if($request['chulo-' . $i] == 'on')
-        {
-              array_push($semana, $i);
-        };
-        //array_push($semana, $request['chulo-' . $i]);
-      }
-
-      if(count($semana)== 0){
-
-        return response()
-                      ->json(
-                        ["error" =>
-                        'Por favor seleccione un día de la
-                         semana en la seccion horario del docente']);
-      }
 
       $fecha_nacimiento = new FechaController();
       $request['fecha_nacimiento'] = $fecha_nacimiento->formatFechaIn($request->fecha_nacimiento);
@@ -51,9 +33,7 @@ class DocenteController extends Controller
         'telefono' => 'required|min:5|max:18',
         'correo' => 'required|email',
         'ciu' => 'required',
-        'hora_inicio' => 'required',
-        'hora_fin' => 'required'
-
+        'especialidad' => 'required',
       ];
 
       $validador = Validator::make($datos,$reglas);
@@ -64,8 +44,6 @@ class DocenteController extends Controller
         return response()->json($validador->errors());
 
       }
-      $hora_inicio = Carbon::createFromFormat('h:i a',$request->hora_inicio);
-      $hora_fin = Carbon::createFromFormat('h:i a',$request->hora_fin);
 
       $usuario =  Usuario::find($request->cedulaIni);
       $usuario->cedula = $request->cedula;
@@ -75,14 +53,10 @@ class DocenteController extends Controller
       $usuario->telefono = $request->telefono;
       $usuario->email = $request->correo;
       $usuario->ciudad_id = $request->ciu;
-      $usuario->hora_inicio = $hora_inicio->toTimeString();
-      $usuario->hora_fin = $hora_fin->toTimeString();
-
-
+      $usuario->especialidad_id= $request->especialidad;
       try {
 
       $usuario->save();
-      $usuario->dia_semana()->sync($semana);
 
       } catch (Exception $e) {
 
@@ -103,12 +77,6 @@ class DocenteController extends Controller
     public function postEditarDocente(){
 
           $usuarios = Usuario::where('rol_id','docente')->orderBy('created_at','desc')->get();
-
-          foreach ($usuarios as $usuario) {
-
-            $usuariosArray[] = $usuario;
-
-          }
 
           return response()->json($usuarios);
 
@@ -142,10 +110,60 @@ class DocenteController extends Controller
 
         return response()->json(false);
       }
-        $usuario->dia_semana()->detach();
         $usuario->delete();
         return response()->json(true);
 
+
+    }
+
+    public function guardarHorario(Request $request)
+    {
+      return $this->validacionesPersonalizadas($request);
+
+
+    }
+    public function validacionesPersonalizadas($request)
+    {
+      $hora_inicio = Carbon::createFromFormat($this->formato_hora_in,$request->hora_inicio);
+      $hora_fin = Carbon::createFromFormat($this->formato_hora_in,$request->hora_fin);
+
+      $respuesta =[];
+
+      if($hora_inicio==$hora_fin)
+      {
+        $respuesta = ['error'
+        =>
+        'La hora inicial no puede ser igual a la fecha final',
+        ];
+        return $respuesta;
+      }
+      else if($hora_inicio>$hora_fin)
+      {
+        $hora_fin->addDay();
+        $dia_semana =
+        DB::table('usuario')
+            ->join('usuario_semana',
+            function($join) use($request)
+            {
+              $join->on
+              (
+                'usuario.cedula','=','usuario_semana.cedula_id'
+              )
+              ->where(
+                'usuario_semana.dia_semana_id','=',$request->dia
+              );
+            })->get();
+      }
+
+
+      for ($i=0; $i < count($dia_semana) ; $i++) {
+        $hora_inicio_BD =  Carbon::createFromFormat($this->formato_hora_in,$dia_semana[i]->hora_inicio);
+        $hora_fin_BD =  Carbon::createFromFormat($this->formato_hora_in,$dia_semana[i]->hora_fin);
+        if($hora_inicio_BD>$hora_fin_BD)
+        {
+          $hora_fin_BD->addDay();
+        }
+      }
 
     }
 }

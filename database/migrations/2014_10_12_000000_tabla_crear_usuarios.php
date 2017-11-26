@@ -22,8 +22,7 @@ class TablaCrearUsuarios extends Migration
             $table->bigInteger('telefono')->nullable();
             $table->string('email')->unique();
             $table->string('password');
-            $table->time('hora_inicio')->nullable();
-            $table->time('hora_fin')->nullable();
+            $table->integer('especialidad_id')->nullable();
             $table->integer('ciudad_id')->index();
             $table->enum('rol_id',['administrador','sadministrador','docente']);
             $table->boolean('activo');

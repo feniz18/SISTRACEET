@@ -24,6 +24,8 @@ class UsuarioSemana extends Migration
             $table->bigInteger('cedula_id')->unsigned();
             $table->foreign('cedula_id')
                   ->references('cedula')->on('usuario');
+            $table->time('hora_inicio');
+            $table->time('hora_fin');
 
         });
     }
