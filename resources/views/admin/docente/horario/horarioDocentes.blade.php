@@ -1,4 +1,5 @@
 @extends('plantillas.general')
+use Carbon\Carbon;
 @section('titulo','Administracion de instructores')
 @section('seccion','Editar horario')
 @section('subseccion','Instructor '. $usuario->nombres . " " . $usuario->apellidos)
@@ -72,41 +73,37 @@
                     </tr>
                   </thead>
                   <tbody id="docenteBody">
-
-                    {{--@foreach ($usuario as $instructor)
+                    @foreach ($usuario->horario as $instructor)
+                      @php
+                        $formato_in = 'H:i:s';
+                        $formato_out = 'h:i A';
+                        $hora_inicio = Carbon\Carbon::createFromFormat($formato_in,$instructor->pivot->hora_inicio);
+                        $hora_inicio = $hora_inicio->format($formato_out);
+                        $hora_fin = Carbon\Carbon::createFromFormat($formato_in,$instructor->pivot->hora_fin);
+                        $hora_fin = $hora_fin->format($formato_out);
+                      @endphp
                     <tr class="text-center">
                       <td>
-                        {{ $instructor->cedula}}
+                        {{ $instructor->descripcion}}
                       </td>
                       <td>
-                        {{ $instructor->nombres}}
+                        {{ $hora_inicio}}
                       </td>
                       <td>
-                        {{ $instructor->apellidos}}
+                        {{ $hora_fin}}
                       </td>
                       <td>
-                        {{ $instructor->telefono}}
-                      </td>
-                      <td>
-                        @if($instructor->activo)
-                          <a onClick="activaDocente({{$instructor->cedula}},1);" style="cursor:pointer;font-size:20px" id="{{$instructor->cedula}}"><i class='fa fa-check-square' style="color:green"></i></a>
-                        @else
-                          <a onClick="activaDocente({{$instructor->cedula}},0);" style="cursor:pointer;font-size:20px" id="{{$instructor->cedula}}"><i class='fa fa-square-o' style="color:red"></i>
-                        @endif
-                      </td>
-                      <td>
-                        <a style="cursor:pointer;font-size:20px" data-toggle="modal" data-target="#modal-danger" onclick="infDocente({{$instructor->cedula}})" >
+                        <a style="cursor:pointer;font-size:20px" data-toggle="modal" data-target="#modal-danger" value="{{$instructor->pivot->id}}">
                           <i class='fa fa-folder-open' style="color:green"></i>
                         </a>
                       </td>
                       <td>
-                        <a style="cursor:pointer;font-size:20px" value="{{$instructor->cedula}}" class="borrar">
+                        <a style="cursor:pointer;font-size:20px" value="{{$instructor->id}}" class="borrar">
                           <i class='fa fa-fw fa-times' style="color:red"></i>
                         </a>
                       </td>
                     </tr>
                     @endforeach
---}}
                   <tbody>
                     @include('admin.docente.horario.modalRojo')
                 </table>

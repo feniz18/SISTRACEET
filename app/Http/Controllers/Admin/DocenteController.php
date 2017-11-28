@@ -119,8 +119,6 @@ class DocenteController extends Controller
     public function guardarHorario(Request $request)
     {
       return $this->validacionesPersonalizadas($request);
-
-
     }
     public function validacionesPersonalizadas($request)
     {
@@ -140,28 +138,42 @@ class DocenteController extends Controller
       else if($hora_inicio>$hora_fin)
       {
         $hora_fin->addDay();
-        $dia_semana =
-        DB::table('usuario')
-            ->join('usuario_semana',
-            function($join) use($request)
-            {
-              $join->on
-              (
-                'usuario.cedula','=','usuario_semana.cedula_id'
-              )
-              ->where(
-                'usuario_semana.dia_semana_id','=',$request->dia
-              );
-            })->get();
       }
-
+      $dia_semana =
+      DB::table('usuario')
+          ->join('usuario_semana',
+          function($join) use($request)
+          {
+            $join->on
+            (
+              'usuario.cedula','=','usuario_semana.cedula_id'
+            )
+            ->where(
+              'usuario_semana.dia_semana_id','=',$request->dia
+            );
+          })->where('usuario.cedula','=',$request->cedula)->get();
 
       for ($i=0; $i < count($dia_semana) ; $i++) {
-        $hora_inicio_BD =  Carbon::createFromFormat($this->formato_hora_in,$dia_semana[i]->hora_inicio);
-        $hora_fin_BD =  Carbon::createFromFormat($this->formato_hora_in,$dia_semana[i]->hora_fin);
+        $hora_inicio_BD =  Carbon::createFromFormat($this->formato_hora_out,$dia_semana[$i]->hora_inicio);
+        $hora_fin_BD =  Carbon::createFromFormat($this->formato_hora_out,$dia_semana[$i]->hora_fin);
         if($hora_inicio_BD>$hora_fin_BD)
         {
           $hora_fin_BD->addDay();
+        }
+
+        if($hora_inicio->between($hora_inicio_BD,$hora_fin_BD)
+          or
+          $hora_fin->between($hora_inicio_BD,$hora_fin_BD)
+          or
+          $hora_inicio_BD->between($hora_inicio,$hora_fin)
+          or
+          $hora_fin_BD->between($hora_inicio,$hora_fin)
+          )
+        {
+          $respuesta = [
+            'error' => 'Ya existe un horario con este rango por favor verifique'
+          ];
+          return $respuesta;
         }
       }
 

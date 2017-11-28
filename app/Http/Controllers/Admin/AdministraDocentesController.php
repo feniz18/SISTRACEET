@@ -28,6 +28,7 @@ class AdministraDocentesController extends Controller
       $usuario = Usuario::find($id);
       $semana = Dia_semana::all();
 
+
       return view('admin.docente.horario.horarioDocentes')->with(['usuario' => $usuario,'semana' =>$semana]);
     }
 

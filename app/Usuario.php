@@ -55,7 +55,7 @@ class Usuario extends Authenticatable
 
       return $this->belongsToMany('App\Dia_semana', 'usuario_semana',
       'cedula_id','dia_semana_id')
-       ->withPivot('hora_inicio','hora_fin');
+       ->withPivot('hora_inicio','hora_fin','id');
 
     }
     public function especialidad()
