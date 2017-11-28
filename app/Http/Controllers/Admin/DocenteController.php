@@ -118,7 +118,22 @@ class DocenteController extends Controller
 
     public function guardarHorario(Request $request)
     {
-      return $this->validacionesPersonalizadas($request);
+
+      $datos = $request->all();
+      $reglas = $this->reglas();
+
+      $validacion = Validator::make($datos,$reglas);
+
+      if($validacion->fails())
+      {
+        
+      }
+
+      $request = $this->validacionesPersonalizadas($request);
+      if(!is_object($request))
+      {
+        return $request;
+      }
     }
     public function validacionesPersonalizadas($request)
     {
@@ -176,6 +191,19 @@ class DocenteController extends Controller
           return $respuesta;
         }
       }
+      $request['hora_inicio'] = $hora_inicio->format($this->formato_hora_out);
+      $request['hora_fin'] = $hora_fin->format($this->formato_hora_out);
 
+      return $request;
+    }
+
+    public function reglas()
+    {
+      return $reglas=
+      [
+        'dia' => 'required',
+        'hora_inicio' => 'required',
+        'hora_fin' => 'required'
+      ];
     }
 }
