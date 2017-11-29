@@ -13,7 +13,7 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="false">&times;</span></button>
-          <h4 class="modal-title">Nuevo horario instructor {{$usuario->nombres}} {{$usuario->apellidos}}</h4>
+          <h4 class="modal-title">Horario instructor {{$usuario->nombres}} {{$usuario->apellidos}}</h4>
         </div>
         <div class="modal-body">
           <!-- formulario edicion-->
@@ -93,7 +93,6 @@
         </div>
         <div class="modal-footer">
           <button type="button" id="guardar" class="btn btn-outline">Guardar</button>
-          <button type="button" id="actualizar" class="btn btn-outline" style="display:none">Actualizar</button>
         </div>
       </div>
     <!-- /.modal-content -->

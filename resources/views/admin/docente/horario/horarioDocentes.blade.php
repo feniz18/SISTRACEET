@@ -66,9 +66,8 @@ use Carbon\Carbon;
                   <thead>
                     <tr>
                       <th>Dia semana</th>
-                      <th>hora inicio</th>
-                      <th>hora fin</th>
-                      <th style="width: 40px">Editar</th>
+                      <th>Hora inicio</th>
+                      <th>Hora fin</th>
                       <th style="width: 40px">Eliminar</th>
                     </tr>
                   </thead>
@@ -93,12 +92,7 @@ use Carbon\Carbon;
                         {{ $hora_fin}}
                       </td>
                       <td>
-                        <a style="cursor:pointer;font-size:20px" data-toggle="modal" data-target="#modal-danger" value="{{$instructor->pivot->id}}">
-                          <i class='fa fa-folder-open' style="color:green"></i>
-                        </a>
-                      </td>
-                      <td>
-                        <a style="cursor:pointer;font-size:20px" value="{{$instructor->id}}" class="borrar">
+                        <a style="cursor:pointer;font-size:20px" value="{{$instructor->pivot->id}}" class="borrar">
                           <i class='fa fa-fw fa-times' style="color:red"></i>
                         </a>
                       </td>
@@ -138,9 +132,8 @@ use Carbon\Carbon;
 
   </script>
   {{--peticiones ajax al servidor--}}
-  <script src={{asset('js/docentes/horario/guarda.js')}}>
-
-  </script>
+  <script src={{asset('js/docentes/horario/guarda.js')}}></script>
+  <script src={{asset('js/docentes/horario/elimina.js')}}></script>
   <script>
 
 

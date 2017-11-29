@@ -68,6 +68,7 @@ Route::group(['middleware' => ['admin','auth']],function(){
 
   route::get('/instructor/horario/{id}','Admin\AdministraDocentesController@indexHorario');
   route::post('/instructor/horario/guardar','Admin\DocenteController@guardarHorario');
+  route::get('/instructor/horario/elimina/{id}','Admin\AdministraDocentesController@eliminaDatosHorario');
 
   //ruta de Sedes
 

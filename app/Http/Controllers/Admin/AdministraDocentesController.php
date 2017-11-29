@@ -11,6 +11,7 @@ use App\Http\Controllers\Libreria\FechaController;
 use Carbon\Carbon;
 use App\Especialidad;
 use App\Dia_semana;
+use App\UsuarioSemana;
 
 class AdministraDocentesController extends Controller
 {
@@ -40,5 +41,14 @@ class AdministraDocentesController extends Controller
       $fecha = new FechaController;
       $persona->fecha_nacimiento = (string)$fecha->formatFechaOut($persona->fecha_nacimiento);
     	return $persona;
+    }
+    public function eliminaDatosHorario($id)
+    {
+      $usuario_semana = UsuarioSemana::find($id);
+      $cedula = $usuario_semana->cedula_id;
+
+      $usuario_semana->delete();
+
+      return response()->json(['final' => 'Horario eliminado correctamente','cedula' => $cedula]);
     }
 }
