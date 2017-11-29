@@ -49,7 +49,7 @@ use Carbon\Carbon;
                   Regresar
                 </a>
                 <div class="pull-right">
-                  <a class="btn btn-warning" data-toggle="modal" data-target="#modal-danger">
+                  <a class="btn btn-warning" data-toggle="modal" data-target="#modal-danger" id="nuevoHorario">
                     Nuevo horario
                   </a>
                 </div>

@@ -126,7 +126,7 @@ class DocenteController extends Controller
 
       if($validacion->fails())
       {
-        
+        return response()->json($validacion->errors());
       }
 
       $request = $this->validacionesPersonalizadas($request);
@@ -134,7 +134,22 @@ class DocenteController extends Controller
       {
         return $request;
       }
+
+      $usuario = Usuario::find($request->cedula);
+      $usuario->horario()
+              ->attach($request->dia,
+              ['hora_inicio'=> $request->hora_inicio,
+               'hora_fin' => $request->hora_fin]
+              );
+
+      return response()->json(
+        [
+          'final' => "informacion actualizada correctamente.",
+          'cedula' => $request->cedula,
+        ]
+      );
     }
+
     public function validacionesPersonalizadas($request)
     {
       $hora_inicio = Carbon::createFromFormat($this->formato_hora_in,$request->hora_inicio);
@@ -176,7 +191,8 @@ class DocenteController extends Controller
           $hora_fin_BD->addDay();
         }
 
-        if($hora_inicio->between($hora_inicio_BD,$hora_fin_BD)
+        if(
+          $hora_inicio->between($hora_inicio_BD,$hora_fin_BD)
           or
           $hora_fin->between($hora_inicio_BD,$hora_fin_BD)
           or
