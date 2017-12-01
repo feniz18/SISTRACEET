@@ -84,6 +84,9 @@ Route::group(['middleware' => ['admin','auth']],function(){
   route::get("/transferencias/cargamodal/{id}","Admin\AdministraTransferenciasController@cargaTransferenciaModal");
   route::get("/transferencias/eliminar/{id}","Admin\AdministraTransferenciasController@eliminar");
 
+  //ruta horario transferencia
+    route::get('/transferencia/horario/{id}','Transferencia\HorarioTransferenciaController@index');
+
   //rutas noticias
   route::get("/administraNoticias","Noticia\NoticiaController@index");
   route::get("/crearNoticias","Noticia\NoticiaController@indexCrear");

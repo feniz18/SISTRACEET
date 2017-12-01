@@ -61,10 +61,9 @@
                       <th>Nombre de la transferencia</th>
                       <th>Fecha inicio</th>
                       <th>Fecha fin</th>
-                      <th>Hora inicio</th>
-                      <th>Hora fin</th>
                       <th>Sede</th>
                       <th>Dirección</th>
+                      <th>Horario Transferencia</th>
                       <th style="width: 40px">Editar</th>
                       <th style="width: 40px">Eliminar</th>
                     </tr>
@@ -76,9 +75,8 @@
                       @php
                         $transferencia->fecha_inicio = Carbon\Carbon::createFromFormat("Y-m-d", $transferencia->fecha_inicio)->format("d/m/Y");
                         $transferencia->fecha_fin = Carbon\Carbon::createFromFormat("Y-m-d", $transferencia->fecha_fin)->format("d/m/Y");
-                        $transferencia->hora_inicio = Carbon\Carbon::createFromFormat("H:i:s", $transferencia->hora_inicio)->format("h:i A");
-                        $transferencia->hora_fin = Carbon\Carbon::createFromFormat("H:i:s", $transferencia->hora_fin)->format("h:i A");
                       @endphp
+
                     <tr class="text-center">
                       <td>
                         {{ $transferencia->id}}
@@ -93,16 +91,15 @@
                         {{ $transferencia->fecha_fin}}
                       </td>
                       <td>
-                        {{ $transferencia->hora_inicio}}
-                      </td>
-                      <td>
-                        {{ $transferencia->hora_fin}}
-                      </td>
-                      <td>
                         {{ $transferencia->sede->nombre}}
                       </td>
                       <td>
                         {{ $transferencia->sede->direccion}}
+                      </td>
+                      <td>
+                        <a style="cursor:pointer;font-size:20px" href="{{'/transferencia/horario/' . $transferencia->id}}">
+                          <i class='fa fa-fw fa-clock-o' style="color:green"></i>
+                        </a>
                       </td>
                       <td>
                         <a style="cursor:pointer;font-size:20px" data-toggle="modal" data-target="#modal-danger" id="{{$transferencia->id}}" class="editar">

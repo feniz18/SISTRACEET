@@ -22,6 +22,8 @@ class TablaPivoteTransferencia extends Migration
             $table->integer('transferencia_id')->unsigned();
             $table->foreign('transferencia_id')
                   ->references('id')->on('transferencia');
+            $table->time('hora_inicio');
+            $table->time('hora_fin');
         });
     }
 

@@ -13,4 +13,8 @@ class Especialidad extends Model
     {
       return $this->hasMany('App\Usuario','especialidad_id','id');
     }
+    public function transferencia()
+    {
+      return $this->hasMany('App\Transferencia','especialidad_id','id');
+    }
 }

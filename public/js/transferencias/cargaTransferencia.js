@@ -22,16 +22,12 @@ function cargaTransferenciaModal(id)
 
 function cargaTransferenciaModalInput(data)
 {
-  $.each(data.transferencia.dias_semana,function(i,semana)
-  {
-    $('#chulo-'+ semana.id).attr('checked',true);
-  });
+
   $('#nombreCurso').val(data.transferencia.nombre);
   $('#fechaInicio').val(data.transferencia.fecha_inicio);
   $('#fechaFinal').val(data.transferencia.fecha_fin);
-  $('#hora_inicio').val(data.transferencia.hora_inicio);
-  $('#hora_fin').val(data.transferencia.hora_fin);
   $('#sede').val(data.transferencia.sede_id);
+  $('#especialidad').val(data.transferencia.especialidad_id);
   $('#cupos').val(data.transferencia.cupos);
   $('#observaciones').val(data.transferencia.descripcion);
   $('#actualizar').attr('value',data.transferencia.id);

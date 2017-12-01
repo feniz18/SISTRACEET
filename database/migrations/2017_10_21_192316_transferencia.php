@@ -19,8 +19,7 @@ class Transferencia extends Migration
           $table->string('nombre');
           $table->date('fecha_inicio');
           $table->date('fecha_fin');
-          $table->time('hora_inicio');
-          $table->time('hora_fin');
+          $table->integer('especialidad_id');
           $table->integer('sede_id')->unsigned();
           $table->foreign('sede_id')
                 ->references('id')->on('sede');

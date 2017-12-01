@@ -12,15 +12,22 @@ class Dia_semana extends Model
 
   public function usuario(){
 
-    return $this->belongsToMany('App\Usuario', 'usuario_semana',
-    'cedula_id','dia_semana_id')
+    return $this->belongsToMany(
+      'App\Usuario',
+      'usuario_semana',
+      'cedula_id',
+      'dia_semana_id')
      ->withPivot('hora_inicio','hora_fin');
 
   }
   public function transferencia()
   {
-      return $this->belongsToMany('App\Dia_semana', 'transferencia_semana',
-      'transferencia_id','dia_semana_id');
+    return $this->belongsToMany(
+      'App\Dia_semana',
+      'transferencia_semana',
+      'transferencia_id',
+      'dia_semana_id')
+      ->withPivot('id','hora_inicio','hora_fin');
 
   }
 
