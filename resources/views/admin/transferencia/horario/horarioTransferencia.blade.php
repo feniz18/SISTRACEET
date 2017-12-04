@@ -127,10 +127,11 @@
   <!-- Select2 -->
   <script src="{{asset('admin/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
   <script src="{{asset('admin/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js')}}"></script>
-  <script src="{{asset('admin/plugins/timepicker/bootstrap-timepicker.min.js')}}">
+  <script src="{{asset('admin/plugins/timepicker/bootstrap-timepicker.min.js')}}"></script>
 
-  </script>
   {{--peticiones ajax al servidor--}}
+  <script src="{{asset('js/transferencias/horario/guarda.js')}}"></script>
+  <script src="{{asset('js/transferencias/horario/elimina.js')}}"></script>
   <script>
 
 

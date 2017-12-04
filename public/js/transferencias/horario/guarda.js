@@ -17,7 +17,7 @@ function guardaHorario()
     $.ajax(
       {
         type:'POST',
-        url:'/instructor/horario/guardar',
+        url:'/transferencia/horario/guardar',
         data: $('#formUpdate').serialize(),
         success: function(e)
         {
@@ -43,6 +43,6 @@ function postGuardaHorario(data)
   else
   {
     alert(data.final);
-    location.href="/instructor/horario/" + data.cedula;
+    location.href="/transferencia/horario/" + data.id;
   }
 }

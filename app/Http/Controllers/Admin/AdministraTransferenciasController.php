@@ -136,7 +136,7 @@ class AdministraTransferenciasController extends Controller
     public function eliminar($id)
     {
       $trans = Transferencia::find($id);
-      $trans->dias_semana()->detach();
+      $trans->horario()->detach();
 
       $trans->delete();
 

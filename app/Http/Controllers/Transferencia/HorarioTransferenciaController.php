@@ -6,11 +6,15 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Transferencia;
 use App\Dia_semana;
+use App\TransferenciaSemana;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Validator;
 
 class HorarioTransferenciaController extends Controller
 {
+  protected $formato_hora_in='h:i A';
+  protected $formato_hora_out='H:i:s';
     public function index($id)
     {
       $transferencia = Transferencia::find($id);
@@ -37,8 +41,8 @@ class HorarioTransferenciaController extends Controller
         return $request;
       }
 
-      $usuario = Usuario::find($request->cedula);
-      $usuario->horario()
+      $transferencia = Transferencia::find($request->idTransferencia);
+      $transferencia->horario()
               ->attach($request->dia,
               ['hora_inicio'=> $request->hora_inicio,
                'hora_fin' => $request->hora_fin]
@@ -47,7 +51,7 @@ class HorarioTransferenciaController extends Controller
       return response()->json(
         [
           'final' => "informacion actualizada correctamente.",
-          'cedula' => $request->cedula,
+          'id' => $request->idTransferencia,
         ]
       );
     }
@@ -57,7 +61,7 @@ class HorarioTransferenciaController extends Controller
       $hora_inicio = Carbon::createFromFormat($this->formato_hora_in,$request->hora_inicio);
       $hora_fin = Carbon::createFromFormat($this->formato_hora_in,$request->hora_fin);
 
-      $respuesta =[];
+      $respuesta = [];
 
       if($hora_inicio==$hora_fin)
       {
@@ -123,5 +127,15 @@ class HorarioTransferenciaController extends Controller
         'hora_inicio' => 'required',
         'hora_fin' => 'required'
       ];
+    }
+
+    public function eliminarHorario($id)
+    {
+      $transferencia_semana = TransferenciaSemana::find($id);
+      $id = $transferencia_semana->transferencia_id;
+
+      $transferencia_semana->delete();
+
+      return response()->json(['final' => 'Horario eliminado correctamente','id' => $id]);
     }
 }

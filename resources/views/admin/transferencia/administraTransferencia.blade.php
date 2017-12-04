@@ -26,6 +26,10 @@
     .bootstrap-timepicker-widget{
       color:black;
     }
+    .selecciona
+    {
+      background-color:#FCB8A9;
+    }
 </style>
 @endsection
 @section('contenido')
@@ -45,6 +49,7 @@
         <div class="row" id="contenido" style="display:none">
           <div class="col-xs-12 form-group">
             <button class="btn btn-warning" data-toggle="modal" data-target="#modal-danger" id="crearTransferencia">Crear transferencia</button>
+            <button class="btn btn-success" id="btn-inscripcion">Inscribir transferencia</button>
           </div>
           <div class="col-xs-12">
             <div class="box">
@@ -59,6 +64,7 @@
                     <tr>
                       <th>Id</th>
                       <th>Nombre de la transferencia</th>
+                      <th>Cupos</th>
                       <th>Fecha inicio</th>
                       <th>Fecha fin</th>
                       <th>Sede</th>
@@ -77,24 +83,27 @@
                         $transferencia->fecha_fin = Carbon\Carbon::createFromFormat("Y-m-d", $transferencia->fecha_fin)->format("d/m/Y");
                       @endphp
 
-                    <tr class="text-center">
-                      <td>
-                        {{ $transferencia->id}}
+                    <tr class="text-center" id='filaTabla'>
+                      <td id='idTransferencia' value='{{$transferencia->id}}'>
+                        {{$transferencia->id}}
                       </td>
                       <td>
-                        {{ $transferencia->nombre}}
+                        {{$transferencia->nombre}}
+                      </td>
+                      <td id='transferenciaCupo' value='{{$transferencia->cupos}}'>
+                        {{$transferencia->cupos}}
                       </td>
                       <td>
-                        {{ $transferencia->fecha_inicio}}
+                        {{$transferencia->fecha_inicio}}
                       </td>
                       <td>
-                        {{ $transferencia->fecha_fin}}
+                        {{$transferencia->fecha_fin}}
                       </td>
                       <td>
-                        {{ $transferencia->sede->nombre}}
+                        {{$transferencia->sede->nombre}}
                       </td>
                       <td>
-                        {{ $transferencia->sede->direccion}}
+                        {{$transferencia->sede->direccion}}
                       </td>
                       <td>
                         <a style="cursor:pointer;font-size:20px" href="{{'/transferencia/horario/' . $transferencia->id}}">
@@ -125,6 +134,7 @@
       </div>
     <!-- /.row -->
     @include('admin.transferencia.modalRojo')
+    @include('admin.transferencia.modalInscripcion')
 
 
 @endsection
@@ -136,6 +146,7 @@
 
 @include('plantillas.all.usuario')
 @section('js')
+  <script src="{{asset('jquery/js.cookie.js')}}"></script>
   <script src="{{asset('admin/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
   <script src="{{asset('admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
   <!-- FastClick -->
@@ -147,6 +158,8 @@
   <script src="{{asset('js/transferencias/cargaTransferencia.js')}}"></script>
   <script src="{{asset('js/transferencias/actualizarTransferencia.js')}}"></script>
   <script src="{{asset('js/transferencias/borrarTransferencia.js')}}"></script>
+  <script src="{{asset('js/transferencias/seleccionar.js')}}"></script>
+  <script src="{{asset('js/transferencias/inscripcion/cargaDatos.js')}}"></script>
   <script>
 
   $(window).on('load',function(){
@@ -160,7 +173,7 @@
   <script>
 
   $(function () {
-    $('#tablaTransferencia').DataTable({
+    $('#tablaTransferencia,#tablaSeleccionInstructores').DataTable({
       'paging'      : true,
       'lengthChange': false,
       'searching'   : true,

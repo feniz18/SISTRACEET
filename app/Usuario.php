@@ -63,4 +63,9 @@ class Usuario extends Authenticatable
       return $this->belongsTo('App\Especialidad','especialidad_id','id');
     }
 
+    public function pivoteUsuario()
+    {
+      return $this->hasMany('App\UsuarioSemana','cedula_id', 'cedula');
+    }
+
 }

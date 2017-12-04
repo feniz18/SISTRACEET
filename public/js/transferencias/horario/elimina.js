@@ -10,11 +10,11 @@ function borrarHorario(id)
     $.ajax(
       {
         type: 'GET',
-        url: '/instructor/horario/elimina/' + id,
+        url: '/transferencia/horario/elimina/' + id,
         success: function(e)
         {
           alert(e.final);
-          location.href = '/instructor/horario/' + e.cedula;
+          location.href = '/transferencia/horario/' + e.id;
         }
       }
     );

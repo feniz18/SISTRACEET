@@ -86,6 +86,11 @@ Route::group(['middleware' => ['admin','auth']],function(){
 
   //ruta horario transferencia
     route::get('/transferencia/horario/{id}','Transferencia\HorarioTransferenciaController@index');
+    route::post('/transferencia/horario/guardar','Transferencia\HorarioTransferenciaController@guardarHorario');
+    route::get('/transferencia/horario/elimina/{id}','Transferencia\HorarioTransferenciaController@eliminarHorario');
+  //registro transferencias
+
+  route::get('/transferencia/registro/cargamodal/{id}','Transferencia\InscripcionTransferencia@cargaDatosModalUsuario');
 
   //rutas noticias
   route::get("/administraNoticias","Noticia\NoticiaController@index");
