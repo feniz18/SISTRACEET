@@ -59,7 +59,7 @@
                       <th>Nombres</th>
                       <th>Apellidos</th>
                       <th>Telefono</th>
-                      <th>Horario Docente</th>
+                      <th>Horario</th>
                       <th style="width: 40px">Estado</th>
                       <th style="width: 40px">Editar</th>
                       <th style="width: 40px">Eliminar</th>

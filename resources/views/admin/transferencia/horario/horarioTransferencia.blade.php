@@ -71,7 +71,8 @@
                     </tr>
                   </thead>
                   <tbody id="docenteBody">
-                    @foreach ($transferencia->horario as $horarios)
+          
+                    @foreach ( $transferencia->horario->sortBy('id') as $horarios)
                       @php
                         $formato_in = 'H:i:s';
                         $formato_out = 'h:i A';

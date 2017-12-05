@@ -69,7 +69,7 @@
                       <th>Fecha fin</th>
                       <th>Sede</th>
                       <th>Dirección</th>
-                      <th>Horario Transferencia</th>
+                      <th style="width: 40px">Horario</th>
                       <th style="width: 40px">Editar</th>
                       <th style="width: 40px">Eliminar</th>
                     </tr>

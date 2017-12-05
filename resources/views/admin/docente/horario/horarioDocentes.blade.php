@@ -72,7 +72,7 @@ use Carbon\Carbon;
                     </tr>
                   </thead>
                   <tbody id="docenteBody">
-                    @foreach ($usuario->horario as $instructor)
+                    @foreach ($usuario->horario->sortBy('id') as $instructor)
                       @php
                         $formato_in = 'H:i:s';
                         $formato_out = 'h:i A';

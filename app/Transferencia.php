@@ -23,7 +23,7 @@ class Transferencia extends Model
     public function horario()
     {
         return $this->belongsToMany('App\Dia_semana', 'transferencia_semana',
-        'transferencia_id','dia_semana_id')->withPivot('id','hora_inicio','hora_fin');
+        'transferencia_id','dia_semana_id')->withPivot('id','hora_inicio','hora_fin','dia_semana_id');
     }
 
     public function sede()

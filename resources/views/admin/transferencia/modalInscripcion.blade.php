@@ -30,9 +30,6 @@
               </thead>
               <tbody id="modalBodyRegistraTrans">
                 <tr>
-                  <td>183</td>
-                  <td>John Doe</td>
-                  <td>11-7-2014</td>
                 </tr>
             </tbody>
             </table>
@@ -41,8 +38,7 @@
         {{--fin modal body--}}
         {{--inicio modal footer--}}
         <div class="modal-footer">
-          <button type="button" id="guardar" class="btn btn-outline"  style="display:none">Guardar</button>
-          <button type="button" id="actualizar" class="btn btn-outline" style="display:none">Actualizar</button>
+          <button type="button" id="registrar" class="btn btn-outline"  style="display:none">Inscribir Usuarios</button>
         </div>
         {{--fin modal footer--}}
       </form>
