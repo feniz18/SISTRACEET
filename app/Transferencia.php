@@ -33,10 +33,19 @@ class Transferencia extends Model
 
     public function especialidades()
     {
-      return $this->belongsTo('App\Especialidad','especialidad_id','id');
+      return $this->belongsTo('App\Usuario','especialidad_id','id');
     }
-    public function pivoteTransferencia()
+    public function pivoteUsuario()
     {
       return $this->hasMany('App\TransferenciaSemana','transferencia_id','id');
+    }
+    public function usuarios_transferencias()
+    {
+        return $this->belongsToMany(
+          'App\Usuario',
+          'usuario_transferencia',
+          'transferencia_id',
+          'usuario_id'
+        );
     }
 }

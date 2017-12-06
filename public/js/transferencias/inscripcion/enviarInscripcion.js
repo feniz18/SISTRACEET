@@ -2,6 +2,29 @@ $('#registrarTransferencia').on('click', function() {
   validaCheckbox();
 });
 
+$(document).on('change','.chulo',function()
+{
+  var contador = 0;
+  var cupos = Cookies.get('cuposTransferencia');
+  $("#tablaSeleccionInstructores .chulo").each(function()
+  {
+    var chulo = $(this).prop('checked');
+
+    if(chulo == true)
+    {
+      contador++;
+    }
+
+    if(contador>cupos)
+    {
+      alert("Ha excedido el numero de cupos de la transferencia solo puede registrar a " + cupos + ' usuarios.');
+      $(this).prop('checked', false);
+      return false;
+    }
+  });
+
+});
+
 function validaCheckbox()
 {
   var instructores = [];
@@ -36,7 +59,13 @@ function enviarInscripcion(instructores)
     data:
     {
       "_token":  $('meta[name="csrf-token"]').attr('content'),
-      "instructores" : instructores
+      "instructores" : instructores,
+      "id_transferencia" : Cookies.get('idTransferencia'),
     },
+    success: function(data)
+    {
+      alert(data.final);
+      location.href = '/administraTransferencia';
+    }
   });
 }

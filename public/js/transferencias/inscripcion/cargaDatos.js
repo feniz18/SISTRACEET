@@ -1,10 +1,12 @@
 $('#btn-inscripcion').on('click', function() {
     if($('.selecciona').length)
       {
+         $('#tablaSeleccionInstructores').dataTable().fnDestroy();
         $('#modal-success').modal('show');
         var id = $('.selecciona #idTransferencia').attr('value');
         var cupos = $('.selecciona #transferenciaCupo').attr('value');
         Cookies.set('cuposTransferencia',cupos);
+        Cookies.set('idTransferencia',id);
         cargaModal(id);
       }
       else
@@ -51,15 +53,14 @@ function postcargaModal(data)
   $('#cargaModalRegistraTrans').fadeOut(1000);
   $('#modalContenidoRegistraTrans').fadeIn(1000);
 
+   $('#tablaSeleccionInstructores').dataTable({
+     'paging'      : true,
+     'lengthChange': false,
+     'searching'   : true,
+     'ordering'    : false,
+     'info'        : true,
+     'autoWidth'   : true,
+     "dom"         : '<"top"fl>rt<"bottom" p><"clear" i>'
+   });
 
-    $('#tablaSeleccionInstructores').DataTable({
-      'paging'      : true,
-      'lengthChange': false,
-      'searching'   : true,
-      'ordering'    : false,
-      'info'        : true,
-      'autoWidth'   : true,
-      "dom"         : '<"top"fl>rt<"bottom" p><"clear" i>'
-
-    });
 }

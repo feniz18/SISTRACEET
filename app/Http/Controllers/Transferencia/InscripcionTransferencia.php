@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Transferencia;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\UsuarioTransferencia;
 use Carbon\Carbon;
 use App\TransferenciaSemana;
 use App\UsuarioSemana;
@@ -18,8 +19,9 @@ class InscripcionTransferencia extends Controller
     {
       $usuarios_verificados = $this->cargaDatosModal($id);
       $usuarios = Usuario::whereIn('cedula', $usuarios_verificados)->get();
+      $usuarios_registrado = Usuario::find('12345678')->pivoteTransferencia()->where('transferencia_id', $id)->first();
 
-        return response()->json($usuarios);
+        return response()->json($usuarios_registrado);
     }
 
     public function cargaDatosModal($id)
@@ -137,6 +139,12 @@ class InscripcionTransferencia extends Controller
 
     public function registrarTransferencia(Request $request)
     {
-        return $request;
+        $transferencia = Transferencia::find($request->id_transferencia);
+
+        $instructores_id = json_decode($request->instructores);
+
+        $transferencia->usuarios_transferencias()->sync($instructores_id);
+
+        return response()->json(['final' => 'Informacion almacenada correctamente']);
     }
 }

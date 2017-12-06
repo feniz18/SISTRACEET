@@ -68,4 +68,19 @@ class Usuario extends Authenticatable
       return $this->hasMany('App\UsuarioSemana','cedula_id', 'cedula');
     }
 
+    public function usuarios_transferencias()
+    {
+        return $this->belongsToMany(
+          'App\Transferencia',
+          'usuario_transferencia',
+          'usuario_id',
+          'transferencia_id'
+        );
+    }
+
+    public function pivoteTransferencia()
+    {
+      return $this->hasMany('App\UsuarioTransferencia','usuario_id', 'cedula');
+    }
+
 }
