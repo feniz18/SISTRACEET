@@ -44,10 +44,22 @@ function postcargaModal(data)
 
   $.each(data,function(e,datos)
   {
-    html = html +'<tr><td>1</td><td>' + datos.cedula + '</td><td>' + datos.nombres + ' ' + datos.apellidos + '</td></tr>';
+    html = html +'<tr><td><div class="checkbox checkbox-danger"><input value="' + datos.cedula +'" id="chulo-'+ e +'" class="chulo" type="checkbox"><label for="chulo-'+ e +'"></label></div></td><td>' + datos.cedula + '</td><td>' + datos.nombres + ' ' + datos.apellidos + '</td></tr>';
   });
 
   $('#modalBodyRegistraTrans').html(html);
   $('#cargaModalRegistraTrans').fadeOut(1000);
   $('#modalContenidoRegistraTrans').fadeIn(1000);
+
+
+    $('#tablaSeleccionInstructores').DataTable({
+      'paging'      : true,
+      'lengthChange': false,
+      'searching'   : true,
+      'ordering'    : false,
+      'info'        : true,
+      'autoWidth'   : true,
+      "dom"         : '<"top"fl>rt<"bottom" p><"clear" i>'
+
+    });
 }

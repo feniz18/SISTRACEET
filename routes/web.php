@@ -91,6 +91,7 @@ Route::group(['middleware' => ['admin','auth']],function(){
   //registro transferencias
 
   route::get('/transferencia/registro/cargamodal/{id}','Transferencia\InscripcionTransferencia@cargaDatosModalUsuario');
+  route::post('/transferencia/registro','Transferencia\InscripcionTransferencia@registrarTransferencia');
 
   //rutas noticias
   route::get("/administraNoticias","Noticia\NoticiaController@index");

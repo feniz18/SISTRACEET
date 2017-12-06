@@ -134,4 +134,9 @@ class InscripcionTransferencia extends Controller
 
        return $usuarios_final;
     }
+
+    public function registrarTransferencia(Request $request)
+    {
+        return $request;
+    }
 }

@@ -3,12 +3,15 @@
 @section('seccion','Transferencias')
 @section('subseccion','Administrar Transferencias')
 @section('css')
+<meta name="csrf-token" content="{{ csrf_token() }}" />
 <link rel="stylesheet" href="{{asset('admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
 <link rel="stylesheet" href="{{asset('css/checkbox/checkbox.css')}}">
 <link rel="stylesheet" href="{{asset('admin/plugins/timepicker/bootstrap-timepicker.min.css')}}">
 <!-- DataTables -->
 <link rel="stylesheet" href="{{asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
 <!-- Theme style -->
+<!-- Checkbox personalizados-->
+<link rel="stylesheet" href="{{asset('css/checkbox/checkbox.css')}}">
 <style>
     .example-modal .modal {
       position: relative;
@@ -160,6 +163,7 @@
   <script src="{{asset('js/transferencias/borrarTransferencia.js')}}"></script>
   <script src="{{asset('js/transferencias/seleccionar.js')}}"></script>
   <script src="{{asset('js/transferencias/inscripcion/cargaDatos.js')}}"></script>
+  <script src="{{asset('js/transferencias/inscripcion/enviarInscripcion.js')}}"></script>
   <script>
 
   $(window).on('load',function(){
@@ -173,7 +177,7 @@
   <script>
 
   $(function () {
-    $('#tablaTransferencia,#tablaSeleccionInstructores').DataTable({
+    $('#tablaTransferencia').DataTable({
       'paging'      : true,
       'lengthChange': false,
       'searching'   : true,

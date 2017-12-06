@@ -23,22 +23,20 @@
             <table class="table" id="tablaSeleccionInstructores">
               <thead>
                 <tr>
-                  <th style="width:10px;">Sel</th>
+                  <th style="width:60px">Sel</th>
                   <th>Cedula</th>
                   <th>Nombres y apellidos</th>
                 </tr>
               </thead>
               <tbody id="modalBodyRegistraTrans">
-                <tr>
-                </tr>
-            </tbody>
+              </tbody>
             </table>
           </div>
         </div>
         {{--fin modal body--}}
         {{--inicio modal footer--}}
         <div class="modal-footer">
-          <button type="button" id="registrar" class="btn btn-outline"  style="display:none">Inscribir Usuarios</button>
+          <button type="button" id="registrarTransferencia" class="btn btn-outline">Inscribir Usuarios</button>
         </div>
         {{--fin modal footer--}}
       </form>
