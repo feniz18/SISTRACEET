@@ -10,6 +10,8 @@ use App\TransferenciaSemana;
 use App\UsuarioSemana;
 use App\Usuario;
 use App\Transferencia;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\EnviarNotificacionTransferencia;
 
 class InscripcionTransferencia extends Controller
 {
@@ -19,9 +21,15 @@ class InscripcionTransferencia extends Controller
     {
       $usuarios_verificados = $this->cargaDatosModal($id);
       $usuarios = Usuario::whereIn('cedula', $usuarios_verificados)->get();
-      $usuarios_registrado = Usuario::find('12345678')->pivoteTransferencia()->where('transferencia_id', $id)->first();
+      $usuarios_registrado = UsuarioTransferencia::where('transferencia_id', $id)
+                          ->join(
+                            'usuario',
+                            'usuario.cedula',
+                            '=',
+                            'usuario_transferencia.usuario_id'
+                            )->select('usuario.cedula','usuario.nombres','usuario.apellidos')->get();
 
-        return response()->json($usuarios_registrado);
+        return response()->json(['usuarios_registrado' => $usuarios_registrado,'usuarios' => $usuarios]);
     }
 
     public function cargaDatosModal($id)
@@ -30,14 +38,20 @@ class InscripcionTransferencia extends Controller
       $transferencia = TransferenciaSemana::where('transferencia_id',$id)->get();
       $transferencia_datos = Transferencia::find($id);
       $dia = [];
+      $usuarios_inscritos = [];
+
+      $usuarios_transferencias = UsuarioTransferencia::where('transferencia_id',$id)->get();
 
       foreach ($transferencia as $trans) {
         array_push($dia,$trans->dia_semana_id);
       }
+      foreach ($usuarios_transferencias as $ustra) {
+        array_push($usuarios_inscritos, $ustra->usuario_id);
+      }
 
       $dia = array_values(array_unique($dia));
 
-      $usuarios = Usuario::where('especialidad_id',$transferencia_datos->especialidad_id)->get();
+      $usuarios = Usuario::where('especialidad_id',$transferencia_datos->especialidad_id)->get()->except($usuarios_inscritos);
 
       $usuarios_filtro=[];
       //INICIO FOR EACH DE VALIDACION DE DIAS
@@ -146,5 +160,26 @@ class InscripcionTransferencia extends Controller
         $transferencia->usuarios_transferencias()->sync($instructores_id);
 
         return response()->json(['final' => 'Informacion almacenada correctamente']);
+    }
+    public function enviarCorreo($id)
+    {
+
+      $transferenciaUsuario = UsuarioTransferencia::where('transferencia_id',$id)->get();
+
+      if($transferenciaUsuario->isEmpty())
+      {
+          return response()->json('Esta transferencia todavia no tiene un usuario inscrito para el envio de correo');
+      }
+
+      $transferencia = Transferencia::find($id);
+
+      foreach ($transferenciaUsuario as $trans) {
+
+        $usuario = Usuario::find($trans->usuario_id);
+        Mail::to($usuario->email)->send(new EnviarNotificacionTransferencia($usuario,$transferencia));
+
+      }
+      return response()->json('Información enviada a correos electrónicos correctamente');
+
     }
 }

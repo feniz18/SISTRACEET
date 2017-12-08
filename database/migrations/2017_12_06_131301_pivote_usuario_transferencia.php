@@ -16,7 +16,11 @@ class PivoteUsuarioTransferencia extends Migration
         Schema::create('usuario_transferencia', function (Blueprint $table) {
             $table->increments('id');
             $table->integer('usuario_id')->unsigned();
+            $table->foreign('usuario_id')
+                  ->references('cedula')->on('usuario');
             $table->integer('transferencia_id')->unsigned();
+            $table->foreign('transferencia_id')
+                  ->references('id')->on('transferencia');
         });
     }
 

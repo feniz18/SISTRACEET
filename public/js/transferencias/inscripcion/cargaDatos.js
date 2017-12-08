@@ -38,20 +38,25 @@ function cargaModal(id)
 function postcargaModal(data)
 {
   var html = '';
+  var contador = 0;
 
-  if(data == "")
+  if(data.usuarios_registrado == "" && data.usuarios == "")
   {
     html = '<td colspan=3>No hay instructores disponibles para el horario especificado</td>';
   }
 
-  $.each(data,function(e,datos)
+  $.each(data.usuarios_registrado,function(e,datos)
   {
-    html = html +'<tr><td><div class="checkbox checkbox-danger"><input value="' + datos.cedula +'" id="chulo-'+ e +'" class="chulo" type="checkbox"><label for="chulo-'+ e +'"></label></div></td><td>' + datos.cedula + '</td><td>' + datos.nombres + ' ' + datos.apellidos + '</td></tr>';
+    html = html +'<tr><td><div class="checkbox checkbox-danger"><input value="' + datos.cedula +'" id="chulo-'+ contador +'" class="chulo" type="checkbox" checked><label for="chulo-'+ contador +'"></label></div></td><td>' + datos.cedula + '</td><td>' + datos.nombres + ' ' + datos.apellidos + '</td></tr>';
+    contador++;
   });
 
-  $('#modalBodyRegistraTrans').html(html);
-  $('#cargaModalRegistraTrans').fadeOut(1000);
-  $('#modalContenidoRegistraTrans').fadeIn(1000);
+  $.each(data.usuarios,function(e,datos)
+  {
+    html = html +'<tr><td><div class="checkbox checkbox-danger"><input value="' + datos.cedula +'" id="chulo-'+ contador +'" class="chulo" type="checkbox"><label for="chulo-'+ contador +'"></label></div></td><td>' + datos.cedula + '</td><td>' + datos.nombres + ' ' + datos.apellidos + '</td></tr>';
+    contador++;
+  });
+
 
    $('#tablaSeleccionInstructores').dataTable({
      'paging'      : true,
@@ -62,5 +67,9 @@ function postcargaModal(data)
      'autoWidth'   : true,
      "dom"         : '<"top"fl>rt<"bottom" p><"clear" i>'
    });
+
+   $('#modalBodyRegistraTrans').html(html);
+   $('#cargaModalRegistraTrans').fadeOut(1000);
+   $('#modalContenidoRegistraTrans').fadeIn(1000);
 
 }

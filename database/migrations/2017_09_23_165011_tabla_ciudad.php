@@ -18,8 +18,7 @@ class TablaCiudad extends Migration
           $table->increments('id_ciudad');
           $table->integer('departamento_id')->unsigned();
           $table->foreign('departamento_id')
-                ->references('id_departamento')->on('departamento')
-                ->onDelete('cascade');
+                ->references('id_departamento')->on('departamento');
           $table->string('nombre');
 
         });

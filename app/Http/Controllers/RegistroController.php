@@ -46,8 +46,8 @@ class RegistroController extends Controller
         $reglas = [
           'cedula' => 'required|unique:usuario,cedula|max:12|min:3',
           'fecha_nacimiento' => 'required|date|before:today',
-          'nombres' => 'required|min:5|max:60',
-          'apellidos' => 'required|min:5|max:60',
+          'nombres' => 'required|min:2|max:60',
+          'apellidos' => 'required|min:2|max:60',
           'telefono' => 'required|min:5|max:18',
           'correo' => 'required|unique:usuario,email|email',
           'ciu' => 'required',

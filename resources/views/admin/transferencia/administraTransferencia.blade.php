@@ -53,6 +53,7 @@
           <div class="col-xs-12 form-group">
             <button class="btn btn-warning" data-toggle="modal" data-target="#modal-danger" id="crearTransferencia">Crear transferencia</button>
             <button class="btn btn-success" id="btn-inscripcion">Inscribir transferencia</button>
+            <button class="btn btn-primary pull-right" id="btn-correo">Enviar correos informativos</button>
           </div>
           <div class="col-xs-12">
             <div class="box">
@@ -164,6 +165,8 @@
   <script src="{{asset('js/transferencias/seleccionar.js')}}"></script>
   <script src="{{asset('js/transferencias/inscripcion/cargaDatos.js')}}"></script>
   <script src="{{asset('js/transferencias/inscripcion/enviarInscripcion.js')}}"></script>
+  <script src="{{asset('js/transferencias/inscripcion/enviaCorreo.js')}}"></script>
+
   <script>
 
   $(window).on('load',function(){

@@ -14,6 +14,7 @@ class TablaEspecialidad extends Migration
     public function up()
     {
         Schema::create('especialidad', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('nombre');
         });

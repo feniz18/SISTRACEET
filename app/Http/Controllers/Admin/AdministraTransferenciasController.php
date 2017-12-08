@@ -137,6 +137,7 @@ class AdministraTransferenciasController extends Controller
     {
       $trans = Transferencia::find($id);
       $trans->horario()->detach();
+      $trans->usuarios_transferencias()->detach();
 
       $trans->delete();
 

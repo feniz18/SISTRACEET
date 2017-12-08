@@ -22,8 +22,14 @@ class TablaCrearUsuarios extends Migration
             $table->bigInteger('telefono')->nullable();
             $table->string('email')->unique();
             $table->string('password');
-            $table->integer('especialidad_id')->nullable();
-            $table->integer('ciudad_id')->index();
+            $table->integer('especialidad_id')->unsigned()->nullable();
+            $table->foreign('especialidad_id')
+                  ->references('id')->on('especialidad');
+
+            $table->integer('ciudad_id')->unsigned();
+            $table->foreign('ciudad_id')
+                  ->references('id_ciudad')->on('ciudad');
+
             $table->enum('rol_id',['administrador','sadministrador','docente']);
             $table->boolean('activo');
             $table->string('imagen')->nullable();
