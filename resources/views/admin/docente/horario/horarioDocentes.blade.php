@@ -1,5 +1,4 @@
 @extends('plantillas.general')
-use Carbon\Carbon;
 @section('titulo','Administracion de instructores')
 @section('seccion','Editar horario')
 @section('subseccion','Instructor '. $usuario->nombres . " " . $usuario->apellidos)

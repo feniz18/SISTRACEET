@@ -23,7 +23,7 @@
 
         <div class="row" id="contenido" style="display:none">
           <div class="col-xs-12 form-group">
-            <button class="btn btn-warning" data-toggle="modal" data-target="#modal-danger" id='btnCrearSede'>Crear sede</button>
+            <a class="btn btn-warning" href="/crearNoticias">Crear noticia</a>
           </div>
           <div class="col-xs-12">
             <div class="box">
@@ -37,7 +37,7 @@
                     <tr>
                       <th>Titulo Noticia</th>
                       <th>Fecha publicacion</th>
-                      <th style="width: 40px">Editar</th>
+                      <th>Activar</th>
                       <th style="width: 40px">Eliminar</th>
                     </tr>
                   </thead>
@@ -52,12 +52,16 @@
                         {{$noticia->created_at}}
                       </td>
                       <td>
-                        <a class="editar" style="cursor:pointer;font-size:20px" data-toggle="modal" data-target="#modal-danger" id="{{$sede->id}}" >
-                          <i class='fa fa-folder-open' style="color:green"></i>
+                        <a style="cursor:pointer;font-size:20px" href="/guardar/noticias/activar/{{$noticia->id}}">
+                          @if ($noticia->activo == false)
+                            Activar
+                          @else
+                            Inactivar
+                          @endif
                         </a>
                       </td>
                       <td>
-                        <a style="cursor:pointer;font-size:20px" value="{{$noticia->id}}" class="borrar">
+                        <a style="cursor:pointer;font-size:20px" href="/guardar/noticias/eliminar/{{$noticia->id}}">
                           <i class='fa fa-fw fa-times' style="color:red"></i>
                         </a>
                       </td>

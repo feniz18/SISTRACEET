@@ -12,13 +12,18 @@ use Carbon\Carbon;
 use App\Especialidad;
 use App\Dia_semana;
 use App\UsuarioSemana;
+use Illuminate\Support\Facades\Auth;
 
 class AdministraDocentesController extends Controller
 {
 
     public function index(){
-
-      $usuario = Usuario::where('rol_id','docente')->orderBy('created_at','desc')->get();
+      if(Auth::user()->rol_id == 'sadministrador')
+      {
+        $usuario = Usuario::whereIn('rol_id',['docente','administrador'])->orderBy('created_at','desc')->get();
+      }else{
+        $usuario = Usuario::where('rol_id','docente')->orderBy('created_at','desc')->get();
+      }
       $especialidad = Especialidad::all()->sortBy('nombre');
 
       return view("admin.docente.administraDocentes")->with(['usuario'=>$usuario,'especialidad'=>$especialidad]);

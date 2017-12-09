@@ -25,7 +25,7 @@ class Admin
     public function handle($request, Closure $next)
     {
 
-        if($this->auth->user()->rol_id == 'administrador'){
+        if($this->auth->user()->rol_id == 'administrador' or $this->auth->user()->rol_id == 'sadministrador'){
 
           return $next($request);
 

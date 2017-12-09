@@ -24,6 +24,7 @@ function infDocente(documento){
     $('#telefono').val(datos.telefono);
     $('#email').val(datos.email);
     $('#especialidad option[value='+ datos.especialidad_id +']').attr("selected",true);
+    $('#rol').val(datos.rol_id);
     $('.select2').select2();
 
       $.get("/api/combo/ciudad/usuario/" + datos.cedula,function(usuario){

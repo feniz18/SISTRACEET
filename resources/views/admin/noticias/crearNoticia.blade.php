@@ -5,6 +5,8 @@
 @section('css')
 <link rel="stylesheet" href="{{asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
 <!-- Theme style -->
+<link rel="stylesheet" href="{{asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
+
 
 @endsection
 @section('contenido')
@@ -22,6 +24,7 @@
   </div>
 
         <div class="row" id="contenido" style="display:none">
+
           <div class="col-xs-12">
             <div class="box">
               <div class="box-header">
@@ -29,7 +32,37 @@
               </div>
               <!-- /.box-header -->
               <div class="box-body">
-                
+                @if($errors->any())
+                  <div class="alert alert-danger" role="alert">
+                      <p> Por favor corriga los errores </p>
+                      <ul>
+                        @foreach ($errors->all() as $error)
+                          <li>{{$error}}</li>
+                        @endforeach
+                      </ul>
+                  </div>
+                @endif
+                <form enctype="multipart/form-data" method="post" action="/guardar/noticias">
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                  <div class="col-md-12 form-group">
+                    <label>Titulo de la noticia</label>
+                    <input type="text" name="titulo" class="form-control" id='titulo' value="{{old('titulo')}}">
+                  </div>
+                  <div class="col-md-12 form-group">
+                    <label>Imagen</label>
+                    <input name="imagenNoticia" type="file" />
+                  </div>
+                  <div class="col-md-12 pad">
+                      <textarea class="textarea" placeholder="Place some text here"
+                                style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;" name="contenido" value="{{old('titulo')}}"></textarea>
+                  </div>
+
+                  <div class="col-md-12 form-group">
+                    <input type="submit" class="btn btn-danger pull-right"/>
+                    <a class="btn btn-danger" href="/administraNoticias">Regresar</a>
+                  </div>
+
+                </form>
               </div>
             <!-- /.box-body -->
             </div>
@@ -52,9 +85,14 @@
   <script src="{{asset('admin/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
   <!-- FastClick -->
   <script src="{{asset('admin/bower_components/fastclick/lib/fastclick.js')}}"></script>
+  <script src="{{asset('admin/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js')}}"></script>
   {{--ajax a servidor --}}
 
   <script>
+  $(function()
+  {
+      $('.textarea').wysihtml5();
+  });
 
   $(window).on('load',function(){
 
@@ -63,20 +101,6 @@
 
   });
 
-  </script>
-  <script>
-
-    $(function () {
-      $('#docente').DataTable({
-        'paging'      : true,
-        'lengthChange': false,
-        'searching'   : true,
-        'ordering'    : false,
-        'info'        : true,
-        'autoWidth'   : true,
-          "dom": '<"top"fl>rt<"bottom" p><"clear" i>',
-      });
-    });
   </script>
 @endsection
 @section('noticias','active')

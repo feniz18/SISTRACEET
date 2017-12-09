@@ -93,6 +93,16 @@
                     @endforeach
                 </select>
               </div>
+              @if(Auth::user()->rol_id == 'sadministrador')
+              <div class="col-xs-12 col-sm-12 col-md-12 form-group">
+                <label>Permisos</label>
+                <select name="rol" class="form-control" style="width: 100%; height: 100%;" id="rol">
+                    <option value="">Seleccione</option>
+                    <option value='administrador'>Administrador</option>
+                    <option value='docente'>Instructor</option>
+                </select>
+              </div>
+              @endif
             </div>
         </div>
         <div class="modal-footer">

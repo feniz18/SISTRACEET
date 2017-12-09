@@ -10,6 +10,7 @@ use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Response;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Auth;
 
 class DocenteController extends Controller
 {
@@ -54,6 +55,10 @@ class DocenteController extends Controller
       $usuario->email = $request->correo;
       $usuario->ciudad_id = $request->ciu;
       $usuario->especialidad_id= $request->especialidad;
+      if(Auth::user()->rol_id == "sadministrador" and !is_null($request->rol))
+      {
+        $usuario->rol_id = $request->rol;
+      }
       try {
 
       $usuario->save();
@@ -76,7 +81,13 @@ class DocenteController extends Controller
 
     public function postEditarDocente(){
 
-          $usuarios = Usuario::where('rol_id','docente')->orderBy('created_at','desc')->get();
+          if(Auth::user()->rol_id == "sadministrador")
+          {
+            $usuarios = Usuario::whereIn('rol_id',['docente','administrador'])->orderBy('created_at','desc')->get();
+          }else{
+            $usuarios = Usuario::where('rol_id','docente')->orderBy('created_at','desc')->get();
+          }
+
 
           return response()->json($usuarios);
 
@@ -110,6 +121,9 @@ class DocenteController extends Controller
 
         return response()->json(false);
       }
+        $usuario->usuarios_transferencias()->detach();
+        $usuario->horario()->detach();
+
         $usuario->delete();
         return response()->json(true);
 

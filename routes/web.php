@@ -11,10 +11,7 @@
 |
 */
 
-Route::get('/', function(){
-      return view('inicio');
-});
-
+Route::get('/','InicioController@index');
 
 Route::group(['middleware' => 'guest'],function(){
 
@@ -98,10 +95,21 @@ Route::group(['middleware' => ['admin','auth']],function(){
   //rutas noticias
   route::get("/administraNoticias","Noticia\NoticiaController@index");
   route::get("/crearNoticias","Noticia\NoticiaController@indexCrear");
+  route::post("/guardar/noticias","Noticia\NoticiaController@guardarNoticias");
+  route::get("/guardar/noticias/activar/{id}","Noticia\NoticiaController@activar");
+  route::get("/guardar/noticias/eliminar/{id}","Noticia\NoticiaController@eliminar");
+
+  //ruta de Reportes
+
+  route::get("/reporte/usuarios","Reporte\ReporteUsuarioController@index");
+  route::get("/reporte/usuarios/gen","Reporte\ReporteUsuarioController@generarReporte");
+  route::get("/reporte/usuarios/gen/pos/{fecha_inicio}/{fecha_fin}","Reporte\ReporteUsuarioController@generarReportePost");
+
+
 
 });
 
-Route::group(['middleware' => ['instructor']],function()
+Route::group(['middleware' => ['instructor','auth']],function()
 {
   route::get("/verCursos",'Instructor\InstructorController@index');
 });

@@ -77,6 +77,11 @@ function postActDocente(){
             <td>`+
               respuesta[i].telefono + `
             </td>
+            <td>
+              <a style="cursor:pointer;font-size:20px" href="/instructor/horario/` + respuesta[i].cedula + `">
+                <i class='fa fa-fw fa-clock-o' style="color:green"></i>
+              </a>
+            </td>
             <td>`+ activo + `</td>
             <td>
               <a style="cursor:pointer;font-size:20px" data-toggle="modal" data-target="#modal-danger" onclick="infDocente(` + respuesta[i].cedula + `)" >

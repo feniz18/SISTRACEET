@@ -17,7 +17,8 @@ class TablaNoticias extends Migration
             $table->increments('id');
             $table->string('titulo');
             $table->text('contenido');
-            $table->string('imagen');
+            $table->string('imagen')->nullable();
+            $table->boolean('activo')->default(false);
             $table->bigInteger('autor')->unsigned();
             $table->timestamps();
         });

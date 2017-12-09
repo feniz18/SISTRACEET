@@ -1,7 +1,7 @@
 @extends('plantillas.general')
-@section('titulo','Reportes Usuarios')
+@section('titulo','Reportes Log')
 @section('seccion','Reportes')
-@section('subseccion','Reportes Usuarios')
+@section('subseccion','Reportes log')
 @section('contenido')
 
   <div class="row">
@@ -10,7 +10,7 @@
         <div class="box-header with-border">
 
           <h4>
-            Reportes usuario por fecha
+            Reportes por fecha
           </h4>
 
         </div>
@@ -56,7 +56,7 @@
 
 @endsection
 @section('js')
-  <script src="{{asset('js/reportes/log/postReporte.js')}}"></script>
+  <script src="{{asset('js/reportes/usuario/postReporte.js')}}"></script>
   <script>
   $('#fecha_inicio,#fecha_fin').datepicker({
     format: "dd/mm/yyyy"
