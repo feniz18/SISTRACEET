@@ -100,3 +100,8 @@ Route::group(['middleware' => ['admin','auth']],function(){
   route::get("/crearNoticias","Noticia\NoticiaController@indexCrear");
 
 });
+
+Route::group(['middleware' => ['instructor']],function()
+{
+  route::get("/verCursos",'Instructor\InstructorController@index');
+});

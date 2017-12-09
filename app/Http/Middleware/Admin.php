@@ -31,7 +31,7 @@ class Admin
 
         }else{
 
-          return redirect('/session');
+          return redirect('/sesion');
 
         }
 
