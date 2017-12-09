@@ -12,6 +12,7 @@
 */
 
 Route::get('/','InicioController@index');
+Route::get('/noticia/ver/{id}','InicioController@noticia');
 
 Route::group(['middleware' => 'guest'],function(){
 

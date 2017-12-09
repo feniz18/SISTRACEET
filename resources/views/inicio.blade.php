@@ -9,35 +9,30 @@
       <div class="box-body">
         <div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
           <ol class="carousel-indicators">
-            @php
-              $contador = 0;
-            @endphp
-            @foreach ($noticias as $noticia)
-              @if ($contador = 0)
+
+            @foreach ($noticias as $i =>$noticia)
+
+              @if ($i == 0)
 
                 <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
 
               @else
-                <li data-target="#carousel-example-generic" data-slide-to="{{$contador}}" class=""></li>
+                <li data-target="#carousel-example-generic" data-slide-to="{{$i}}" class=""></li>
               @endif
 
-              @php
-                $contador++;
-              @endphp
             @endforeach
 
           </ol>
           <div class="carousel-inner">
 
-            @php
-              $contador = 0;
-            @endphp
-            @foreach ($noticias as $noticia)
+            @foreach ($noticias as $i =>$noticia)
 
-              @if ($contador = 0)
+              @if ($i == 0)
 
                 <div class="item active">
-                  <img src="{{'storage/banner/noticia'. $noticia->id .$noticia->imagen}}" alt="{{$noticia->titulo}}">
+                  <a href="">
+                    <img src="{{'storage/noticia'. $noticia->id .$noticia->imagen}}" alt="{{$noticia->titulo}}" >
+                  </a>
 
                   <div class="carousel-caption">
                     {{$noticia->titulo}}
@@ -46,17 +41,15 @@
 
               @else
                 <div class="item">
-                  <img src="{{'storage/banner/noticia'. $noticia->id .$noticia->imagen}}" alt="{{$noticia->titulo}}">
+                  <a href="">
+                    <img src="{{'storage/noticia'. $noticia->id .$noticia->imagen}}" alt="{{$noticia->titulo}}">
+                  </a>
 
                   <div class="carousel-caption">
                     {{$noticia->titulo}}
                   </div>
                 </div>
               @endif
-
-              @php
-                $contador++;
-              @endphp
 
             @endforeach
           </div>
