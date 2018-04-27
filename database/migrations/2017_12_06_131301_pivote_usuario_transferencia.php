@@ -14,8 +14,9 @@ class PivoteUsuarioTransferencia extends Migration
     public function up()
     {
         Schema::create('usuario_transferencia', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
-            $table->integer('usuario_id')->unsigned();
+            $table->bigInteger('usuario_id')->unsigned();
             $table->foreign('usuario_id')
                   ->references('cedula')->on('usuario');
             $table->integer('transferencia_id')->unsigned();

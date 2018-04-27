@@ -14,6 +14,7 @@ class TablaNoticias extends Migration
     public function up()
     {
         Schema::create('noticia', function (Blueprint $table) {
+            $table->engine = 'InnoDB';
             $table->increments('id');
             $table->string('titulo');
             $table->text('contenido');
