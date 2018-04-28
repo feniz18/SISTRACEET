@@ -183,6 +183,9 @@ return [
         Maatwebsite\Excel\ExcelServiceProvider::class,
         Barryvdh\DomPDF\ServiceProvider::class,
 
+        // paquete dompdf
+        Barryvdh\DomPDF\ServiceProvider::class,
+
     ],
 
     /*

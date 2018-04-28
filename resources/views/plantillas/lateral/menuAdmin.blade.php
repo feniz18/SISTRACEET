@@ -38,6 +38,7 @@
     <ul class="treeview-menu">
       <li class="@yield('reporteLog')"><a href="/logReporte"><i class="fa fa-circle-o"></i>Reporte de logs</a></li>
       <li class="@yield('reporteUsuarios')"><a href="/reporte/usuarios"><i class="fa fa-circle-o"></i>Reporte de usuarios</a></li>
+      <li class="@yield('reporteCarnet')"><a href="/reporte/carnet"><i class="fa fa-circle-o"></i>Reporte Carnet</a></li>
     </ul>
   </li>
   {{--fin seccion reportes}}
