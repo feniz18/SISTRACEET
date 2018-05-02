@@ -108,7 +108,7 @@ Route::group(['middleware' => ['admin','auth']],function(){
 
   //reporte carnet
   
-  route::get("/reporte/carnet","Reporte\CarnetController@index");
+  route::get("/reporte/inicioCarnet","Reporte\CarnetController@index");
 
 
 

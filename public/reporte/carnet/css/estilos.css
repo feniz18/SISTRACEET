@@ -1,8 +1,4 @@
-
-
-<style type="text/css" media="screen">
-
-  @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
 
 .centrado
@@ -157,40 +153,4 @@ body .card_right__button a:hover {
   background-color: green;
 
 }
-  
-</style>
 
-
-<div class='card'>
-  <div class='card_left'>
-    <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/343086/h8fnwL1.png'>
-  </div>
-  <div class='card_right'>
-    <div class="fondo">
-      <div class="titulo">
-        <h5>SISTRA CEET</h5>
-      </div>
-      <div class="logo">
-        <img src="" />
-      </div>
-    </div>
-
-    <div class='card_right__details'>
-      
-      
-      <div class='card_right__review'>
-
-        <p>NOMBRE: DAVID STEVEN</p>
-        <p>APELLIDOS: MARTINEZ VARGAS</p>
-        <p>CEDULA: 1013651642</p>
-        <p>SEXO: MASCULINO</p>
-        <p>RH: O</p>
-        <p>FACTOR: +</p>
-        <p>FICHA: 1193362</p>
-        
-        <p style="font-size: 8px" class="centrado">Regional distrito capital centro de electricidad electronica y telecominicaciones</p>
-        <p style="font-size: 8px" class="centrado">Analisis y desarrollo de sistemas de informacion</p>
-
-    </div>
-  </div>
-</div>

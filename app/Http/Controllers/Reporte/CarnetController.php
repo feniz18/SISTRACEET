@@ -12,16 +12,22 @@ class CarnetController extends Controller
     {
     	$info = ["nombre" => "david vargas"];
 
+        //dd("sdfsdfsdf");
+        //return view("layouts.carnet");
     	//dd($info['nombre']);
-    	$pdf = PDF::loadView("layouts.carnet",['info' => $info]);
-    	return $pdf->download("run.pdf");
+        $pdf = new PDF;
+        //$pdf->setPaper(array(4000,4000,0,0));
+    	$pdf->loadView("layouts.carnet",['info' => $info]);
+        //$pdf->setPaper(array(4000,4000,0,0));
+        //$pdf->render();
+    	return $pdf->download();
     	//return view("admin.reportes.carnet");
     }
 
     public function busca_carnet($cedula)
     {
-    	$info = ["nombre" => "david vargas"];
+    	//$info = ["nombre" => "david vargas"];
     	//$pdf = PDF::loadView("<h1>{{$}}",$info);
-    	return $pdf->download("run.pdf");
+    	//561156return $pdf->download("run.pdf");
     }
 }
