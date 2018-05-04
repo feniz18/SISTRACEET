@@ -1,196 +1,228 @@
+<head>
+	<style>
 
+	/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
 
-<style type="text/css" media="screen">
-
-  @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
-@import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
-
-.centrado
-{
-  text-align: center;
-  background-color: green;
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
 }
 body {
-  background: #e2e2e2;
-  width: 98%;
-  height: 100vh;
+	line-height: 1;
 }
-body .card {
-  width: 800px;
-  height: 400px;
-  background: transparent;
-  position: absolute;
-  left: 0;
-  right: 0;
-  /*margin: auto;*/
-  top: 0;
-  bottom: 0;
-  border-radius: 10px;
-  -webkit-border-radius: 10px;
-  -moz-border-radius: 10px;
-  box-shadow: 0px 20px 30px 3px rgba(0, 0, 0, 0.55);
+ol, ul {
+	list-style: none;
 }
-body .card_left {
-  width: 40%;
-  height: 400px;
-  float: left;
-  overflow: hidden;
-  background: transparent;
+blockquote, q {
+	quotes: none;
 }
-body .card_left img {
-  width: 100%;
-  height: auto;
-  border-radius: 10px 0 0 10px;
-  -webkit-border-radius: 10px 0 0 10px;
-  -moz-border-radius: 10px 0 0 10px;
-  position: relative;
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
 }
-body .card_right {
-  width: 60%;
-  float: left;
-  background: #000000;
-  height: 400px;
-  border-radius: 0 10px 10px 0;
-  -webkit-border-radius: 0 10px 10px 0;
-  -moz-border-radius: 0 10px 10px 0;
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
 }
-body .card_right h1 {
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  text-align: left;
-  font-size: 40px;
-  margin: 30px 0 0 0;
-  padding: 0 0 0 40px;
-  letter-spacing: 1px;
-}
-body .card_right__details ul {
-  list-style-type: none;
-  padding: 0 0 0 40px;
-  margin: 10px 0 0 0;
-}
-body .card_right__details ul li {
-  display: inline;
-  color: #e3e3e3;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  font-size: 14px;
-  padding: 0 40px 0 0;
-}
+		
+	</style>
+	<style>
+		
+		.contenedor
+		{
+			height: 350px;
+			width : 600px;
+			border: solid 2px;
+			border-radius: 13px;
+			margin: 40px 90px;
 
-body .card_right__review p {
-  color: white;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 12px;
-  padding: 0 40px 0 40px;
-  letter-spacing: 1px;
-  margin: 10px 0 10px 0;
-  line-height: 20px;
-}
-body .card_right__review a {
-  text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 14px;
-  padding: 0 0 0 40px;
-  color: #ffda00;
-  margin: 0;
-}
-body .card_right__button {
-  padding: 0 0 0 40px;
-  margin: 30px 0 0 0;
-}
-body .card_right__button a {
-  color: #ffda00;
-  text-decoration: none;
-  font-family: 'Montserrat', sans-serif;
-  border: 2px solid #ffda00;
-  padding: 10px 10px 10px 40px;
-  font-size: 12px;
-  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/343086/COMdoWZ.png);
-  background-size: 12px 12px;
-  background-repeat: no-repeat;
-  background-position: 7% 50%;
-  border-radius: 5px;
-  transition-property: all;
-  transition-duration: .5s;
-}
-body .card_right__button a:hover {
-  color: #000000;
-  background-color: #ffda00;
-  background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/343086/rFQ5dHA.png);
-  background-size: 12px 12px;
-  background-repeat: no-repeat;
-  background-position: 10% 50%;
-  cursor: pointer;
-  transition-property: all;
-  transition-duration: .5s;
-}
-.logo
-{
-  text-align: right;
-  margin: 10px 20px 0 0;
-  padding-bottom: 20px ;
-  
-}
+		}
+		.imagen
+		{
+			height: 350px;
+			width: 230px;
+			background-color: #61C444;
+			position: absolute;
+			border-radius: 10px 0 0 10px;
 
-.titulo
-{
+		}
+		.descripcion
+		{
+			height: 350px;
+			width: 370px;
+			background-color: #DCE9D8;
+			position: relative;
+			float: right;
+			border-radius: 0 10px 10px 0;
+		}
+		.titulo
+		{
+			color: black;
+			margin: 20px;
+			text-align: center;
+		}
 
-  text-align: center;
-  width: 85%;
-  float: left;
-  font-family: 'Montserrat', sans-serif;
-  font-size: 20px;
-}
+		.imagen-center
+		{
+			width: 180px;
+			height: 180px;
+			margin: 0 auto;
+		}
 
-.logo img{
-  width: 50px;
-  padding-top: 15px;
-}
-.titulo h5{
-  color: white;
+		.foto
+		{
+			width: 180px;
+			height: 180px;
+			margin: 20px 0;
+			border-radius: 92px;
+			position: absolute;
+		}
 
-}
+		.foto-imagen img
+		{
+			
+			width: 180px;
+			height: 180px;
+			position: absolute;
+			border-radius: 92px;
+			border: 1px dotted;
+		}
 
-.fondo
-{
-  background-color: green;
+		.datos
+		{
+			color: white;
+			margin: 40px 20px;
+		}
+		.datos td
+		{
+			color: black;
+			padding: 10px;
+		}
+		.imagen-sena img
+		{
+			height: 100px;
+			width: 100px;
+			
+		}
+		.imagen-sena
+		{
+			margin: 20px auto;
+			width: 100px;
+			
+		}
 
-}
-  
-</style>
+		.datos p
+		{
+			color: black;
+		}
 
+		.saltopagina
+		{
+			page-break-after:always;
+		}
+		
+	</style>
+</head>
 
-<div class='card'>
-  <div class='card_left'>
-    <img src='https://s3-us-west-2.amazonaws.com/s.cdpn.io/343086/h8fnwL1.png'>
-  </div>
-  <div class='card_right'>
-    <div class="fondo">
-      <div class="titulo">
-        <h5>SISTRA CEET</h5>
-      </div>
-      <div class="logo">
-        <img src="" />
-      </div>
-    </div>
+<body>
+	<div class="frontal">
+		<div class="contenedor">
 
-    <div class='card_right__details'>
-      
-      
-      <div class='card_right__review'>
+			<div class="imagen">
+				<div class="imagen-center">
+					<div class="foto">
+									
+					</div>
+					<div class="foto-imagen">
+						<img src="img/bart.png" >
+					</div>			
+				</div>
+				<div class="imagen-sena">
+					<img src="img/sena.png">
+				</div>
+			</div>
+			<div class="descripcion">
 
-        <p>NOMBRE: DAVID STEVEN</p>
-        <p>APELLIDOS: MARTINEZ VARGAS</p>
-        <p>CEDULA: 1013651642</p>
-        <p>SEXO: MASCULINO</p>
-        <p>RH: O</p>
-        <p>FACTOR: +</p>
-        <p>FICHA: 1193362</p>
-        
-        <p style="font-size: 8px" class="centrado">Regional distrito capital centro de electricidad electronica y telecominicaciones</p>
-        <p style="font-size: 8px" class="centrado">Analisis y desarrollo de sistemas de informacion</p>
+				<div class="titulo">
+					<h5>SERVICIO NACIONAL DE APRENDIZAJE<h5>
+				</div>
+				<div class="datos">
+					<ul>
+						<table>
+							<tr style="width:100px">
+								<td>NOMBRES:</td>
+								<td>DAVID STEVEN</td>
+							</tr>
+							<tr>
+								<td>APELLIDOS:  </td>
+								<td>MARTINEZ VARGAS</td>
+							</tr>
+							<tr>
+								<td>RH:  </td>
+								<td>O</td>
+							</tr>
+							<tr>
+								<td>FACTOR:  </td>
+								<td>+</td>
+							</tr>
+							<tr>
+								<td>FICHA:  </td>
+								<td>11111</td>
+							</tr>
+							<tr>
+								<td>PROGRAMA:  </td>
+								<td>ADSI</td>
+							</tr>
+						</table>
+					</ul>
+				</div>
+			</div>
+	</div>
 
-    </div>
-  </div>
-</div>
+	<div class="reverso">
+		<div class="contenedor">
+
+			
+			<div class="descripcion-reverso">
+
+				<div class="titulo">
+					<h5>TERMINOS Y CONDICIONES<h5>
+				</div>
+				<div class="datos">
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+				</div>
+			</div>
+	</div>
+
+	<div class="saltopagina"></div>	
+ </body> 
