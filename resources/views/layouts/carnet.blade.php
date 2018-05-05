@@ -192,7 +192,7 @@ table {
 							</tr>
 							<tr>
 								<td>FICHA:  </td>
-								<td>11111</td>
+								<td>1193362</td>
 							</tr>
 							<tr>
 								<td>PROGRAMA:  </td>
@@ -211,15 +211,22 @@ table {
 			<div class="descripcion-reverso">
 
 				<div class="titulo">
-					<h5>TERMINOS Y CONDICIONES<h5>
+					<h5>IMPORTANTE<h5>
 				</div>
 				<div class="datos">
-					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-					tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-					quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-					consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-					cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-					proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+					<p>
+            Este carnet es personal e intransferible; 
+            certifica al portador como aprendiz del Servicio nacional 
+            de aprendizaje SENA. el Sena es una entidad que imparte una 
+            educacion tecnica profesional y tecnologica que forma parte 
+            de la educación superior; se solicita a las autoridades 
+            publicas, civiles y militares prestarle al portador toda
+            la colaboración para la realización de las actividades de
+            su aprendizaje.
+            por 19991, 642 de 2001 y 1106 de 2006, los menores de 18
+            años de edad y los estudiantes de educación superior no seran 
+            disposición de las leyes 418 de 1997, 548 de servicio militar.
+          </p>
 				</div>
 			</div>
 	</div>
