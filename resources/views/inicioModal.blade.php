@@ -5,20 +5,17 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="false">&times;</span></button>
-          <h4 class="modal-title">Notificaciones</h4>
+          <h4 class="modal-title">Noticia del mes</h4>
         </div>
         <div class="modal-body">
           <div class="row">
             <div class="col-md-12 justify-content">
-
-              <h2>Notas de la semana</h2>
-              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-                 eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                Ut enim ad minim veniam, quis nostrud exercitation ullamco
-                laboris nisi ut aliquip ex ea commodo consequat.
-                 Duis aute irure dolor in reprehenderit in voluptate
-                  velit esse cillum dolore eu fugiat nulla pariatur.
-                   Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                <center>
+              <h2>Así avanzan las obras del SENA en Atlántico
+                  jueves, 03 de mayo de 2018.</h2>
+              <h4>
+                  Recientemente se realizó una encuesta de percepción ciudadana en tres importantes municipios del Atlántico donde la Entidad aparece con la mayor favorabilidad.</h4>
+                </center>
 
             </div>
           </div>
