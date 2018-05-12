@@ -1,5 +1,11 @@
 <?php
 
+
+// rutas adicionales
+
+
+Route::get('/calculadora', 'CalculadoraController@index');
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
