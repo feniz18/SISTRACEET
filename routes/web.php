@@ -5,6 +5,7 @@
 
 
 Route::get('/calculadora', 'CalculadoraController@index');
+route::get("/reporte/inicioCarnet","Reporte\CarnetController@index");
 
 /*
 |--------------------------------------------------------------------------
@@ -115,7 +116,7 @@ Route::group(['middleware' => ['admin','auth']],function(){
 
   //reporte carnet
   
-  route::get("/reporte/inicioCarnet","Reporte\CarnetController@index");
+  
 
 
 

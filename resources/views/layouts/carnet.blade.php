@@ -150,6 +150,9 @@ table {
 </head>
 
 <body>
+
+	@foreach ($integrante as $integrantes)
+
 	<div class="frontal">
 		<div class="contenedor">
 
@@ -159,7 +162,7 @@ table {
 									
 					</div>
 					<div class="foto-imagen">
-						<img src="img/bart.png" >
+						<img src="{{ $integrantes['imagen']}}" >
 					</div>			
 				</div>
 				<div class="imagen-sena">
@@ -176,27 +179,31 @@ table {
 						<table>
 							<tr style="width:100px">
 								<td>NOMBRES:</td>
-								<td>DAVID STEVEN</td>
+								<td>{{ $integrantes['nombre']}}</td>
 							</tr>
 							<tr>
 								<td>APELLIDOS:  </td>
-								<td>MARTINEZ VARGAS</td>
+								<td>{{ $integrantes['apellido']}}</td>
+							</tr>
+							<tr>
+								<td>CEDULA: </td>
+								<td>{{ $integrantes['cedula']}}</td>
 							</tr>
 							<tr>
 								<td>RH:  </td>
-								<td>O</td>
+								<td>{{ $integrantes['rh']}}</td>
 							</tr>
 							<tr>
 								<td>FACTOR:  </td>
-								<td>+</td>
+								<td>{{ $integrantes['factor']}}</td>
 							</tr>
 							<tr>
 								<td>FICHA:  </td>
-								<td>1193362</td>
+								<td>{{ $integrantes['ficha']}}</td>
 							</tr>
 							<tr>
 								<td>PROGRAMA:  </td>
-								<td>ADSI</td>
+								<td>{{ $integrantes['programa']}}</td>
 							</tr>
 						</table>
 					</ul>
@@ -231,5 +238,6 @@ table {
 			</div>
 	</div>
 
-	<div class="saltopagina"></div>	
+	<div class="saltopagina"></div>
+	@endforeach	
  </body> 

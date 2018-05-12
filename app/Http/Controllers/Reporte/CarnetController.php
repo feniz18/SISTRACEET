@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Reporte;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Collection as Collection;
 use View;
 use PDF;
 
@@ -11,31 +12,54 @@ class CarnetController extends Controller
 {
     public function index()
     {
-    	$info = ["nombre" => "david vargas"];
+    	$info =
+        [
+                [
+                    "nombre" => "LUIS AGUSTIN",
+                    "apellido" => "DIAZ BLANCO",
+                    "cedula" => "5698399",
+                    "rh" => "O",
+                    "factor" => "+",
+                    "ficha" => "1193362",
+                    "programa" => "ADSI",
+                    "imagen" => "img/integrantes/luis.png",
+                ],
 
-        //dd("sdfsdfsdf");
-        //return view("layouts.carnet");
-    	//dd($info['nombre']);
-        //$pdf = PDF::loadView("layouts.carnet",['info' => $info]);
-        //$pdf->setPaper(array(4000,4000,0,0));
-        //$pdf->setPaper(array(4000,4000,0,0));
-        //$pdf->render();
-        $html = View::make("layouts.carnet");
-        // $pdf = new PDF();
-        //$pdf->set_option('isHtml5ParserEnabled', true);
-        //$pdf->setPaper('a4','landscape');
-        //return $html;
+                [
+                    "nombre" => "DAVID STEVEN",
+                    "apellido" => "MARTINEZ VARGAS",
+                    "cedula" => "1013651642",
+                    "rh" => "O",
+                    "factor" => "+",
+                    "ficha" => "1193362",
+                    "programa" => "ADSI",
+                    "imagen" => "img/integrantes/david.png",
+                ],
+
+                [
+                    "nombre" => "JUAN SEBASTIAN",
+                    "apellido" => "CASTIBLANCO PULIDO",
+                    "cedula" => "1073247444",
+                    "rh" => "O",
+                    "factor" => "+",
+                    "ficha" => "1193362",
+                    "programa" => "ADSI",
+                    "imagen" => "img/integrantes/juan.png",
+                ],
+        ];
+
+        $datos = Collection::make($info);
+
+        
+        $html = View::make("layouts.carnet",["integrante" => $datos]);
+        
 
         $pdf = PDF::loadHTML($html)->setOptions(['isHtml5ParserEnabled' => true,]);
-        //$pdf->set_option('isHtml5ParserEnabled', true);
-    	return $pdf->stream();
+
+
+    	return $pdf->download("integrantesSISTRA.pdf");
     	
     }
 
-    public function busca_carnet($cedula)
-    {
-    	//$info = ["nombre" => "david vargas"];
-    	//$pdf = PDF::loadView("<h1>{{$}}",$info);
-    	//561156return $pdf->download("run.pdf");
-    }
+   
 }

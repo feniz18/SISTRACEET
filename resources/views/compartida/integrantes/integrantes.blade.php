@@ -16,6 +16,28 @@
       background: transparent !important;
     }
 </style>
+<style>
+  .box-footer a
+  {
+    text-decoration: none;
+    color: red;
+    font-size: 30px;
+  }
+
+  .box-footer a:hover
+  {
+    color: black;
+    transition-property: all;
+    transition-duration: 0.9s;
+    transition-timing-function: ease-in;
+  }
+
+  .box-footer span
+  {
+    font-size: 20px;
+  }
+
+</style>
 @endsection
 @section('contenido')
 
@@ -55,18 +77,57 @@
                     <h5 class="widget-user-desc">TECNOLOGO ADSI</h5>
                   </div>
                   <div class="widget-user-image">
-                    <img class="img-circle" src="{{ asset('img/integrantes/luis.jpeg') }}" alt="User Avatar">
+                    <img class="img-circle" src="{{ asset('img/integrantes/luis.png') }}" alt="User Avatar">
                   </div>
                   <div class="box-footer">
                     <div class="row">
                       <div class="col-sm-12 border-right">
                         <div class="description-block" style="text-align: justify;">
-                          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-                          tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                          quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-                          consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-                          cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-                          proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+                          <p>TECNOLOGO EN ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION DEL CENTRO DE ELECTRICIDAD ELECTRONICA Y TELECOMUNICACIONES SECCIONAL DISTRITO CAPITAL.</p>
+                        </div>
+                        <!-- /.description-block -->
+                      </div>
+                      <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                  </div>
+                </div>
+                <div class="box box-widget widget-user">
+                  <!-- Add the bg color to the header using any of the bg-* classes -->
+                  <div class="widget-user-header bg-red-active">
+                    <h3 class="widget-user-username">JUAN SEBASTIAN CASTIBLANCO PULIDO</h3>
+                    <h5 class="widget-user-desc">TECNOLOGO ADSI</h5>
+                  </div>
+                  <div class="widget-user-image">
+                    <img class="img-circle" src="{{ asset('img/integrantes/juan.png') }}" alt="User Avatar">
+                  </div>
+                  <div class="box-footer">
+                    <div class="row">
+                      <div class="col-sm-12 border-right">
+                        <div class="description-block" style="text-align: justify;">
+                          <p>TECNOLOGO EN ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION DEL CENTRO DE ELECTRICIDAD ELECTRONICA Y TELECOMUNICACIONES SECCIONAL DISTRITO CAPITAL.</p>
+                        </div>
+                        <!-- /.description-block -->
+                      </div>
+                      <!-- /.col -->
+                    </div>
+                    <!-- /.row -->
+                  </div>
+                </div>
+                <div class="box box-widget widget-user">
+                  <!-- Add the bg color to the header using any of the bg-* classes -->
+                  <div class="widget-user-header bg-red-active">
+                    <h3 class="widget-user-username">DAVID STEVEN MARTINEZ VARGAS</h3>
+                    <h5 class="widget-user-desc">TECNOLOGO ADSI</h5>
+                  </div>
+                  <div class="widget-user-image">
+                    <img class="img-circle" src="{{ asset('img/integrantes/david.png') }}" alt="User Avatar">
+                  </div>
+                  <div class="box-footer">
+                    <div class="row">
+                      <div class="col-sm-12 border-right">
+                        <div class="description-block" style="text-align: justify;">
+                          <p>TECNOLOGO EN ANALISIS Y DESARROLLO DE SISTEMAS DE INFORMACION DEL CENTRO DE ELECTRICIDAD ELECTRONICA Y TELECOMUNICACIONES SECCIONAL DISTRITO CAPITAL.</p>
                         </div>
                         <!-- /.description-block -->
                       </div>
@@ -98,24 +159,24 @@
                         </ol>
                         <div class="carousel-inner">
                           <div class="item active">
-                            <img src="http://placehold.it/900x500/39CCCC/ffffff&amp;text=I+Love+Bootstrap" alt="First slide">
+                            <img src="{{ asset('img/slider-integrantes/carnetdavid.png') }}" alt="First slide">
 
                             <div class="carousel-caption">
-                              First Slide
+                              DAVID MARTINEZ
                             </div>
                           </div>
                           <div class="item">
-                            <img src="http://placehold.it/900x500/3c8dbc/ffffff&amp;text=I+Love+Bootstrap" alt="Second slide">
+                            <img src="{{ asset('img/slider-integrantes/carnetluis.png') }}" alt="Second slide">
 
                             <div class="carousel-caption">
-                              Second Slide
+                              LUIS DIAZ
                             </div>
                           </div>
                           <div class="item">
-                            <img src="http://placehold.it/900x500/f39c12/ffffff&amp;text=I+Love+Bootstrap" alt="Third slide">
+                            <img src="{{ asset('img/slider-integrantes/carnetjuan.png') }}" alt="Third slide">
 
                             <div class="carousel-caption">
-                              Third Slide
+                              JUAN CASTIBLANCO
                             </div>
                           </div>
                         </div>
@@ -125,6 +186,13 @@
                         <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
                           <span class="fa fa-angle-right"></span>
                         </a>
+                      </div>
+
+                      <div class="box-footer">
+                        <a href="/reporte/inicioCarnet">
+                          <i class="fa fa-fw fa-file-pdf-o"></i>
+                        </a>
+                        <span>Exportar a Pdf</span>
                       </div>
                              
                     </div>
