@@ -228,6 +228,10 @@ en las vistas
 
   });
 
+  $('.carousel').carousel({
+    interval: false,
+}); 
+
   </script>
   
 @endsection
