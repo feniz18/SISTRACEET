@@ -6,13 +6,19 @@
     "type": "project",
     "require": {
         "php": ">=7.0.0",
+        "ass/xmlsecurity": "^1.1",
         "barryvdh/laravel-dompdf": "^0.8.2",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
         "laravel/tinker": "~1.0",
         "laraveles/spanish": "^1.0",
-        "maatwebsite/excel": "~2.1.0",
-        "nesbot/carbon": "^1.22"
+        "maatwebsite/excel": "^3.0",
+        "nesbot/carbon": "^1.22",
+        "zendframework/zend-mime": "^2.7",
+        "zendframework/zend-server": "^2.8",
+        "zendframework/zend-soap": "^2.7",
+        "zendframework/zend-stdlib": "^3.2",
+        "zendframework/zend-uri": "^2.6"
     },
     "require-dev": {
         "filp/whoops": "~2.0",

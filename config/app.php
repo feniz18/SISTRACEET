@@ -181,8 +181,6 @@ return [
         Laraveles\Spanish\SpanishServiceProvider::class,
         //paquete exportacion a excel
         Maatwebsite\Excel\ExcelServiceProvider::class,
-        Barryvdh\DomPDF\ServiceProvider::class,
-
         // paquete dompdf
         Barryvdh\DomPDF\ServiceProvider::class,
 
@@ -235,8 +233,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         //perzonalizado para excel
-        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
         'PDF' => Barryvdh\DomPDF\Facade::class,
+        'Excel' => Maatwebsite\Excel\Facades\Excel::class,
 
     ],
 
