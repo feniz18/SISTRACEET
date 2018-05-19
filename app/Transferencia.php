@@ -46,6 +46,6 @@ class Transferencia extends Model
           'usuario_transferencia',
           'transferencia_id',
           'usuario_id'
-        );
+        )->withPivot(['aprobacion','id']);
     }
 }

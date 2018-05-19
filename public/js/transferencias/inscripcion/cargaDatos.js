@@ -1,7 +1,7 @@
 $('#btn-inscripcion').on('click', function() {
     if($('.selecciona').length)
       {
-         $('#tablaSeleccionInstructores').dataTable().fnDestroy();
+        $('#tablaSeleccionInstructores').dataTable().fnDestroy();
         $('#modal-success').modal('show');
         var id = $('.selecciona #idTransferencia').attr('value');
         var cupos = $('.selecciona #transferenciaCupo').attr('value');

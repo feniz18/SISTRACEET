@@ -114,9 +114,8 @@ Route::group(['middleware' => ['admin','auth']],function(){
   route::get("/reporte/usuarios/gen","Reporte\ReporteUsuarioController@generarReporte");
   route::get("/reporte/usuarios/gen/pos/{fecha_inicio}/{fecha_fin}","Reporte\ReporteUsuarioController@generarReportePost");
 
-  //reporte carnet
-  
-  
+  //rutas certificaciones
+  route::get("/transferencia/certificacion/cargamodal/{id}","Transferencia\CertificacionController@cargaModalCert");
 
 
 

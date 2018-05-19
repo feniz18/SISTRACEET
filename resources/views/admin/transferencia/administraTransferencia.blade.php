@@ -51,8 +51,9 @@
 
         <div class="row" id="contenido" style="display:none">
           <div class="col-xs-12 form-group">
-            <button class="btn btn-warning" data-toggle="modal" data-target="#modal-danger" id="crearTransferencia">Crear transferencia</button>
+            <button class="btn btn-danger" data-toggle="modal" data-target="#modal-danger" id="crearTransferencia">Crear transferencia</button>
             <button class="btn btn-success" id="btn-inscripcion">Inscribir transferencia</button>
+            <button class="btn btn-warning" id="btn-cert">Certificar usuarios</button>
             <button class="btn btn-primary pull-right" id="btn-correo">Enviar correos informativos</button>
           </div>
           <div class="col-xs-12">
