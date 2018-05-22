@@ -106,4 +106,8 @@ return [
     "instructores"                    => "Instructores",
     "cursos"                          => "Cursos",
     "verCursos"                       => "Ver cursos",
+
+    "idioma" => "Idioma",
+    "espanol" => "Español",
+    "ingles" => "Ingles",
 ];

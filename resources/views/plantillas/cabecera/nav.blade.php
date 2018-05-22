@@ -15,6 +15,30 @@
 
     <div class="navbar-custom-menu">
       <ul class="nav navbar-nav">
+            <li class="dropdown notifications-menu">
+              <!-- Menu toggle button -->
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                {{-- <i class="fa fa-bell-o"></i>
+                <span class="label label-warning">10</span> --}}
+                <label>@lang("sistra.idioma")</label>
+              </a>
+              <ul class="dropdown-menu">
+                <li>
+                  <!-- Inner Menu: contains the notifications -->
+                  <ul class="menu">
+                    <li><!-- start notification -->
+                      <a href="/api/idioma/es">
+                        @lang("sistra.espanol")
+                      </a>
+                      <a href="/api/idioma/en">
+                        @lang("sistra.ingles")
+                      </a>
+                    </li>
+                    <!-- end notification -->
+                  </ul>
+                </li>
+              </ul>
+            </li>
         <!-- User Account: style can be found in dropdown.less -->
         <li class="dropdown user user-menu">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown">

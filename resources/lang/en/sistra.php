@@ -2,5 +2,8 @@
 
 return [
 
-    "perfil" => "Profile",
+	"perfil"  => "Profile",
+	"idioma"  => "Language",
+	"espanol" => "Spanish",
+	"ingles"  => "English",
 ];

@@ -23,3 +23,4 @@ Route::get('/admin/{cedula}','Admin\AdministraDocentesController@cargaDatosEdici
 Route::get('/combo/departamento','Departamento\DepartamentoMunicipioController@departamento');
 Route::get('/combo/ciudad/{departamento}','Departamento\DepartamentoMunicipioController@ciudad');
 Route::get('/combo/ciudad/usuario/{cedula}','Departamento\DepartamentoMunicipioController@ciudadUsuario');
+Route::get('/idioma/{lang?}',"Idioma\IdiomaController@idioma");
