@@ -20,27 +20,27 @@
         {!! csrf_field()!!}
 
       <div class="form-group col-md-12 text-center justify-content-center">
-        <label for="cedula">Cédula</label>
+        <label for="cedula">@lang('sistra.cedula')</label>
         <input class="form-control " type="number" id="cedula" name="cedula" value="{{old('cedula')}}" placeholder="Ingrese su numero de cédula">
       </div>
 
 
       <div class="form-group col-md-12 text-center">
-        <label for="contrasena" >Contraseña</label>
+        <label for="contrasena" >@lang('sistra.contrasena')</label>
         <input class="form-control" type="password" id="contrasena" name="contrasena" placeholder="Ingrese contraseña" >
       </div>
 
       <div class="form-group col-md-12 recuerdame">
         <input class="form-check-input" name="recuerdame" type="checkbox">
-        <label>Recuerdame<label>
+        <label>@lang('sistra.recuerdame')<label>
       </div>
       <div class="form-group col-md-12 text-center">
-        <button type="submit" class="btn btn-primary btn-block">INGRESAR</button>
+        <button type="submit" class="btn btn-warning btn-block">@lang('sistra.ingresar')</button>
       </div>
       <div class="form-group col-md-12 text-center">
 
-        <a href="/registro">Registro</a>
-        <a href="/recupera">¿Olvidaste tu contraseña?</a>
+        <a href="/registro">@lang('sistra.registrarse')</a>
+        <a href="/recupera">@lang('sistra.olvidoContrasena')</a>
 
       </div>
       </form>

@@ -50,7 +50,7 @@
 
 
   <div class="callout callout-success" id="final" style="display:none">
-    <h4><i class="icon fa fa-check"></i> Correcto</h4>
+    <h4><i class="icon fa fa-check"></i> @lang('sistra.correcto')</h4>
     <p id='parrafoFinal'><p>
   </div>
 
@@ -65,7 +65,7 @@
           <div class="col-md-5">
             <div class="box">
               <div class="box-header">
-                <h3 class="box-title">Integrantes Sistraceet</h3>
+                <h3 class="box-title">@lang('sistra.integrantes') Sistraceet</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -147,7 +147,7 @@
           <div class="col-md-7">
                   <div class="box box-danger">
                     <div class="box-header with-border">
-                      <h3 class="box-title">Información detallada</h3>
+                      <h3 class="box-title">@lang('sistra.informacionDetallada')</h3>
                     </div>
                     <!-- /.box-header -->
                     <div class="box-body">

@@ -16,7 +16,7 @@
                 <a class="nav-link" href="#">Inscribirme a cursos</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">transferencias</a>
+                <a class="nav-link" href="#">@lang('sistra.transferencias')</a>
               </li>
               <li class="nav-item">
                 <a class="nav-link" href="#">capacitaciones</a>
@@ -27,13 +27,13 @@
 
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                  <a class="nav-link" href="#">Adminisitrar docentes</a>
+                  <a class="nav-link" href="#">@lang('sistra.administrarInstructores')</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Subir transferencias</a>
+                  <a class="nav-link" href="#">@lang('sistra.subirTransferencias')</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">Generar certificados</a>
+                  <a class="nav-link" href="#">@lang('sistra.generarCertificados')</a>
                 </li>
               </ul>
             @endif
@@ -57,11 +57,11 @@
       @if(Auth::check())
 
         <a> Bienvenido {{Auth::user()->nombres}}</a>
-        <a class="nav-link disabled" href="logout">Cerrar sesion</a>
+        <a class="nav-link disabled" href="logout">@lang('sistra.cerrarSesion')</a>
 
       @else
-      <a class="nav-link disabled" href="sesion">Iniciar sesion</a>
-      <a class="nav-link disabled" href="registro">Registrarme</a>
+      <a class="nav-link disabled" href="sesion">@lang('sistra.iniciarSesion')</a>
+      <a class="nav-link disabled" href="registro">@lang('sistra.registrarse')</a>
 
       @endif
 

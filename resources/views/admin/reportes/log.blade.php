@@ -18,7 +18,7 @@
             <div class="row">
               <div class="col-xs-12">
                 <div class="alert alert-danger alert-dismissible" style="display:none" id="error" >
-                  <h4><i class="icon fa fa-ban"></i> Corriga los errores:</h4>
+                  <h4><i class="icon fa fa-ban"></i> @lang("sistra.reporteUsuarioFecha")</h4>
                     <ul id="listaErrores">
 
                     </ul>
@@ -29,11 +29,11 @@
              {{ csrf_field() }}
             <div class="row">
               <div class="col-xs-12 col-sm-6 col-md-6">
-                <label>Fecha inicio</label>
+                <label>@lang('sistra.fechaInicio')</label>
                 <input type="text" name="fecha_inicio" class="form-control" id = 'fecha_inicio'>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 form-group">
-                <label>Fecha Fin</label>
+                <label>@lang('sistra.fechaFin')</label>
                 <input type="text" name="fecha_fin" class="form-control" id = 'fecha_fin'>
               </div>
             </div>
@@ -41,7 +41,7 @@
 
           <div class="row">
             <div class="col-md-12 form-group">
-              <a class="btn btn-warning" id='gReporte'>Generar reporte</a>
+              <a class="btn btn-warning" id='gReporte'>@lang('sistra.generarReporte')</a>
             </div>
           </div>
 

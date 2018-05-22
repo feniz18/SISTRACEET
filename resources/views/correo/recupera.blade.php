@@ -2,12 +2,12 @@
 <html>
   <head lang="es">
     <meta charset="utf-8">
-    <title>Recuperacion contraseña</title>
+    <title>@lang('sistra.recuperacionContrasena')</title>
   </head>
   <body>
 
-    <h3>Recuperacion de contraseña</h3>
-    <a href="{{ env('APP_URL')}}/reset/{{$usuario->email}}/{{$codigo}}">Recuperar contraseña</a>
+    <h3>@lang('sistra.recuperacionContrasena')</h3>
+    <a href="{{ env('APP_URL')}}/reset/{{$usuario->email}}/{{$codigo}}">@lang('sistra.recuperarContrasena')</a>
 
   </body>
 </html>

@@ -37,7 +37,7 @@
                 <div class="row">
                   <div class="col-xs-12">
                     <div class="alert alert-danger" style="display:none; margin-top:10px;" id="error" >
-                      <h4><i class="icon fa fa-ban"></i> Error</h4>
+                      <h4><i class="icon fa fa-ban"></i> @lang('sistra.error')</h4>
                         <ul id="listaErrores">
 
                         </ul>
@@ -54,27 +54,27 @@
                             <i class="fa fa-circle fa-stack-1x top medium"></i>
                             <i class="fa fa-arrow-circle-up fa-stack-1x top"></i>
                         </span>
-                        <span class="desc" id="fotoVacio">Agregar foto</span>
+                        <span class="desc" id="fotoVacio">@lang('sistra.agregarFoto')</span>
                     </div>
-                    <span class="desc" id="fotoLleno" style="display:none;">foto lleno. jpg</span>
+                    <span class="desc" id="fotoLleno" style="display:none;">@lang('sistra.foto') lleno. jpg</span>
                   </div>
                 </div>
                 <div class="row">
                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
                     <div class="form-group">
-                      <label for="cedula">Cedula</label>
+                      <label for="cedula">@lang('sistra.cedula')</label>
                       <input type="number" class="form-control" id="cedula" name="cedula" disabled>
                     </div>
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
                     <div class="form-group">
-                      <label for="nombres">Nombres</label>
+                      <label for="nombres">@lang('sistra.nombres')</label>
                       <input type="text" class="form-control" id="nombres" name="nombres">
                     </div>
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
                     <div class="form-group">
-                      <label for="apellidos">Apellidos</label>
+                      <label for="apellidos">@lang('sistra.apellidos')</label>
                       <input type="text" class="form-control" id="apellidos" name="apellidos">
                     </div>
                   </div>
@@ -82,19 +82,19 @@
                 <div class="row">
                   <div class="col-xs-12 col-sm-12 col-md-12 col-lg-2">
                     <div class="form-group">
-                      <label for="fecha_nacimiento">Fecha Nacimiento</label>
+                      <label for="fecha_nacimiento">@lang('sistra.fechaNacimiento')</label>
                       <input type="text" class="form-control" id="fecha_nacimiento" name="fecha_nacimiento">
                     </div>
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
                     <div class="form-group">
-                      <label for="telefono">Télefono</label>
+                      <label for="telefono">@lang('sistra.telefono')</label>
                       <input type="text" class="form-control" id="telefono" name="telefono">
                     </div>
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-5">
                     <div class="form-group">
-                      <label for="email">Correo Electrónico</label>
+                      <label for="email">@lang('sistra.email')</label>
                       <input type="text" class="form-control" id="email" name="email">
                     </div>
                   </div>
@@ -102,17 +102,17 @@
                 <div class="row">
                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="form-group">
-                      <label for="dep">Departamento</label>
+                      <label for="dep">@lang('sistra.departamento')</label>
                         <select name="dep" id="dep" class="form-control select2" style="width: 100%;">
-                          <option value="0">seleccione departamento</option>
+                          <option value="0">@lang('sistra.seleccione')</option>
                         </select>
                     </div>
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="form-group">
-                      <label for="ciu">Municipio</label>
+                      <label for="ciu">@lang('sistra.ciudad')</label>
                       <select name="ciu" id="ciu" class="form-control select2" style="width: 100%;">
-                        <option value="0">seleccione departamento</option>
+                        <option value="0">@lang('sistra.seleccione')</option>
                       </select>
                     </div>
                   </div>
@@ -120,12 +120,12 @@
                 <div class="row">
                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="form-group">
-                      <button type="button" class="btn btn-block btn-danger btn-lg" data-toggle="modal" data-target="#modal-danger" id='cContrasena'>Cambiar contraseña</button>
+                      <button type="button" class="btn btn-block btn-danger btn-lg" data-toggle="modal" data-target="#modal-danger" id='cContrasena'>@lang('sistra.cambiarContrasena')</button>
                     </div>
                   </div>
                   <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
                     <div class="form-group">
-                      <button type="button" class="btn btn-block btn-danger btn-lg" id = "guardar">Guardar</button>
+                      <button type="button" class="btn btn-block btn-danger btn-lg" id = "guardar">@lang('sistra.guardar')</button>
                     </div>
                   </div>
                 </div>

@@ -1,6 +1,6 @@
 @if($errors->any())
   <div class="alert alert-danger" role="alert">
-      <p> Por favor corriga los errores </p>
+      <p> @lang('sistra.corrijaErrores') </p>
       <ul>
         @foreach ($errors->all() as $error)
 

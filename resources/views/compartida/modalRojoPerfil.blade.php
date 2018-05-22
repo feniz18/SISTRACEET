@@ -13,20 +13,20 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="false">&times;</span></button>
-          <h4 class="modal-title">Editar Contraseña</h4>
+          <h4 class="modal-title">@lang('sistra.editarContrasena')</h4>
         </div>
         <div class="modal-body">
           <!-- formulario edicion-->
 
           <div class="callout callout-success" id="modalFinal" style="display:none">
-            <h4><i class="icon fa fa-check"></i> Correcto</h4>
-            <p id='parrafoFinal'>Contraseña actualizada correctamente<p>
+            <h4><i class="icon fa fa-check"></i> @lang('sistra.correcto')</h4>
+            <p id='parrafoFinal'>@lang('sistra.contrasenaFinal')<p>
           </div>
 
           <div class="row">
             <div class="col-xs-12">
               <div class="alert alert-warning alert-dismissible" style="display:none" id="modalError" >
-                <h4><i class="icon fa fa-ban"></i> Error</h4>
+                <h4><i class="icon fa fa-ban"></i> @lang('sistra.error')</h4>
                   <ul id="modalListaErrores">
 
                   </ul>
@@ -36,21 +36,21 @@
           </div>
           <div class="row">
             <div class="col-xs-12 col-sm-12 col-md-12 form-group" >
-              <label>Contraseña antigua</label>
+              <label>@lang('sistra.contrasenaOld')</label>
               <input name="contrasenaOld" type="password" class="form-control" placeholder="Contraseña" id='contrasenaOld'>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 form-group">
-              <label>Contraseña nueva</label>
+              <label>@lang('sistra.contrasenaNueva')</label>
               <input name="contrasena" type="password" class="form-control" placeholder="Contraseña" id='contrasena'>
             </div>
             <div class="col-xs-12 col-sm-12 col-md-12 form-group">
-              <label>Repita su Contraseña</label>
+              <label>@lang('sistra.repetirContrasena')</label>
               <input name="rcontrasena" type="password" class="form-control" placeholder="Contraseña" id='rcontrasena'>
             </div>
           </div>
         </div>
         <div class="modal-footer">
-          <button type="button" id="modalGuardar" class="btn btn-outline">Guardar Contraseña</button>
+          <button type="button" id="modalGuardar" class="btn btn-outline">@lang('sistra.guardar')</button>
         </div>
       </form>
     </div>

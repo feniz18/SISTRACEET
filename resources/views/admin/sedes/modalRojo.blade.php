@@ -19,7 +19,7 @@
           <div class="row">
             <div class="col-xs-12">
               <div class="alert alert-warning alert-dismissible" style="display:none" id="error" >
-                <h4><i class="icon fa fa-ban"></i> Error</h4>
+                <h4><i class="icon fa fa-ban"></i>@lang('sistra.error')</h4>
                   <ul id="listaErrores">
 
                   </ul>
@@ -30,11 +30,11 @@
           {{--inicio contenido formulario--}}
            <div class="row">
                 <div class="col-xs-12 col-sm-6 col-md-6 form-group">
-                  <label>Nombre de la Sede</label>
+                  <label>@lang('sistra.nombres')</label>
                   <input name = "nombre" type="text" class="form-control" placeholder="Nombre" id='nombre'>
                 </div>
                 <div class="col-xs-12 col-sm-6 col-md-6 form-group">
-                  <label>Direccion de la Sede </label>
+                  <label>@lang('sistra.direccion') </label>
                   <input name = "direccion" type="text" class="form-control" placeholder="Direccion" id='direccion'>
                 </div>
             </div>
@@ -42,8 +42,8 @@
         </div>
         {{--fin modal body--}}
         <div class="modal-footer">
-          <button type="button" id="enviar" class="btn btn-outline">Guardar</button>
-          <button type="button" id="actualizar" class="btn btn-outline" style='display:none'>Actualizar</button>
+          <button type="button" id="enviar" class="btn btn-outline">@lang('sistra.guardar')</button>
+          <button type="button" id="actualizar" class="btn btn-outline" style='display:none'>@lang('sistra.actualizar')</button>
         </div>
       </form>
     </div>

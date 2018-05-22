@@ -10,7 +10,7 @@
         <div class="box-header with-border">
 
           <h4>
-            Reportes por fecha
+            @lang('sistra.reporteFecha')
           </h4>
 
         </div>
@@ -29,11 +29,11 @@
              {{ csrf_field() }}
             <div class="row">
               <div class="col-xs-12 col-sm-6 col-md-6">
-                <label>Fecha inicio</label>
+                <label>@lang('sistra.fechaInicio')</label>
                 <input type="text" name="fecha_inicio" class="form-control" id = 'fecha_inicio'>
               </div>
               <div class="col-xs-12 col-sm-6 col-md-6 form-group">
-                <label>Fecha Fin</label>
+                <label>@lang('sistra.fechaFin')</label>
                 <input type="text" name="fecha_fin" class="form-control" id = 'fecha_fin'>
               </div>
             </div>

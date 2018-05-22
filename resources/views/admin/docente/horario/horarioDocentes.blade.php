@@ -29,7 +29,7 @@
 
 
   <div class="callout callout-success" id="final" style="display:none">
-    <h4><i class="icon fa fa-check"></i> Correcto</h4>
+    <h4><i class="icon fa fa-check"></i>@lang('sistra.correcto')</h4>
     <p id='parrafoFinal'><p>
   </div>
 
@@ -45,11 +45,11 @@
               <div class="col-md-12 form-group">
                 <a class="btn btn-danger" href="/administraDocentes">
                   <i class="fa fa-fw fa-caret-left"></i>
-                  Regresar
+                  @lang('sistra.regresar')
                 </a>
                 <div class="pull-right">
                   <a class="btn btn-warning" data-toggle="modal" data-target="#modal-danger" id="nuevoHorario">
-                    Nuevo horario
+                    @lang('sistra.nuevoHorario')
                   </a>
                 </div>
               </div>
@@ -57,17 +57,17 @@
             {{--fin row botones--}}
             <div class="box">
               <div class="box-header">
-                <h3 class="box-title">Editar horario usuario: CC {{$usuario->cedula}} - {{$usuario->nombres}} {{$usuario->apellidos}}</h3>
+                <h3 class="box-title">@lang('editarUsuarioHorario') CC {{$usuario->cedula}} - {{$usuario->nombres}} {{$usuario->apellidos}}</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
                 <table id="docente" class="table table-bordered table-hover">
                   <thead>
                     <tr>
-                      <th>Dia semana</th>
-                      <th>Hora inicio</th>
-                      <th>Hora fin</th>
-                      <th style="width: 40px">Eliminar</th>
+                      <th>@lang('sistra.diaSemana')</th>
+                      <th>@lang('sistra.horaInicio')</th>
+                      <th>@lang('sistra.horaFin')</th>
+                      <th style="width: 40px">@lang('sistra.eliminar')</th>
                     </tr>
                   </thead>
                   <tbody id="docenteBody">

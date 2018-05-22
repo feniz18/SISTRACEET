@@ -13,7 +13,7 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="false">&times;</span></button>
-          <h4 class="modal-title">Horario instructor {{$usuario->nombres}} {{$usuario->apellidos}}</h4>
+          <h4 class="modal-title">@lang('sistra.horarioInstructor') {{$usuario->nombres}} {{$usuario->apellidos}}</h4>
         </div>
         <div class="modal-body">
           <!-- formulario edicion-->
@@ -21,7 +21,7 @@
           <div class="row">
             <div class="col-xs-12">
               <div class="alert alert-warning alert-dismissible" style="display:none" id="error" >
-                <h4><i class="icon fa fa-ban"></i> Error</h4>
+                <h4><i class="icon fa fa-ban"></i>@lang("error")</h4>
                   <ul id="listaErrores">
 
                   </ul>
@@ -33,9 +33,9 @@
           {{--inicio row--}}
           <div class="row">
             <div class="col-md-12 form-group">
-              <label>Dia semana</label>
+              <label>@lang('sistra.diaSemana')</label>
               <select name='dia' class="form-control">
-                <option value=''>Seleccione...</option>
+                <option value=''>@lang('sistra.seleccione')</option>
                 @foreach ($semana as $dias)
                   <option value='{{$dias->id}}'>{{$dias->descripcion}}</option>
                 @endforeach
@@ -52,7 +52,7 @@
               <!-- time Picker -->
               <div class="bootstrap-timepicker">
                 <div class="form-group">
-                  <label>Hora de inicio</label>
+                  <label>@lang('sistra.horaInicio')</label>
 
                   <div class="input-group">
                     <input type="text" class="form-control timepicker" name='hora_inicio' id="hora_inicio">
@@ -73,7 +73,7 @@
               <!-- time Picker -->
               <div class="bootstrap-timepicker">
                 <div class="form-group">
-                  <label>Hora de finalización</label>
+                  <label>@lang("sistra.horaFin")</label>
 
                   <div class="input-group">
                     <input type="text" class="form-control timepicker" name='hora_fin' id="hora_fin">
@@ -92,7 +92,7 @@
           {{--fin row--}}
         </div>
         <div class="modal-footer">
-          <button type="button" id="guardar" class="btn btn-outline">Guardar</button>
+          <button type="button" id="guardar" class="btn btn-outline">@lang('sistra.guardar')</button>
         </div>
       </div>
     <!-- /.modal-content -->

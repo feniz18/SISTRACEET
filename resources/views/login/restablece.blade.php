@@ -28,21 +28,21 @@
           <input type="hidden" name="token" value="{{ $token }}">
 
           <div class="form-group col-md-12 text-center justify-content-center">
-            <label for="email">email</label>
+            <label for="email">@lang('sistra.email')</label>
             <input class="form-control" name="email" type="email" id="contrasena" placeholder="Ingrese su correo electronico" value="{{old('email')}}">
           </div>
 
           <div class="form-group col-md-12 text-center justify-content-center">
-            <label for="password">Nueva contraseña</label>
+            <label for="password">@lang('sistra.nuevaContraseña')</label>
             <input class="form-control" name="password" type="password" id="contrasena" placeholder="Ingrese su nueva contraseña">
           </div>
           <div class="form-group col-md-12 text-center justify-content-center">
-            <label for="rcontrasena">Repita su Contraseña</label>
+            <label for="rcontrasena">@lang('sistra.repetirContrasena')</label>
             <input class="form-control" name="password_confirmation" type="password" id="rcontrasena" placeholder="Repita su nueva contraseña" >
           </div>
 
           <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">Guardar</button>
+            <button type="submit" class="btn btn-primary btn-block">@lang('sistra.guardar')</button>
           </div>
       </form>
     </div>

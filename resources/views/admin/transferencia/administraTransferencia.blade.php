@@ -39,7 +39,7 @@
 
 
   <div class="callout callout-success" id="final" style="display:none">
-    <h4><i class="icon fa fa-check"></i> Correcto</h4>
+    <h4><i class="icon fa fa-check"></i> @lang('sistra.correcto')</h4>
     <p id='parrafoFinal'><p>
   </div>
 
@@ -51,15 +51,15 @@
 
         <div class="row" id="contenido" style="display:none">
           <div class="col-xs-12 form-group">
-            <button class="btn btn-danger" data-toggle="modal" data-target="#modal-danger" id="crearTransferencia">Crear transferencia</button>
-            <button class="btn btn-success" id="btn-inscripcion">Inscribir transferencia</button>
-            <button class="btn btn-warning" id="btn-cert">Certificar usuarios</button>
-            <button class="btn btn-primary pull-right" id="btn-correo">Enviar correos informativos</button>
+            <button class="btn btn-danger" data-toggle="modal" data-target="#modal-danger" id="crearTransferencia">@lang('sistra.crearTransferencia')</button>
+            <button class="btn btn-success" id="btn-inscripcion">@lang('sistra.inscribirTransferencia')</button>
+            <button class="btn btn-warning" id="btn-cert">@lang('sistra.certificarUsuarios')</button>
+            <button class="btn btn-primary pull-right" id="btn-correo">@lang('sistra.transferenciaSistema')</button>
           </div>
           <div class="col-xs-12">
             <div class="box">
               <div class="box-header">
-                <h3 class="box-title">Transferencias registradas en sistema</h3>
+                <h3 class="box-title"></h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -68,15 +68,15 @@
                   <thead>
                     <tr>
                       <th>Id</th>
-                      <th>Nombre de la transferencia</th>
-                      <th>Cupos</th>
-                      <th>Fecha inicio</th>
-                      <th>Fecha fin</th>
-                      <th>Sede</th>
-                      <th>Dirección</th>
-                      <th style="width: 40px">Horario</th>
-                      <th style="width: 40px">Editar</th>
-                      <th style="width: 40px">Eliminar</th>
+                      <th>@lang('sistra.nombres')</th>
+                      <th>@lang('sistra.cupos')</th>
+                      <th>@lang('sistra.fechaInicio')</th>
+                      <th>@lang('sistra.fechaFin')</th>
+                      <th>@lang('sistra.sede')</th>
+                      <th>@lang('sistra.direccion')</th>
+                      <th style="width: 40px">@lang('sistra.horario')</th>
+                      <th style="width: 40px">@lang('sistra.editar')</th>
+                      <th style="width: 40px">@lang('sistra.eliminar')</th>
                     </tr>
                   </thead>
                   <tbody id="docenteBody">

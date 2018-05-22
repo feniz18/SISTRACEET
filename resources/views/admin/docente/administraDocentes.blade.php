@@ -33,7 +33,7 @@
 
 
   <div class="callout callout-success" id="final" style="display:none">
-    <h4><i class="icon fa fa-check"></i> Correcto</h4>
+    <h4><i class="icon fa fa-check"></i>@lang('sistra.correcto')</h4>
     <p id='parrafoFinal'><p>
   </div>
 
@@ -48,21 +48,21 @@
           <div class="col-xs-12">
             <div class="box">
               <div class="box-header">
-                <h3 class="box-title">Instructores registrados en sistema</h3>
+                <h3 class="box-title">@lang('sistra.instructoresRegistradosSistemas')</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
                 <table id="docente" class="table table-bordered table-hover">
                   <thead>
                     <tr>
-                      <th>Cedula</th>
-                      <th>Nombres</th>
-                      <th>Apellidos</th>
-                      <th>Telefono</th>
-                      <th>Horario</th>
-                      <th style="width: 40px">Estado</th>
-                      <th style="width: 40px">Editar</th>
-                      <th style="width: 40px">Eliminar</th>
+                      <th>@lang('sistra.cedula')</th>
+                      <th>@lang('sistra.nombres')</th>
+                      <th>@lang('sistra.apellidos')</th>
+                      <th>@lang('sistra.telefono')</th>
+                      <th>@lang('sistra.horario')</th>
+                      <th style="width: 40px">@lang('sistra.estado')</th>
+                      <th style="width: 40px">@lang('sistra.editar')</th>
+                      <th style="width: 40px">@lang('sistra.eliminar')</th>
                     </tr>
                   </thead>
                   <tbody id="docenteBody">

@@ -14,7 +14,7 @@
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="false">&times;</span></button>
-          <h4 class="modal-title">Registrar usuarios transferencia: Usuarios disponibles</h4>
+          <h4 class="modal-title">@lang('sistra.registrarUsuariosTransferencia')</h4>
         </div>
         {{--fin header modal--}}
         {{--inicio modal body--}}
@@ -24,8 +24,8 @@
               <thead>
                 <tr>
                   <th style="width:60px">Sel</th>
-                  <th>Cedula</th>
-                  <th>Nombres y apellidos</th>
+                  <th>@lang('sistra.cedula')</th>
+                  <th>@lang('sistra.nombresApellidos')</th>
                 </tr>
               </thead>
               <tbody id="modalBodyRegistraTrans">
@@ -36,7 +36,7 @@
         {{--fin modal body--}}
         {{--inicio modal footer--}}
         <div class="modal-footer">
-          <button type="button" id="registrarTransferencia" class="btn btn-outline">Inscribir Usuarios</button>
+          <button type="button" id="registrarTransferencia" class="btn btn-outline">@lang('sistra.inscribirUsuarios')</button>
         </div>
         {{--fin modal footer--}}
       </form>

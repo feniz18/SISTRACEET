@@ -25,7 +25,7 @@
 
 
   <div class="callout callout-success" id="final" style="display:none">
-    <h4><i class="icon fa fa-check"></i> Correcto</h4>
+    <h4><i class="icon fa fa-check"></i>@lang('sistra.correcto')</h4>
     <p id='parrafoFinal'><p>
   </div>
 
@@ -38,22 +38,22 @@
 
         <div class="row" id="contenido" style="display:none">
           <div class="col-xs-12 form-group">
-            <button class="btn btn-warning" data-toggle="modal" data-target="#modal-danger" id='btnCrearSede'>Crear sede</button>
+            <button class="btn btn-warning" data-toggle="modal" data-target="#modal-danger" id='btnCrearSede'>@lang('sistra.crearSede')</button>
           </div>
           <div class="col-xs-12">
             <div class="box">
               <div class="box-header">
-                <h3 class="box-title">Instructores registrados en sistema</h3>
+                <h3 class="box-title">@lang('sistra.sedesRegistrada')</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
                 <table id="docente" class="table table-bordered table-hover">
                   <thead>
                     <tr>
-                      <th>Nombre Sede</th>
-                      <th>Direccion</th>
-                      <th style="width: 40px">Editar</th>
-                      <th style="width: 40px">Eliminar</th>
+                      <th>@lang('sistra.nombres')</th>
+                      <th>@lang('sistra.direccion')</th>
+                      <th style="width: 40px">@lang('sistra.editar')</th>
+                      <th style="width: 40px">@lang('sistra.eliminar')</th>
                     </tr>
                   </thead>
                   <tbody id="tablaCuerpo">

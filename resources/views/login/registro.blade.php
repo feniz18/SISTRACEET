@@ -22,7 +22,7 @@
 
             <div class="alert alert-success" role="alert">
 
-              Datos almacenados correctamente
+              @lang('sistra.datosAlmacenados')
 
             </div>
           @else
@@ -31,39 +31,39 @@
 
 
       <div class="form-group col-md-12 text-center justify-content-center">
-        <label for="cedula">Cedula</label>
+        <label for="cedula">@lang('sistra.cedula')</label>
         <input class="form-control " name="cedula" type="number" id="cedula" placeholder="Ingrese su cedula" value="{{old('cedula')}}">
       </div>
 
       <div class="form-group col-md-12 text-center justify-content-center">
-        <label for="fecha_nacimiento">Fecha de nacimiento</label>
+        <label for="fecha_nacimiento">@lang('sistra.fechaNacimiento')</label>
         <input class="form-control " name = "fecha_nacimiento" =type="text" id="fecha_nacimiento" placeholder="mm/dd/aaaa" value="{{old('fecha_nacimiento')}}">
       </div>
 
       <div class="form-group col-md-12 text-center justify-content-center">
-        <label for="nombres">Nombres</label>
-        <input class="form-control " name = "nombres" =type="text" id="nombres" placeholder="Ingrese sus nombres" value="{{old('nombres')}}">
+        <label for="nombres">@lang('sistra.nombres')</label>
+        <input class="form-control " name = "nombres" type="text" id="nombres" placeholder="Ingrese sus nombres" value="{{old('nombres')}}">
       </div>
 
       <div class="form-group col-md-12 text-center justify-content-center">
-        <label for="apellidos">Apellidos</label>
+        <label for="apellidos">@lang('sistra.apellidos')</label>
         <input class="form-control" name="apellidos" type="text" id="apellidos" placeholder="Ingrese sus apellidos" value="{{old('apellidos')}}">
       </div>
 
       <div class="form-group col-md-12 text-center justify-content-center">
-        <label for="telefono">Télefono</label>
+        <label for="telefono">@lang('sistra.telefono')</label>
         <input class="form-control " type="number" name= "telefono" id="telefono" placeholder="Ingrese su télefono" value="{{old('telefono')}}">
       </div>
 
       <div class="form-group col-md-12 text-center justify-content-center">
-        <label for="correo">Correo Eléctronico</label>
+        <label for="correo">@lang('sistra.email')</label>
         <input class="form-control" name="correo" type="email" id="correo" placeholder="Ingrese su correo personal" value="{{old('correo')}}">
       </div>
 
       <div class="form-group col-md-12 text-center justify-content-center">
-        <label for="dep">Departamento</label>
+        <label for="dep">@lang('sistra.departamento')</label>
         <select class="form-control " name="dep" id="dep" value="{{old('dep')}}">
-          <option value = "0" selected>Seleccione departamento</option>
+          <option value = "0" selected>@lang('sistra.seleccione')</option>
           @foreach ($departamentos as $departamento)
 
             <option value="{{$departamento->id_departamento}}">{{$departamento->nombre}}</option>
@@ -73,29 +73,28 @@
       </div>
 
       <div class="form-group col-md-12 text-center justify-content-center">
-        <label for="ciu">Ciudad</label>
+        <label for="ciu">@lang('sistra.ciudad')</label>
         <select class="form-control " name="ciu" id="ciu" value="{{old('ciu')}}">
-          <option value="" selected>Seleccione ciudad</option>
-          <option value="1">medellin</option>
+          <option value="" selected>@lang('sistra.seleccione')</option>
         </select>
       </div>
 
       <div class="form-group col-md-12 text-center justify-content-center">
-        <label for="contrasena">Contraseña</label>
+        <label for="contrasena">@lang('sistra.contrasena')</label>
         <input class="form-control" name="contrasena" type="password" id="contrasena" placeholder="Ingrese su contraseña" value="{{old('contrasena')}}">
       </div>
 
     <div class="form-group col-md-12 text-center justify-content-center">
-      <label for="rcontrasena">Repetir Contraseña</label>
+      <label for="rcontrasena">@lang('sistra.repetirContrasena')</label>
       <input class="form-control" name="rcontrasena" type="password" id="rcontrasena" placeholder="Repita su contraseña" value="{{old('rcontrasena')}}">
     </div>
 
       <div class="col-md-12 text-center row">
         <div class="col-6">
-          <button type="submit" class="btn btn-primary btn-block">GUARDAR</button>
+          <button type="submit" class="btn btn-danger btn-block">@lang('sistra.guardar')</button>
         </div>
         <div class="col-6 ">
-          <a href="/" class="btn btn-danger btn-block">CANCELAR</a>
+          <a href="/" class="btn btn-warning btn-block">@lang('sistra.cancelar')</a>
         </div>
       </div>
       </form>

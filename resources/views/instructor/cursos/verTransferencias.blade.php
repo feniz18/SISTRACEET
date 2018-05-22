@@ -34,7 +34,7 @@
 
 
   <div class="callout callout-success" id="final" style="display:none">
-    <h4><i class="icon fa fa-check"></i> Correcto</h4>
+    <h4><i class="icon fa fa-check"></i> @lang('sistra.correcto')</h4>
     <p id='parrafoFinal'><p>
   </div>
 
@@ -48,7 +48,7 @@
           <div class="col-xs-12">
             <div class="box">
               <div class="box-header">
-                <h3 class="box-title">Cursos en los que usted se encuentra inscrito</h3>
+                <h3 class="box-title">@lang('sistra.cursoInscrito')</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
@@ -57,12 +57,12 @@
                   <thead>
                     <tr>
                       <th>Id</th>
-                      <th>Nombre de la transferencia</th>
-                      <th>Fecha inicio</th>
-                      <th>Fecha fin</th>
-                      <th>Sede</th>
-                      <th>Dirección</th>
-                      <th>Horario</th>
+                      <th>@lang('sistra.nombres')</th>
+                      <th>@lang('sistra.fechaInicio')</th>
+                      <th>@lang('sistra.fechaFin')</th>
+                      <th>@lang('sistra.sede')</th>
+                      <th>@lang('sistra.direccion')</th>
+                      <th>@lang('sistra.horario')</th>
                     </tr>
                   </thead>
                   <tbody id="docenteBody">

@@ -29,12 +29,12 @@
 
 
           <div class="form-group col-md-12 text-center justify-content-center">
-            <label for="email">Correo</label>
-            <input class="form-control" name="email" type="email" id="email" placeholder="Ingrese su correo eléctronico de recuperación" value="{{old('email')}}">
+            <label for="email">@lang('sistra.email')</label>
+            <input class="form-control" name="email" type="email" id="email" placeholder="@lang('sistra.ingreseCorreoRecuperacion')" value="{{old('email')}}">
           </div>
 
           <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">ENVIAR</button>
+            <button type="submit" class="btn btn-primary btn-block">@lang('sistra.enviar')</button>
           </div>
 
       </form>

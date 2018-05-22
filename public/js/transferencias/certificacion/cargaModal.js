@@ -16,5 +16,9 @@ $("#btn-cert").on("click", function()
 
 function cargaModalCert(id)
 {
-
+	$.ajax
+	({
+		type: "get",
+		url: "",
+	});
 }

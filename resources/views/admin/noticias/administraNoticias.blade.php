@@ -11,7 +11,7 @@
 
 
   <div class="callout callout-success" id="final" style="display:none">
-    <h4><i class="icon fa fa-check"></i> Correcto</h4>
+    <h4><i class="icon fa fa-check"></i>@lang('sistra.correcto')</h4>
     <p id='parrafoFinal'><p>
   </div>
 
@@ -23,22 +23,22 @@
 
         <div class="row" id="contenido" style="display:none">
           <div class="col-xs-12 form-group">
-            <a class="btn btn-warning" href="/crearNoticias">Crear noticia</a>
+            <a class="btn btn-warning" href="/crearNoticias">@lang("sistra.crearNoticia")</a>
           </div>
           <div class="col-xs-12">
             <div class="box">
               <div class="box-header">
-                <h3 class="box-title">Instructores registrados en sistema</h3>
+                <h3 class="box-title">@lang("sistra.noticiasRegistradas")</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
                 <table id="docente" class="table table-bordered table-hover">
                   <thead>
                     <tr>
-                      <th>Titulo Noticia</th>
-                      <th>Fecha publicacion</th>
-                      <th>Activar</th>
-                      <th style="width: 40px">Eliminar</th>
+                      <th>@lang("sistra.tituloNoticia")</th>
+                      <th>@lang("sistra.fechaPublicacion")</th>
+                      <th>@lang("sistra.activar")</th>
+                      <th style="width: 40px">@lang("sistra.eliminar")</th>
                     </tr>
                   </thead>
                   <tbody id="tablaCuerpo">

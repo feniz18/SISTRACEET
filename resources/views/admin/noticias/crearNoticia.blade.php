@@ -13,7 +13,7 @@
 
 
   <div class="callout callout-success" id="final" style="display:none">
-    <h4><i class="icon fa fa-check"></i> Correcto</h4>
+    <h4><i class="icon fa fa-check"></i>@lang("sistra.correcto")</h4>
     <p id='parrafoFinal'><p>
   </div>
 
@@ -28,13 +28,13 @@
           <div class="col-xs-12">
             <div class="box">
               <div class="box-header">
-                <h3 class="box-title">Creacion nueva noticia</h3>
+                <h3 class="box-title">@lang('sistra.crearNuevaNoticia')</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">
                 @if($errors->any())
                   <div class="alert alert-danger" role="alert">
-                      <p> Por favor corriga los errores </p>
+                      <p> @lang("sistra.corrijaErrores") </p>
                       <ul>
                         @foreach ($errors->all() as $error)
                           <li>{{$error}}</li>
@@ -45,11 +45,11 @@
                 <form enctype="multipart/form-data" method="post" action="/guardar/noticias">
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                   <div class="col-md-12 form-group">
-                    <label>Titulo de la noticia</label>
+                    <label>@lang("sistra.tituloNoticia")</label>
                     <input type="text" name="titulo" class="form-control" id='titulo' value="{{old('titulo')}}">
                   </div>
                   <div class="col-md-12 form-group">
-                    <label>Imagen</label>
+                    <label>@lang("sistra.crearNoticia")</label>
                     <input name="imagenNoticia" type="file" />
                   </div>
                   <div class="col-md-12 pad">
@@ -59,7 +59,7 @@
 
                   <div class="col-md-12 form-group">
                     <input type="submit" class="btn btn-danger pull-right"/>
-                    <a class="btn btn-danger" href="/administraNoticias">Regresar</a>
+                    <a class="btn btn-danger" href="/administraNoticias">@lang("sistra.regresar")</a>
                   </div>
 
                 </form>
