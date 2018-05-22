@@ -3,6 +3,9 @@
     <div class="container">
       <div class="navbar-header">
         <a href="/" class="navbar-brand"><b>Sistra</b>Ceet</a>
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#navbar-collapse" aria-expanded="true">
+            <i class="fa fa-bars"></i>
+        </button>
 
       </div>
 
@@ -12,6 +15,13 @@
           <li class="active"><a href="/">@lang('sistra.inicio')</a></li>
           <li><a href="/noticias">@lang('sistra.noticias')</a></li>
           <li><a href="/integrantes">@lang('sistra.integrantes')</a></li>
+          <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">@lang("sistra.idioma")<span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="/api/idioma/es">@lang("sistra.espanol")</a></li>
+                <li><a href="/api/idioma/en">@lang("sistra.ingles")</a></li>
+              </ul>
+            </li>
         </ul>
 
       </div>
