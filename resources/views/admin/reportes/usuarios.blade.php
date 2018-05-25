@@ -1,7 +1,7 @@
 @extends('plantillas.general')
-@section('titulo','Reportes Log')
-@section('seccion','Reportes')
-@section('subseccion','Reportes log')
+@section('titulo',__("sistra.reportesUsuarios"))
+@section('seccion',__("sistra.reportes"))
+@section('subseccion',__("sistra.reportesUsuarios"))
 @section('contenido')
 
   <div class="row">

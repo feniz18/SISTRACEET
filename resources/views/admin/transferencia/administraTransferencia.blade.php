@@ -1,7 +1,7 @@
 @extends('plantillas.general')
-@section('titulo','Administracion de Transferencias')
-@section('seccion','Transferencias')
-@section('subseccion','Administrar Transferencias')
+@section('titulo',__("sistra.administrarTransferencias"))
+@section('seccion',__("sistra.transferencias"))
+@section('subseccion',__("sistra.administrarTransferencias"))
 @section('css')
 <meta name="csrf-token" content="{{ csrf_token() }}" />
 <link rel="stylesheet" href="{{asset('admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
@@ -140,6 +140,7 @@
     <!-- /.row -->
     @include('admin.transferencia.modalRojo')
     @include('admin.transferencia.modalInscripcion')
+    @include('admin.transferencia.modalAmarilloCert')
 
 
 @endsection
@@ -167,6 +168,7 @@
   <script src="{{asset('js/transferencias/inscripcion/cargaDatos.js')}}"></script>
   <script src="{{asset('js/transferencias/inscripcion/enviarInscripcion.js')}}"></script>
   <script src="{{asset('js/transferencias/inscripcion/enviaCorreo.js')}}"></script>
+  <script src="{{asset('js/transferencias/certificacion/cargaModal.js')}}"></script>
 
   <script>
 

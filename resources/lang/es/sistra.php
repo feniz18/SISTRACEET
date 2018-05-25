@@ -110,4 +110,6 @@ return [
     "idioma" => "Idioma",
     "espanol" => "Español",
     "ingles" => "Ingles",
+    "administracionNoticia" => "Administración de noticias",
+    "administraNoticia" => "Administrar Noticia",
 ];

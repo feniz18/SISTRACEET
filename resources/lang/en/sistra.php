@@ -97,7 +97,7 @@ return [
     "noticias"                        => "News",
     "barraNavegacion"                 => "Navigation bar",
     "administrarTransferencias"       => "Manage Transfers",
-    "reportes"                        => "Reportes",
+    "reportes"                        => "Reports",
     "reporteLogs"                     => "Log reports",
     "reportesUsuarios"                => "Users Report",
     "administraSedes"                 => "Manage Locations",
@@ -109,4 +109,6 @@ return [
 	"idioma"  => "Language",
 	"espanol" => "Spanish",
 	"ingles"  => "English",
+	"administracionNoticia" => "News Administration",
+    "administraNoticia" => "Manage news",
 ];

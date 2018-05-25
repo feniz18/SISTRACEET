@@ -1,6 +1,6 @@
 <!-- sidebar menu: : style can be found in sidebar.less -->
 <ul class="sidebar-menu" data-widget="tree">
-  <li class="header">BARRA DE NAVEGACIÓN</li>
+  <li class="header">@lang("sistra.barraNavegacion")</li>
   {{--Seccion docentes--}}
   <li class="treeview @yield('docentes')">
     <a href="#">

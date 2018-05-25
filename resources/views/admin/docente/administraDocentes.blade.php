@@ -1,7 +1,8 @@
+
 @extends('plantillas.general')
-@section('titulo','Administracion de instructores')
-@section('seccion','Instructores')
-@section('subseccion','Administrar instructores')
+@section('titulo',__('sistra.administrarInstructores'))
+@section('seccion',__('sistra.instructores'))
+@section('subseccion',__('sistra.administrarInstructores'))
 @section('css')
 <link rel="stylesheet" href="{{asset('admin/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
 <link rel="stylesheet" href="{{asset('admin/bower_components/select2/dist/css/select2.min.css')}}">

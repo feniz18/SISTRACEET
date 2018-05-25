@@ -35,7 +35,7 @@
         <label>@lang('sistra.recuerdame')<label>
       </div>
       <div class="form-group col-md-12 text-center">
-        <button type="submit" class="btn btn-warning btn-block">@lang('sistra.ingresar')</button>
+        <button type="submit" class="btn btn-danger btn-block">@lang('sistra.ingresar')</button>
       </div>
       <div class="form-group col-md-12 text-center">
 

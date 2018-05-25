@@ -2,15 +2,15 @@
 <div class="modal modal-warning fade" id="modal-warning">
   <div class="modal-dialog modal-lg">
     <form role="form" id="formTransferencia" enctype="multipart/form-data">
-      <div class="progress progress-lg active" id="cargaModalRegistraTrans" style="display:none">
-        <div id="progreso" class="progress-bar progress-bar-success progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
+      <div class="progress progress-lg active" id="cargaModalCert" style="display:block">
+        <div id="progreso" class="progress-bar progress-bar-warning progress-bar-striped" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 100%">
           <span class="sr-only">0% Complete</span>
         </div>
       </div>
       {{--inicio header modal--}}
       {!! csrf_field()!!}
 
-      <div class="modal-content" style="display:block" id='modalContenidoRegistraTrans'>
+      <div class="modal-content" style="display:none" id='modalContenidoCert'>
         <div class="modal-header">
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="false">&times;</span></button>

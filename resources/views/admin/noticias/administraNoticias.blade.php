@@ -1,7 +1,7 @@
 @extends('plantillas.general')
-@section('titulo','Administración de noticia')
-@section('seccion','Noticias')
-@section('subseccion','Administrar Noticias')
+@section('titulo',__("sistra.administracionNoticia"))
+@section('seccion',__("sistra.administracionNoticia"))
+@section('subseccion',__("sistra.noticias"))
 @section('css')
 <link rel="stylesheet" href="{{asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
 <!-- Theme style -->

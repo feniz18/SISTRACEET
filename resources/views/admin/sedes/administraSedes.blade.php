@@ -1,7 +1,7 @@
 @extends('plantillas.general')
-@section('titulo','Administracion de sedes')
-@section('seccion','Sedes')
-@section('subseccion','Administrar instructores')
+@section('titulo',__("sistra.administraSedes"))
+@section('seccion',__("sistra.sede"))
+@section('subseccion',__("sistra.administraSedes"))
 @section('css')
 <link rel="stylesheet" href="{{asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
 <!-- Theme style -->

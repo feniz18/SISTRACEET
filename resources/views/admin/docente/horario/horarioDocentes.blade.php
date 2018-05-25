@@ -1,7 +1,7 @@
 @extends('plantillas.general')
-@section('titulo','Administracion de instructores')
-@section('seccion','Editar horario')
-@section('subseccion','Instructor '. $usuario->nombres . " " . $usuario->apellidos)
+@section('titulo',__('sistra.administrarInstructores'))
+@section('seccion',__("sistra.horarioInstructor"))
+@section('subseccion',__("sistra.instructor"). $usuario->nombres . " " . $usuario->apellidos)
 @section('css')
 <!-- DataTables -->
 <link rel="stylesheet" href="{{asset('admin/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
@@ -57,7 +57,7 @@
             {{--fin row botones--}}
             <div class="box">
               <div class="box-header">
-                <h3 class="box-title">@lang('editarUsuarioHorario') CC {{$usuario->cedula}} - {{$usuario->nombres}} {{$usuario->apellidos}}</h3>
+                <h3 class="box-title">@lang('sistra.editarUsuarioHorario') CC {{$usuario->cedula}} - {{$usuario->nombres}} {{$usuario->apellidos}}</h3>
               </div>
               <!-- /.box-header -->
               <div class="box-body">

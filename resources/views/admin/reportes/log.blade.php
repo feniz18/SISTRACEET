@@ -1,7 +1,7 @@
 @extends('plantillas.general')
-@section('titulo','Reportes Usuarios')
-@section('seccion','Reportes')
-@section('subseccion','Reportes Usuarios')
+@section('titulo',__("sistra.reporteLogs"))
+@section('seccion',__("sistra.reportes"))
+@section('subseccion',__("sistra.reporteLogs"))
 @section('contenido')
 
   <div class="row">
@@ -10,7 +10,7 @@
         <div class="box-header with-border">
 
           <h4>
-            Reportes usuario por fecha
+            @lang("sistra.reporteUsuarioFecha")
           </h4>
 
         </div>
@@ -67,4 +67,4 @@
 @include('plantillas.all.usuario')
 
 @section('reportes','active')
-@section('reporteUsuarios', 'active')
+@section('reporteLog', 'active')

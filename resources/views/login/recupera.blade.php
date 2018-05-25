@@ -34,7 +34,7 @@
           </div>
 
           <div class="col-12">
-            <button type="submit" class="btn btn-primary btn-block">@lang('sistra.enviar')</button>
+            <button type="submit" class="btn btn-danger btn-block">@lang('sistra.enviar')</button>
           </div>
 
       </form>
