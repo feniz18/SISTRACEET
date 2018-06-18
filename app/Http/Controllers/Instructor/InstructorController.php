@@ -21,7 +21,7 @@ class InstructorController extends Controller
       }
 
       $transferencia = Transferencia::whereIn('id',$transferencias_usuario)->orderByDesc('id')->get();
-
+      
       return view('instructor.cursos.verTransferencias')->with('trans',$transferencia);
     }
 }

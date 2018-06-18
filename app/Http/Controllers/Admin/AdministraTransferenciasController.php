@@ -100,13 +100,6 @@ class AdministraTransferenciasController extends Controller
          ['error' =>
          'El cambo fecha de inicio no puede ser mayor a fecha fin'];
          return $error;
-      }
-      elseif($fecha_inicio<Carbon::now() or $fecha_fin<Carbon::now())
-      {
-        $error =
-        ['error' =>
-        'la fecha de inicio y la de fin no pueden ser anteriores a hoy'];
-        return $error;
       }elseif($request->sede==0)
       {
         $error =

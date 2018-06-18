@@ -6,10 +6,12 @@ use Illuminate\Database\Eloquent\Model;
 
 class UsuarioTransferencia extends Model
 {
+    public $timestamps = false;
     protected $table = 'usuario_transferencia';
     protected $fillable =
     [
       'id',
+      'aprobacion',
       'usuario_id',
       'transferencia_id',
     ];

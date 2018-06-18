@@ -75,7 +75,7 @@ return [
     "cambiarContrasena"               => "Cambiar Contraseña",
     "recuperacionContrasena"          => "Recuperacion de contraseña",
     "recuperarContrasena"             => "Recuperar contraseña",
-    "cursosInscrito"                  => "Cursos en los que ustede se encuentra inscrito",
+    "cursoInscrito"                  => "Cursos en los que usted se encuentra inscrito",
     "login"                           => "Logearse",
     "registrarse"                     => "Registrarse",
     "salir"                           => "Salir",
@@ -112,4 +112,6 @@ return [
     "ingles" => "Ingles",
     "administracionNoticia" => "Administración de noticias",
     "administraNoticia" => "Administrar Noticia",
+    "desCertificado" => "Descargar Certificado"
+
 ];

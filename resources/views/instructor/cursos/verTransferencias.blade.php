@@ -63,6 +63,7 @@
                       <th>@lang('sistra.sede')</th>
                       <th>@lang('sistra.direccion')</th>
                       <th>@lang('sistra.horario')</th>
+                      <th>@lang('sistra.desCertificado')</th>
                     </tr>
                   </thead>
                   <tbody id="docenteBody">
@@ -97,6 +98,18 @@
                         @foreach ($transferencia->horario->sortBy('id') as $horario)
                           {{$horario->descripcion}} : {{$horario->pivot->hora_inicio}} a {{$horario->pivot->hora_fin}} </br>
                         @endforeach
+                      </td>
+                      <td>
+                        @php
+                          $usuarioTran = App\UsuarioTransferencia::where("transferencia_id",$transferencia->id)->where("usuario_id",Auth::user()->cedula)->first();
+                        @endphp
+                        
+                        @if($usuarioTran->aprobacion)
+                          <a class="btn btn-app" href="{{'/certificado/' . Auth::user()->cedula .'/'. $transferencia->id }}">
+                            <i class="fa fa-save"></i>
+                              Guardar
+                          </a>
+                        @endif
                       </td>
                     </tr>
                     @endforeach

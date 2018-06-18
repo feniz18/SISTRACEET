@@ -111,4 +111,5 @@ return [
 	"ingles"  => "English",
 	"administracionNoticia" => "News Administration",
     "administraNoticia" => "Manage news",
+    "desCertificado" => "Download Certificate"
 ];

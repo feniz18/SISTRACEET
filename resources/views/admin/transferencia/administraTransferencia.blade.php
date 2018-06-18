@@ -169,6 +169,7 @@
   <script src="{{asset('js/transferencias/inscripcion/enviarInscripcion.js')}}"></script>
   <script src="{{asset('js/transferencias/inscripcion/enviaCorreo.js')}}"></script>
   <script src="{{asset('js/transferencias/certificacion/cargaModal.js')}}"></script>
+  <script src="{{asset('js/transferencias/certificacion/certifica.js')}}"></script>
 
   <script>
 

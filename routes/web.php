@@ -117,6 +117,8 @@ Route::group(['middleware' => ['admin','auth']],function(){
   //rutas certificaciones
   route::get("/transferencia/certificacion/cargamodal/{id}","Transferencia\CertificacionController@cargaModalCert");
 
+  route::get("/transferencia/certificacion/actualiza/{cedula}/{id}","Transferencia\CertificacionController@certifica");
+
 
 
 });
@@ -125,3 +127,5 @@ Route::group(['middleware' => ['instructor','auth']],function()
 {
   route::get("/verCursos",'Instructor\InstructorController@index');
 });
+
+route::get("/certificado/{cedula}/{idTransferencia}",'Reporte\CertificadoController@certificado');

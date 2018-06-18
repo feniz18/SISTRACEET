@@ -80,7 +80,7 @@ class Usuario extends Authenticatable
 
     public function pivoteTransferencia()
     {
-      return $this->hasMany('App\UsuarioTransferencia','usuario_id', 'cedula');
+      return $this->hasMany('App\UsuarioTransferencia','usuario_id', 'cedula')>withPivot('aprobacion');
     }
 
 }

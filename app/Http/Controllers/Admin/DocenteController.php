@@ -29,8 +29,8 @@ class DocenteController extends Controller
       $reglas = [
         'cedula' => 'required|max:12|min:3',
         'fecha_nacimiento' => 'required|date|before:today',
-        'nombres' => 'required|min:5|max:60',
-        'apellidos' => 'required|min:5|max:60',
+        'nombres' => 'required|min:3|max:60',
+        'apellidos' => 'required|min:3|max:60',
         'telefono' => 'required|min:5|max:18',
         'correo' => 'required|email',
         'ciu' => 'required',

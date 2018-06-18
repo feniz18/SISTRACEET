@@ -28,16 +28,14 @@
                   <th>@lang('sistra.nombresApellidos')</th>
                 </tr>
               </thead>
-              <tbody id="modalBodyRegistraTrans">
+              <tbody id="modalBodyCertTrans">
               </tbody>
             </table>
           </div>
         </div>
         {{--fin modal body--}}
         {{--inicio modal footer--}}
-        <div class="modal-footer">
-          <button type="button" id="registrarTransferencia" class="btn btn-outline">@lang('sistra.inscribirUsuarios')</button>
-        </div>
+      
         {{--fin modal footer--}}
       </form>
     </div>
