@@ -8,6 +8,7 @@ use Carbon\Carbon;
 use App\Usuario;
 use Illuminate\Support\Collection;
 use Excel;
+use App\Exportar\ExportarExcelUsuario;
 
 class ReporteUsuarioController extends Controller
 {
@@ -47,7 +48,7 @@ class ReporteUsuarioController extends Controller
     public function generarReportePost($fecha_inicio,$fecha_fin)
     {
 
-      $usuario = Usuario::whereDate('created_at','>',$fecha_inicio)->whereDate('created_at','<',$fecha_fin)->get();
+      return (new ExportarExcelUsuario($fecha_inicio,$fecha_fin))->download('Usuarios.xlsx');
 
       $this->usuarios = $usuario->toArray();
 

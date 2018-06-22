@@ -126,6 +126,6 @@ Route::group(['middleware' => ['admin','auth']],function(){
 Route::group(['middleware' => ['instructor','auth']],function()
 {
   route::get("/verCursos",'Instructor\InstructorController@index');
+  route::get("/certificado/{cedula}/{idTransferencia}",'Reporte\CertificadoController@certificado');
 });
 
-route::get("/certificado/{cedula}/{idTransferencia}",'Reporte\CertificadoController@certificado');

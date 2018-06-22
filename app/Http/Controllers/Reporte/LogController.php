@@ -10,6 +10,7 @@ use Carbon\Carbon;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Validator;
 use App\Log_usuario;
+use App\Exportar\ExportarExcelLog;
 
 class LogController extends Controller
 {
@@ -23,6 +24,7 @@ class LogController extends Controller
 
     public function reporte(Request $request){
 
+       
       $reglas=[
         'fecha_inicio' => 'required',
         'fecha_fin' => 'required'
@@ -59,45 +61,10 @@ class LogController extends Controller
 
 
     }
+
     public function descargaReporte($fecha_inicio,$fecha_fin){
 
-      $data = ['fecha1' => $fecha_inicio, 'fecha2' => $fecha_fin];
-
-      Excel::create('Logs SistraCeet',function($excel) use($data){
-
-       $data1 = $data;
-
-        $excel->sheet('Usuarios',function($hoja) use($data1){
-
-          if($data1['fecha1'] == $data1['fecha2']){
-              $fecha_final = Carbon::createFromFormat('Y-m-d', $data1['fecha2'])
-                                    ->addDay();
-
-          $log = Log_usuario::where('created_at','>=',$data1['fecha1'])
-                            ->where('created_at','<=',$fecha_final->toDateString())
-                            ->get();
-          }else{
-            $log = Log_usuario::where('created_at','>=',$data1['fecha1'])
-                              ->where('created_at','<=',$data1['fecha2'])
-                              ->get();
-          }
-              foreach ($log as $logs) {
-
-                  $this->logs_usuario[] = [
-                            'Cedula' => $logs->usuario->cedula,
-                            'Nombres y apellidos' => $logs->usuario->nombres . ' ' . $logs->usuario->apellidos,
-                            'Fecha Logeo' => $logs->created_at,
-                            'IP' => $logs->direccion_ip];
-              }
-
-            $datos = new Collection($this->logs_usuario);
-
-          $hoja->fromArray($datos);
-
-        });
-
-      })->download('xlsx');
-
+       return (new ExportarExcelLog($fecha_inicio,$fecha_fin))->download("exporta.xlsx");
 
     }
 

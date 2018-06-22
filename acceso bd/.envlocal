@@ -22,10 +22,10 @@ REDIS_PASSWORD=null
 REDIS_PORT=6379
 
 MAIL_DRIVER=smtp
-MAIL_HOST=tecnicosurbanos.com
+MAIL_HOST=gains.nanocloudapps.com
 MAIL_PORT=465
 MAIL_USERNAME=sistraceet@tecnicosurbanos.com
-MAIL_PASSWORD="Sistra2017"
+MAIL_PASSWORD="sistraceet2018"
 MAIL_ENCRYPTION=ssl
 MAIL_FROM_ADDRESS=sistraceet@tecnicosurbanos.com
 MAIL_FROM_NAME="Sistra Ceet mail"
