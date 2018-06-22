@@ -13,7 +13,6 @@
       <div class="collapse navbar-collapse pull-left" id="navbar-collapse">
         <ul class="nav navbar-nav">
           <li class="active"><a href="/">@lang('sistra.inicio')</a></li>
-          <li><a href="/noticias">@lang('sistra.noticias')</a></li>
           <li><a href="/integrantes">@lang('sistra.integrantes')</a></li>
           <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-expanded="false">@lang("sistra.idioma")<span class="caret"></span></a>

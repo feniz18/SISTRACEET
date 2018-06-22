@@ -70,9 +70,9 @@
 @endsection
 @section('js')
 <script>
-  $(window).on('load',function(){
-    $('#modal-danger').modal('show');
-  });
+  // $(window).on('load',function(){
+    // $('#modal-danger').modal('show');
+  // });
 </script>
 
 @endsection
